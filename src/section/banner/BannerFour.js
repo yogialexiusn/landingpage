@@ -9,12 +9,8 @@ import {Header, HeaderContent, HeaderMain, HeaderWrap} from "../../layout/header
 import {Link} from "../../components/button/Button"
 import { HeaderCaption, HeaderTitle } from '../../components/headerCaption/HeaderCaption'
 import {BannerFourData} from './BannerData'
-import JS from '../../images/icon/libs/javascript.png'
-import SASS from '../../images/icon/libs/sass.png'
-import GULP from '../../images/icon/libs/gulp.png'
-import BS from '../../images/icon/libs/bootstrap.png'
-import HTML from '../../images/icon/libs/html5.png'
-import CSS from '../../images/icon/libs/css3.png'
+import { PreviewCard, CodeBlock } from "../../components/preview/Preview";
+import CaptionsCarousel from "../../components/partials/carousel/Captions";
 
 
 const BannerFour = (props) =>{
@@ -65,7 +61,7 @@ const BannerFour = (props) =>{
                             {!mobileView ? <Menu className="ms-lg-auto" data={BannerFourData} /> : <MobileMenu data={BannerFourData}/>}
                             <ul className="menu-btns">
                                 <li>
-                                    <Link to="https://1.envato.market/reactdashlite" target="_blank" rel="noreferrer" className="btn-primary btn-lg">Login</Link>
+                                    <Link to="/landing/pages/auths/auth-login" target="_blank" rel="noreferrer" className="btn-primary btn-lg">Login</Link>
                                 </li>
                             </ul>
                         </nav>
@@ -82,9 +78,9 @@ const BannerFour = (props) =>{
                         <Col lg="6" md="7">
                             
                             <HeaderCaption>
-                                <HeaderTitle>Powelful Tool To Represent Your Dashboard.</HeaderTitle>
-                                <p>A powerful admin dashboard template that especially build for developers and programmers. DashLite comes with all kind of components.</p>
-                                <ul className="header-action btns-inline py-3">
+                                <HeaderTitle>Digital Platform Leader for Intelligent Enterprise</HeaderTitle>
+                                <p>We build greater futures through innovation and collective knowledge.</p>
+                                {/* <ul className="header-action btns-inline py-3">
                                     <li>
                                         <Link to="https://1.envato.market/reactdashlite" target="_blank" rel="noreferrer" className="btn-primary btn-lg"><span>Get Started</span></Link>
                                     </li>
@@ -99,7 +95,83 @@ const BannerFour = (props) =>{
                                     <li><img className="h-20px" src={BS} alt="icon" /></li>
                                     <li><img className="h-20px" src={HTML} alt="icon" /></li>
                                     <li><img className="h-20px" src={CSS} alt="icon" /></li>
-                                </ul>
+                                </ul> */}
+
+<PreviewCard>
+                        <CaptionsCarousel />
+                    </PreviewCard>
+
+                    <CodeBlock language="jsx">
+                        {`const items = [
+                            {
+                                src: SlideA,
+                                altText: 'Slide 1',
+                                captionHead: '',
+                                captionText: ''
+                            },
+                            {
+                                src: SlideB,
+                                altText: 'Slide 2',
+                                captionHead: '',
+                                captionText: ''
+                            },
+                            {
+                                src: SlideC,
+                                altText: 'Slide 3',
+                                captionHead: '',
+                                captionText: ''
+                            }
+                            ];
+
+                            const BasicCarousel = (props) => {
+                            const [activeIndex, setActiveIndex] = useState(0);
+                            const [animating, setAnimating] = useState(false);
+
+                            const next = () => {
+                                if (animating) return;
+                                const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
+                                setActiveIndex(nextIndex);
+                            }
+
+                            const previous = () => {
+                                if (animating) return;
+                                const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
+                                setActiveIndex(nextIndex);
+                            }
+
+                            const goToIndex = (newIndex) => {
+                                if (animating) return;
+                                setActiveIndex(newIndex);
+                            }
+
+                            const slides = items.map((item) => {
+                                return (
+                                <CarouselItem
+                                    className="text-white"
+                                    onExiting={() => setAnimating(true)}
+                                    onExited={() => setAnimating(false)}
+                                    key={item.src}
+                                >
+                                    <img src={item.src} alt={item.altText} />
+                                    <CarouselCaption captionText={item.captionText} captionHeader={item.captionHead} />
+                                </CarouselItem>
+                                );
+                            });
+
+                            return (
+                                <Carousel
+                                activeIndex={activeIndex}
+                                next={next}
+                                previous={previous}
+                                >
+                                <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={goToIndex} />
+                                {slides}
+                                <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
+                                <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
+                                </Carousel>
+                            );
+                            }`}
+                    </CodeBlock>
                             </HeaderCaption>
                         </Col>
                     </Row>

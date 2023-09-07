@@ -293,34 +293,34 @@ const BannerThreeData = [
     },
 ]
 const BannerFourData = [
-    {
-        text:'Landing',
-        to:'landing',
-        subMenu: [
-            {
-                text:'Landing Page- v1',
-                to:'/',
-            },{
-                text:'Landing Page- v2',
-                to:'/indextwo',
-            },{
-                text:'Landing Page- v3',
-                to:'/indexthree'
-            },
-            {
-                text:'Landing Page- v4',
-                to:'/indexfour'
-            },
-            {
-                text:'Landing Page- v5',
-                to:'/indexfive'
-            },
-            {
-                text:'Landing Page- v6',
-                to:'/indexsix'
-            },
-        ]
-    },
+    // {
+    //     text:'Landing',
+    //     to:'landing',
+    //     subMenu: [
+    //         {
+    //             text:'Landing Page- v1',
+    //             to:'/',
+    //         },{
+    //             text:'Landing Page- v2',
+    //             to:'/indextwo',
+    //         },{
+    //             text:'Landing Page- v3',
+    //             to:'/indexthree'
+    //         },
+    //         {
+    //             text:'Landing Page- v4',
+    //             to:'/indexfour'
+    //         },
+    //         {
+    //             text:'Landing Page- v5',
+    //             to:'/indexfive'
+    //         },
+    //         {
+    //             text:'Landing Page- v6',
+    //             to:'/indexsix'
+    //         },
+    //     ]
+    // },
     // {
     //     text:'Pages',
     //     to:'landing',
@@ -372,15 +372,15 @@ const BannerFourData = [
         subMenu: [
             {
                 text:'About Company',
-                to:'#story'
+                to:'#about-company'
             },
             {
                 text:'History',
-                to:'#story'
+                to:'#history'
             },
             {
                 text:'Organization Chard',
-                to:'#story'
+                to:'#organization-chard'
             }
         ]
     },
@@ -390,19 +390,19 @@ const BannerFourData = [
         subMenu: [
             {
                 text:'IT Service',
-                to:'#story'
+                to:'#it-service'
             },
             {
                 text:'Solution',
-                to:'#story'
+                to:'#solution'
             },
             {
                 text:'Platform',
-                to:'#story'
+                to:'#platform'
             },
             {
                 text:'Data Center',
-                to:'#story'
+                to:'#data-center'
             }
         ]
     },
