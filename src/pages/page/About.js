@@ -3,7 +3,7 @@ import Logo from "../../images/logo.png";
 import LogoDark from "../../images/logo-dark.png";
 import PageContainer from "../../layout/page-container/PageContainer";
 import Head from "../../layout/head/Head";
-import AuthFooter from "./AuthFooter";
+import AuthFooter from "../auth/AuthFooter";
 
 import { Form,  Spinner, Alert, Button } from "reactstrap";
 import { useForm } from "react-hook-form";

@@ -368,41 +368,41 @@ const BannerFourData = [
     // },
     {
         text:'About',
-        to:'landing',
+        to:'',
         subMenu: [
             {
                 text:'About Company',
-                to:'#about-company'
+                to:'/about/about-company'
             },
             {
                 text:'History',
-                to:'#history'
+                to:'/about/history'
             },
             {
                 text:'Organization Chard',
-                to:'#organization-chard'
+                to:'/about/organization-chard'
             }
         ]
     },
     {
         text:'Service & Solution',
-        to:'landing',
+        to:'',
         subMenu: [
             {
                 text:'IT Service',
-                to:'#it-service'
+                to:'/service-solution/it-service'
             },
             {
                 text:'Solution',
-                to:'#solution'
+                to:'/service-solution/solution'
             },
             {
                 text:'Platform',
-                to:'#platform'
+                to:'/service-solution/platform'
             },
             {
                 text:'Data Center',
-                to:'#data-center'
+                to:'/service-solution/data-center'
             }
         ]
     },
@@ -420,20 +420,20 @@ const BannerFourData = [
     // },
     {
         text:'Business',
-        to:'/pages/auths/auth-register'
+        to:'/business'
     },
     {
         text:'Partner',
-        to:'/pages/auths/auth-register'
+        to:'/partner'
     },
     {
         text:'News',
-        to:'/pages/auths/auth-register'
+        to:'/news'
     },
-    {
-        text:'Story',
-        to:'#story'
-    },
+    // {
+    //     text:'Story',
+    //     to:'#story'
+    // },
 ]
 
 const BannerFiveData = [

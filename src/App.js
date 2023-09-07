@@ -14,6 +14,16 @@ import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import ForgotPassword from "./pages/auth/ForgotPassword"
 import Success from "./pages/auth/Success";
+import Partner from "./pages/page/Partner"
+import Business from "./pages/page/Business"
+import News from "./pages/page/News"
+import DataCenter from "./section/data-center/data-center"
+import Platform from "./section/platform/platform"
+import Solution from "./section/solution/solution"
+import ItService from "./section/it-service/it-service"
+import OrganizationChard from "./section/organization-chard/OrganizationChard"
+import History from "./section/history/History"
+import AboutCompany from "./section/about-company/about-company"
 
 function App() {
   useEffect(() => {
@@ -31,6 +41,15 @@ function App() {
               <Route path={`indexfive`} element={<IndexFive />} />
               <Route path={`indexsix`} element={<IndexSix />} />
               <Route index element={<IndexFour />} />
+              <Route path="business" element={<Business />}></Route>
+              <Route path="partner" element={<Partner />}></Route>
+              <Route path="news" element={<News />}></Route>
+              <Route path="partner" element={<Partner />}></Route>
+
+              <Route path="it-service" element={<Success />}></Route>
+              <Route path="solution" element={<ForgotPassword />}></Route>
+              <Route path="platform" element={<Register />}></Route>
+              <Route path="data-center" element={<DataCenter />}></Route>
           </Route>
           <Route path={`${process.env.PUBLIC_URL}/pages`}>
               <Route path="auths">
@@ -45,6 +64,17 @@ function App() {
                 <Route path="504-modern" element={<Error504Modern />}></Route>
                 <Route path="504-classic" element={<Error504Classic />}></Route>
               </Route>
+          </Route>
+          <Route path={`${process.env.PUBLIC_URL}/about`}>
+                <Route path="about-company" element={<AboutCompany />}></Route>
+                <Route path="history" element={<History />}></Route>
+                <Route path="organization-chard" element={<OrganizationChard />}></Route>
+          </Route>
+          <Route path={`${process.env.PUBLIC_URL}/service-solution`}>
+                <Route path="it-service" element={<ItService />}></Route>
+                <Route path="solution" element={<Solution />}></Route>
+                <Route path="platform" element={<Platform />}></Route>
+                <Route path="data-center" element={<DataCenter />}></Route>
           </Route>
           <Route path="*" element={<Error404Modern />}></Route>
         </Routes>

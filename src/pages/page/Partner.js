@@ -11,7 +11,7 @@ import { HeaderCaption, HeaderTitle } from '../../components/headerCaption/Heade
 import {BannerFourData} from '../../section/banner/BannerData';
 
 
-const DataCenter = (props) =>{
+const Partner = (props) =>{
     const [toggle, setToggle] = useState(false);
     const [offset, setOffset] = useState(0);
     const [mobileView, setMobileView] = useState(false);
@@ -78,7 +78,7 @@ const DataCenter = (props) =>{
                             <HeaderCaption>
                                 <HeaderTitle>Digital Platform Leader for Intelligent Enterprise</HeaderTitle>
                                 We build greater futures through innovation and collective knowledge.
-                        DATA-CENTER
+                        PARTNER
                                 We build greater futures through innovation and collective knowledge.
                                 We build greater futures through innovation and collective knowledge.
 
@@ -116,4 +116,4 @@ const DataCenter = (props) =>{
     )
 }
 
-export default DataCenter
+export default Partner
