@@ -1,69 +1,67 @@
 import React from 'react'
 import { Card, Col, Container, Row } from 'reactstrap'
 import { Link } from '../../components/button/Button'
-import { TextBlock, TitleH3 } from '../../components/textBlock/TextBlock'
+import { TextBlock, TitleH2 } from '../../components/textBlock/TextBlock'
 import { Section, SectionHead } from '../../layout/section/Section'
+import LdciKorea from "../../images/building/ldci-korea.jpg";
+import { ImageBlock } from "../../components/images/Images"
 
 const AboutCompany = (props) => {
-  return (
-    <Section className={ props.className && props.className } id={props.id && props.id}>
-        <Container>
-            <Row className="justify-content-center text-tenter">
-                <Col xl="7" lg="9">
-                    <SectionHead className="text-center mb-1">
-                        <h2 className="title text-dark mb-0">It Service</h2>
-                        <p>It Service</p>
-                    </SectionHead>
-                </Col>
-            </Row>
-            <Row className="justify-content-center">
-                <Col xl="10">
-                    <Row className="align-items-center g-0">
-                        <Col md="7">
-                            <Card className="card-shadow round-xl bg-dark is-dark pb-4 pb-md-0">
-                                <div className="card-inner card-inner-xl">
-                                    <TextBlock>
-                                        <TitleH3 className="mb-3">Advanced Pack</TitleH3>
-                                        <ul className="list list-nostyle fs-15px mb-1">
-                                            <li>Meta Descri ption Optimizatio</li>
-                                            <li>Baseline Ranking Report</li>
-                                            <li>Increase traffic 100%</li>
-                                            <li>Online 24/7 support</li>
-                                            <li>10 Keyword Optimization</li>
-                                            <li>Free Simple Website</li> 
-                                            <li className="note text-warning fs-14px">+ All future update releases for Free</li>
-                                        </ul>
-                                        <ul className="btns-inline pt-4">
-                                            <li><Link to="https://1.envato.market/reactdashlite" target="_blank" rel="noreferrer" className="btn-round btn-xl btn-primary fs-16px">Purchase Now for $50</Link></li>
-                                        </ul>
-                                    </TextBlock>
-                                </div>
-                            </Card>
-                        </Col>
-                        <Col md="5">
-                            <Card className="card-shadow card-bd-right-3px round-xl ms-lg-n7 ms-md-n5 mx-4 me-md-0 mt-md-0 mt-n4">
-                                <div className="card-inner card-inner-lg">
-                                    <div className="text-block is-compact pe-3">
-                                        <h4 className="title text-azure">Starter Pack</h4>
-                                        <ul className="list list-nostyle fs-15px">
-                                            <li>Meta Descri ption Optimizatio</li>
-                                            <li>Baseline Ranking Report</li>
-                                            <li>Increase traffic 100%</li>
-                                            <li>Online 24/7 support</li>
-                                        </ul>
-                                        <ul className="btns-inline pt-2">
-                                            <li><Link to="https://1.envato.market/reactdashlite" target="_blank" rel="noreferrer" className="btn btn-lg btn-round btn-secondary"> <span>Purchase Now for $28</span><em className="icon ni ni-arrow-long-right"></em></Link></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </Card>
-                        </Col>
-                    </Row>
-                </Col>
-            </Row>
-        </Container>
-    </Section>
-  )
+    return (
+        <Section className = {props.className && props.className} id={props.id && props.id}>
+            <Container>
+                <Row className="g-gs justify-content-between align-items-center">
+                    <Col lg="6"> 
+                        <ImageBlock>
+                            <img src={LdciKorea} alt="thumb-img" />
+                        </ImageBlock>
+                    </Col>
+                    <Col lg="5">
+                        <TextBlock>
+                            <TitleH2 className="mb-32" style="text-align:center !important"><b>LOTTE DATA COMMUNICATION</b></TitleH2>
+                            <ul className="list list-lg list-purple list-checked-circle gy-4">
+                                <li className="ps-5"><strong>CEO</strong> : Rho,  Jun-Hyung</li>
+                                <li className="ps-5"><strong>Established</strong> :  December 28, 1996</li>
+                                <li className="ps-5"><strong>HQ</strong> :  Gasan-dong, Gumcheon-gu, Seoul</li>
+                                <li className="ps-5"><strong>Overseas Corp.</strong> :  Vietnam, Indonesia, India</li>
+                                <li className="ps-5"><strong>IPO</strong> :  Listed Company (KRX 286940)</li>
+                                <li className="ps-5"><strong>Annual Sales</strong> :  1 trillion 47.7 billion (as of 2022.12)</li>
+                                <li className="ps-5"><strong>Employees</strong> :  2,940 (2022.12)</li>
+                            </ul>
+                        </TextBlock>
+                    </Col>
+                </Row>
+            </Container>
+            
+            <br></br>
+
+            <Container>
+            <Row className="g-gs flex-row-reverse justify-content-between align-items-center">
+                    <Col lg="6"> 
+                        <ImageBlock>
+                            <img src={LdciKorea} alt="thumb-img" />
+                        </ImageBlock>
+                    </Col>
+                    <Col lg="5">
+                        <TextBlock>
+                            <TitleH2 className="mb-32" style="text-align:center !important"><b>LOTTE DATA COMMUNICATION</b></TitleH2>
+                            <ul className="list list-lg list-purple list-checked-circle gy-4">
+                                <li className="ps-5"><strong>CEO</strong> : Rho,  Jun-Hyung</li>
+                                <li className="ps-5"><strong>Established</strong> :  December 28, 1996</li>
+                                <li className="ps-5"><strong>HQ</strong> :  Gasan-dong, Gumcheon-gu, Seoul</li>
+                                <li className="ps-5"><strong>Overseas Corp.</strong> :  Vietnam, Indonesia, India</li>
+                                <li className="ps-5"><strong>IPO</strong> :  Listed Company (KRX 286940)</li>
+                                <li className="ps-5"><strong>Annual Sales</strong> :  1 trillion 47.7 billion (as of 2022.12)</li>
+                                <li className="ps-5"><strong>Employees</strong> :  2,940 (2022.12)</li>
+                            </ul>
+                        </TextBlock>
+                    </Col>
+                </Row>
+            </Container>
+        </Section>
+
+        
+    )
 }
 
 export default AboutCompany
