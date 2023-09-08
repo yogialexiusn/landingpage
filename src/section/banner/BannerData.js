@@ -372,15 +372,15 @@ const BannerFourData = [
         subMenu: [
             {
                 text:'About Company',
-                to:'/about/about-company'
+                to:'#about-company'
             },
             {
                 text:'History',
-                to:'/about/history'
+                to:'#history'
             },
             {
                 text:'Organization Chard',
-                to:'/about/organization-chard'
+                to:'#organization-chard'
             }
         ]
     },
@@ -390,19 +390,19 @@ const BannerFourData = [
         subMenu: [
             {
                 text:'IT Service',
-                to:'/service-solution/it-service'
+                to:'#it-service'
             },
             {
                 text:'Solution',
-                to:'/service-solution/solution'
+                to:'#solution'
             },
             {
                 text:'Platform',
-                to:'/service-solution/platform'
+                to:'#platform'
             },
             {
                 text:'Data Center',
-                to:'/service-solution/data-center'
+                to:'#data-center'
             }
         ]
     },
@@ -420,15 +420,15 @@ const BannerFourData = [
     // },
     {
         text:'Business',
-        to:'/business'
+        to:'#business'
     },
     {
         text:'Partner',
-        to:'/partner'
+        to:'#partner'
     },
     {
         text:'News',
-        to:'/news'
+        to:'#news'
     },
     // {
     //     text:'Story',

@@ -75,7 +75,7 @@ const BannerFour = (props) =>{
                                 
                 <Container>
                     <Row className='row justify-content-center text-center g-gs'>
-                        <Col lg="6" md="7">
+                        <Col lg="1006" md="1006">
                             
                             <HeaderCaption>
                                 <HeaderTitle>Digital Platform Leader for Intelligent Enterprise</HeaderTitle>

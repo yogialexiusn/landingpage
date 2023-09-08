@@ -4,7 +4,7 @@ import { Link } from '../../components/button/Button'
 import { TextBlock, TitleH3 } from '../../components/textBlock/TextBlock'
 import { Section, SectionHead } from '../../layout/section/Section'
 
-const AboutCompany = (props) => {
+const Business = (props) => {
   return (
     <Section className={ props.className && props.className } id={props.id && props.id}>
         <Container>
@@ -12,7 +12,7 @@ const AboutCompany = (props) => {
                 <Col xl="7" lg="9">
                     <SectionHead className="text-center mb-1">
                         <h2 className="title text-dark mb-0">It Service</h2>
-                        <p>It Service</p>
+                        <p>Business </p>
                     </SectionHead>
                 </Col>
             </Row>
@@ -66,4 +66,4 @@ const AboutCompany = (props) => {
   )
 }
 
-export default AboutCompany
+export default Business

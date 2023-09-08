@@ -9,6 +9,9 @@ import Solution from '../section/solution/solution'
 import Platform from '../section/platform/platform'
 import DataCenter from '../section/data-center/data-center'
 import AboutCompany from '../section/about-company/about-company'
+import Business from './page/Business'
+import Partner from './page/Partner'
+import News from './page/News'
 
 
 const IndexFour = (props) => {
@@ -22,13 +25,10 @@ const IndexFour = (props) => {
         <Solution className="section-service pb-0" id="#solution" />
         <Platform className="section-service pb-0" id="#platform" />
         <DataCenter className="section-service pb-0" id="#data-center" />
+        <Business className="section-service pb-0" id="#business" />
+        <Partner className="section-service pb-0" id="#partner" />
+        <News className="section-service pb-0" id="#news" />
 
-
-        {/* <ServiceFour className="section-service pb-0" id="#service" />
-        <FeatureThree className="section-feature pb-0" id="#features" />
-        <FeatureThreeAlt className="section-feature pb-0" />
-        <PricingThree className="section-pricing pb-0" id="#pricing" />
-        <AboutOne className="section-about" id="#story" /> */}
         <CtaFour className="section-cta bg-lighter" id="#cta" />
         <FooterThree className=" bg-dark is-dark section section-sm" id="#footer" />
     </div>

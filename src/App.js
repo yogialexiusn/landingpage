@@ -45,7 +45,6 @@ function App() {
               <Route path="partner" element={<Partner />}></Route>
               <Route path="news" element={<News />}></Route>
               <Route path="partner" element={<Partner />}></Route>
-
               <Route path="it-service" element={<Success />}></Route>
               <Route path="solution" element={<ForgotPassword />}></Route>
               <Route path="platform" element={<Register />}></Route>
