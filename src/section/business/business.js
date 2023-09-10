@@ -1,69 +1,115 @@
-import React from 'react'
-import { Card, Col, Container, Row } from 'reactstrap'
-import { Link } from '../../components/button/Button'
-import { TextBlock, TitleH3 } from '../../components/textBlock/TextBlock'
-import { Section, SectionHead } from '../../layout/section/Section'
+import React, { useState, useEffect } from 'react'
+import HeaderImg from '../../images/header/gfx-c.png'
+import LogoDrak2x from '../../images/logo-dark2x.png'
+import LogoLight2x from '../../images/logo2x.png'
+import Menu from '../../layout/menu/Menu'
+import MobileMenu from '../../layout/menu/MobileMenu'
+import {Logo} from "../../components/logo/Logo"
+import { Col, Container, Row } from "reactstrap"
+import {Header, HeaderWrap, HeaderContent, HeaderMain} from "../../layout/header/Header"
+import {Link} from "../../components/button/Button"
+import { HeaderCaption, HeaderText, HeaderTitle } from '../../components/headerCaption/HeaderCaption'
+import { HeaderImage } from '../../components/images/Images'
+import {BannerOneData} from '../banner/BannerData'
 
-const Business = (props) => {
-  return (
-    <Section className={ props.className && props.className } id={props.id && props.id}>
-        <Container>
-            <Row className="justify-content-center text-tenter">
-                <Col xl="7" lg="9">
-                    <SectionHead className="text-center mb-1">
-                        <h2 className="title text-dark mb-0">It Service</h2>
-                        <p>Business </p>
-                    </SectionHead>
-                </Col>
-            </Row>
-            <Row className="justify-content-center">
-                <Col xl="10">
-                    <Row className="align-items-center g-0">
-                        <Col md="7">
-                            <Card className="card-shadow round-xl bg-dark is-dark pb-4 pb-md-0">
-                                <div className="card-inner card-inner-xl">
-                                    <TextBlock>
-                                        <TitleH3 className="mb-3">Advanced Pack</TitleH3>
-                                        <ul className="list list-nostyle fs-15px mb-1">
-                                            <li>Meta Descri ption Optimizatio</li>
-                                            <li>Baseline Ranking Report</li>
-                                            <li>Increase traffic 100%</li>
-                                            <li>Online 24/7 support</li>
-                                            <li>10 Keyword Optimization</li>
-                                            <li>Free Simple Website</li> 
-                                            <li className="note text-warning fs-14px">+ All future update releases for Free</li>
-                                        </ul>
-                                        <ul className="btns-inline pt-4">
-                                            <li><Link to="https://1.envato.market/reactdashlite" target="_blank" rel="noreferrer" className="btn-round btn-xl btn-primary fs-16px">Purchase Now for $50</Link></li>
-                                        </ul>
-                                    </TextBlock>
-                                </div>
-                            </Card>
-                        </Col>
-                        <Col md="5">
-                            <Card className="card-shadow card-bd-right-3px round-xl ms-lg-n7 ms-md-n5 mx-4 me-md-0 mt-md-0 mt-n4">
-                                <div className="card-inner card-inner-lg">
-                                    <div className="text-block is-compact pe-3">
-                                        <h4 className="title text-azure">Starter Pack</h4>
-                                        <ul className="list list-nostyle fs-15px">
-                                            <li>Meta Descri ption Optimizatio</li>
-                                            <li>Baseline Ranking Report</li>
-                                            <li>Increase traffic 100%</li>
-                                            <li>Online 24/7 support</li>
-                                        </ul>
-                                        <ul className="btns-inline pt-2">
-                                            <li><Link to="https://1.envato.market/reactdashlite" target="_blank" rel="noreferrer" className="btn btn-lg btn-round btn-secondary"> <span>Purchase Now for $28</span><em className="icon ni ni-arrow-long-right"></em></Link></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </Card>
-                        </Col>
-                    </Row>
-                </Col>
-            </Row>
-        </Container>
-    </Section>
-  )
+
+const Business = (props) =>{
+    const [toggle, setToggle] = useState(false);
+    const [offset, setOffset] = useState(0);
+    const [mobileView, setMobileView] = useState(false);
+
+    useEffect(() => {
+        window.onscroll = () => {
+        setOffset(window.pageYOffset)
+        }
+        window.scrollTo(0,0);
+        viewChange();
+        window.addEventListener("resize", viewChange);
+        return () => {
+            window.removeEventListener('resize', viewChange);
+        };
+    }, []);
+
+    // function to change the design view under 1200 px
+    const viewChange = () => {
+        if (window.innerWidth < 992) {
+        setMobileView(true);
+        } else {
+        setMobileView(false);
+        }
+    };
+
+
+    return(
+    <Header className={props.className && props.className} id={props.id && props.id}>
+        <HeaderMain className={`header-main header-main-s1 is-sticky on-dark is-transparent ${offset > 0 ? "has-fixed" : ""}`}>
+            <Container className="header-container">
+                <HeaderWrap>
+                    <div className="header-logo">
+                        <Logo to="/"
+                        dark ={LogoDrak2x}
+                        light ={LogoLight2x}
+                        />
+                    </div>
+                    <div className="header-toggle" onClick={() => setToggle(!toggle)}>
+                        <button className={`menu-toggler ${toggle === true ? "active" : ""}`}> 
+                            <em className="menu-on icon ni ni-menu"></em>
+                            <em className="menu-off icon ni ni-cross"></em>
+                        </button>
+                    </div>
+                    <nav className={`header-menu menu ${toggle === true ? "active" : ""} ${mobileView ? "mobile-menu" : ""}`}> 
+                        {!mobileView ? <Menu className="ms-lg-auto" data={BannerOneData} /> : <MobileMenu data={BannerOneData}/>}
+                        <ul className="menu-btns">
+                            <li>
+                                <Link to="https://1.envato.market/reactdashlite" target="_blank" rel="noreferrer" className="btn-primary btn-lg">Download the app</Link>
+                            </li>
+                        </ul>
+                    </nav>
+                    {toggle && window.innerWidth < 992 && <div className="header-overlay" onClick={() => setToggle(!toggle)}></div>}
+                </HeaderWrap>
+            </Container>
+        </HeaderMain>
+        <HeaderContent className="my-auto py-5">
+            <div className="container">
+                <Row className="row justify-content-center text-center">
+                    <Col lg="7" md="10">
+                        <HeaderCaption>
+                            <HeaderTitle>Platform Development</HeaderTitle>
+                            <HeaderText>
+                                <p>A powerful admin dashboard template that especially build for developers and programmers. DashLite comes with all kind of components.</p>
+                            </HeaderText>
+                            <ul className="header-action btns-inline">
+                                <li>
+                                    <Link to="https://1.envato.market/reactdashlite" target="_blank" rel="noreferrer" className="btn-primary btn-lg"><span>Getting Started</span></Link>
+                                </li>
+                                <li>
+                                    <Link to="https://1.envato.market/reactdashlite" target="_blank" rel="noreferrer" className="btn-danger btn-lg"><span>View Demo</span></Link>
+                                </li>
+                            </ul>
+                        </HeaderCaption>
+                    </Col>
+                </Row>
+            </div>
+        </HeaderContent>
+        <HeaderImage className="mb-n5 mb-sm-n6 mb-md-n7">
+            <Container>
+                <Row className='justify-content-center'>
+                    <Col xl="10">
+                        <div className="card overflow-hidden p-2 bg-light">
+                            <img src={HeaderImg} alt="" />
+                        </div>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        
+                    </Col>
+                </Row>
+            </Container>
+        </HeaderImage>
+    </Header>
+    
+    )
 }
+
 
 export default Business

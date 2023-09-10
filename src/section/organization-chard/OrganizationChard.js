@@ -3,6 +3,7 @@ import { Card, Col, Container, Row } from 'reactstrap'
 import { Link } from '../../components/button/Button'
 import { TextBlock, TitleH3 } from '../../components/textBlock/TextBlock'
 import { Section, SectionHead } from '../../layout/section/Section'
+import { Tree, TreeNode } from "react-organizational-chart";
 
 const OrganizationChard = (props) => {
   return (
@@ -12,54 +13,311 @@ const OrganizationChard = (props) => {
                 <Col xl="7" lg="9">
                     <SectionHead className="text-center mb-1">
                         <h2 className="title text-dark mb-0">Organization Chard</h2>
-                        <p>Organization Chard</p>
                     </SectionHead>
                 </Col>
             </Row>
             <Row className="justify-content-center">
-                <Col xl="10">
-                    <Row className="align-items-center g-0">
-                        <Col md="7">
-                            <Card className="card-shadow round-xl bg-dark is-dark pb-4 pb-md-0">
-                                <div className="card-inner card-inner-xl">
-                                    <TextBlock>
-                                        <TitleH3 className="mb-3">Advanced Pack</TitleH3>
-                                        <ul className="list list-nostyle fs-15px mb-1">
-                                            <li>Meta Descri ption Optimizatio</li>
-                                            <li>Baseline Ranking Report</li>
-                                            <li>Increase traffic 100%</li>
-                                            <li>Online 24/7 support</li>
-                                            <li>10 Keyword Optimization</li>
-                                            <li>Free Simple Website</li> 
-                                            <li className="note text-warning fs-14px">+ All future update releases for Free</li>
-                                        </ul>
-                                        <ul className="btns-inline pt-4">
-                                            <li><Link to="https://1.envato.market/reactdashlite" target="_blank" rel="noreferrer" className="btn-round btn-xl btn-primary fs-16px">Purchase Now for $50</Link></li>
-                                        </ul>
-                                    </TextBlock>
-                                </div>
-                            </Card>
-                        </Col>
-                        <Col md="5">
-                            <Card className="card-shadow card-bd-right-3px round-xl ms-lg-n7 ms-md-n5 mx-4 me-md-0 mt-md-0 mt-n4">
-                                <div className="card-inner card-inner-lg">
-                                    <div className="text-block is-compact pe-3">
-                                        <h4 className="title text-azure">Starter Pack</h4>
-                                        <ul className="list list-nostyle fs-15px">
-                                            <li>Meta Descri ption Optimizatio</li>
-                                            <li>Baseline Ranking Report</li>
-                                            <li>Increase traffic 100%</li>
-                                            <li>Online 24/7 support</li>
-                                        </ul>
-                                        <ul className="btns-inline pt-2">
-                                            <li><Link to="https://1.envato.market/reactdashlite" target="_blank" rel="noreferrer" className="btn btn-lg btn-round btn-secondary"> <span>Purchase Now for $28</span><em className="icon ni ni-arrow-long-right"></em></Link></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </Card>
-                        </Col>
-                    </Row>
-                </Col>
+                
+    <Tree
+      lineWidth={"4px"}
+      lineColor={"grey"}
+      lineBorderRadius={"10px"}
+      label={
+        <div className="inline-block p-0">
+          <Card>
+            <div className="flex flex-col items-center">
+              {/* <img
+                className="mb-3 h-24 w-24 rounded-full shadow-lg"
+                src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
+                alt="image"
+              /> */}
+              <h5 className="mb-1 text-sm xs:text-sm font-medium text-gray-900 dark:text-white">
+                Cho Chunghwan
+              </h5>
+              <span className="text-xs text-gray-500 dark:text-gray-400">
+                CEO
+              </span>
+            </div>
+          </Card>
+        </div>
+      }
+    >
+      <TreeNode
+        label={
+          <div className="inline-block p-0">
+            <Card>
+              <div className="flex flex-col items-center">
+                {/* <img
+                className="mb-3 h-24 w-24 rounded-full shadow-lg"
+                src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
+                alt="image"
+              /> */}
+                <h5 className="mb-1 text-sm xs:text-sm font-medium text-gray-900 dark:text-white">
+                  Kim Chang Min
+                </h5>
+                <span className="text-xs text-gray-500 dark:text-gray-400">
+                  Manager Business Support
+                </span>
+              </div>
+            </Card>
+          </div>
+        }
+      >
+        <TreeNode
+          label={
+            <div className="inline-block p-0">
+              <Card>
+                <div className="flex flex-col items-start">
+                  {/* <img
+                className="mb-3 h-24 w-24 rounded-full shadow-lg"
+                src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
+                alt="image"
+              /> */}
+                  <h5 className="mb-1 text-sm xs:text-sm font-medium text-gray-900 dark:text-white">
+                    Management Support Team
+                  </h5>
+                  <span className="text-xs text-gray-500 dark:text-gray-400">
+                    HR-GAF
+                  </span>
+                  <span className="text-xs text-gray-500 dark:text-gray-400">
+                    Fin-Accounting
+                  </span>
+                  <span className="text-xs text-gray-500 dark:text-gray-400">
+                    Tax
+                  </span>
+                  <h5 className="mb-1 text-sm xs:text-sm font-medium text-gray-900 dark:text-white">
+                    Management Planning Team
+                  </h5>
+                  <span className="text-xs text-gray-500 dark:text-gray-400">
+                    Business Plan
+                  </span>
+                  <span className="text-xs text-gray-500 dark:text-gray-400">
+                    Business Performance
+                  </span>
+                  <span className="text-xs text-gray-500 dark:text-gray-400">
+                    Business Research
+                  </span>
+                </div>
+              </Card>
+            </div>
+          }
+        ></TreeNode>
+      </TreeNode>
+      <TreeNode
+        label={
+          <div className="inline-block p-0">
+            <Card>
+              <div className="flex flex-col items-center">
+                {/* <img
+                className="mb-3 h-24 w-24 rounded-full shadow-lg"
+                src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
+                alt="image"
+              /> */}
+                <h5 className="mb-1 text-sm xs:text-sm font-medium text-gray-900 dark:text-white">
+                  Noh Gyu-Tae
+                </h5>
+                <span className="text-xs text-gray-500 dark:text-gray-400">
+                  Director IT-Sales
+                </span>
+              </div>
+            </Card>
+          </div>
+        }
+      >
+        <TreeNode
+          label={
+            <div className="inline-block p-0">
+              <Card>
+                <div className="flex flex-col items-start">
+                  {/* <img
+                className="mb-3 h-24 w-24 rounded-full shadow-lg"
+                src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
+                alt="image"
+              /> */}
+                  <h5 className="mb-1 text-sm xs:text-sm font-medium text-gray-900 dark:text-white">
+                    Marketing Team
+                  </h5>
+                  <span className="text-xs text-gray-500 dark:text-gray-400">
+                    Sales Orders
+                  </span>
+                  <h5 className="mb-1 text-sm xs:text-sm font-medium text-gray-900 dark:text-white">
+                    New Business Team
+                  </h5>
+                  <span className="text-xs text-gray-500 dark:text-gray-400">
+                    EV Charger
+                  </span>
+                  <span className="text-xs text-gray-500 dark:text-gray-400">
+                    Security Solution
+                  </span>
+                  <h5 className="mb-1 text-sm xs:text-sm font-medium text-gray-900 dark:text-white">
+                    Purchasing Team 1
+                  </h5>
+                  <span className="text-xs text-gray-500 dark:text-gray-400">
+                    (internal)
+                  </span>
+                  <h5 className="mb-1 text-sm xs:text-sm font-medium text-gray-900 dark:text-white">
+                    Purchasing Team 2
+                  </h5>
+                  <span className="text-xs text-gray-500 dark:text-gray-400">
+                    (exsternal)
+                  </span>
+                </div>
+              </Card>
+            </div>
+          }
+        ></TreeNode>
+      </TreeNode>
+      <TreeNode
+        label={
+          <div className="inline-block p-0">
+            <Card>
+              <div className="flex flex-col items-center">
+                {/* <img
+                className="mb-3 h-24 w-24 rounded-full shadow-lg"
+                src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
+                alt="image"
+              /> */}
+                <h5 className="mb-1 text-sm xs:text-sm font-medium text-gray-900 dark:text-white">
+                  Park Seongsu
+                </h5>
+                <span className="text-xs text-gray-500 dark:text-gray-400">
+                  Team Head IT-Infra
+                </span>
+              </div>
+            </Card>
+          </div>
+        }
+      >
+        <TreeNode
+          label={
+            <div className="inline-block p-0">
+              <Card>
+                <div className="flex flex-col items-start">
+                  {/* <img
+                className="mb-3 h-24 w-24 rounded-full shadow-lg"
+                src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
+                alt="image"
+              /> */}
+                  <h5 className="mb-1 text-sm xs:text-sm font-medium text-gray-900 dark:text-white">
+                    SI Team
+                  </h5>
+                  <span className="text-xs text-gray-500 dark:text-gray-400">
+                    System Diagnostic
+                  </span>
+                  <span className="text-xs text-gray-500 dark:text-gray-400">
+                    Design, Implementation
+                  </span>
+                  <h5 className="mb-1 text-sm xs:text-sm font-medium text-gray-900 dark:text-white">
+                    SM Team
+                  </h5>
+                  <span className="text-xs text-gray-500 dark:text-gray-400">
+                    System Management
+                  </span>
+                  <span className="text-xs text-gray-500 dark:text-gray-400">
+                    Maintenance, etc
+                  </span>
+                  <h5 className="mb-1 text-sm xs:text-sm font-medium text-gray-900 dark:text-white">
+                    Infra Team
+                  </h5>
+                  <h5 className="mb-1 text-sm xs:text-sm font-medium text-gray-900 dark:text-white">
+                    POS & EDC Team
+                  </h5>
+                </div>
+              </Card>
+            </div>
+          }
+        ></TreeNode>
+      </TreeNode>
+      <TreeNode
+        label={
+          <div className="inline-block p-0">
+            <Card>
+              <div className="flex flex-col items-center">
+                {/* <img
+                className="mb-3 h-24 w-24 rounded-full shadow-lg"
+                src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
+                alt="image"
+              /> */}
+                <h5 className="mb-1 text-sm xs:text-sm font-medium text-gray-900 dark:text-white">
+                  Kim Seungkon
+                </h5>
+                <span className="text-xs text-gray-500 dark:text-gray-400">
+                  Team Head System Mgmt
+                </span>
+              </div>
+            </Card>
+          </div>
+        }
+      >
+        <TreeNode
+          label={
+            <div className="inline-block p-0">
+              <Card>
+                <div className="flex flex-col items-start">
+                  {/* <img
+                className="mb-3 h-24 w-24 rounded-full shadow-lg"
+                src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
+                alt="image"
+              /> */}
+                  <h5 className="mb-1 text-sm xs:text-sm font-medium text-gray-900 dark:text-white">
+                    Mart SM Team
+                  </h5>
+                  <span className="text-xs text-gray-500 dark:text-gray-400">
+                    50 stores in Indonesia
+                  </span>
+                  <span className="text-xs text-gray-500 dark:text-gray-400 whitespace-pre-line">
+                    Mart System Operation, Development, Remuneration, etc.
+                  </span>
+                </div>
+              </Card>
+            </div>
+          }
+        ></TreeNode>
+      </TreeNode>
+      <TreeNode
+        label={
+          <div className="inline-block p-0">
+            <Card>
+              <div className="flex flex-col items-center">
+                {/* <img
+                className="mb-3 h-24 w-24 rounded-full shadow-lg"
+                src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
+                alt="image"
+              /> */}
+                <h5 className="mb-1 text-sm xs:text-sm font-medium text-gray-900 dark:text-white">
+                  Han Yoon Gyo
+                </h5>
+                <span className="text-xs text-gray-500 dark:text-gray-400">
+                  Team Head Development
+                </span>
+              </div>
+            </Card>
+          </div>
+        }
+      >
+        <TreeNode
+          label={
+            <div className="inline-block p-0">
+              <Card>
+                <div className="flex flex-col items-start">
+                  {/* <img
+                className="mb-3 h-24 w-24 rounded-full shadow-lg"
+                src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
+                alt="image"
+              /> */}
+                  <h5 className="mb-1 text-sm xs:text-sm font-medium text-gray-900 dark:text-white">
+                    Offshore
+                  </h5>
+                  <h5 className="mb-1 text-sm xs:text-sm font-medium text-gray-900 dark:text-white">
+                    Solution Development
+                  </h5>
+                </div>
+              </Card>
+            </div>
+          }
+        ></TreeNode>
+      </TreeNode>
+    </Tree>
             </Row>
         </Container>
     </Section>

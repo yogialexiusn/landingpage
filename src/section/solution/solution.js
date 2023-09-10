@@ -1,69 +1,123 @@
 import React from 'react'
 import { Card, Col, Container, Row } from 'reactstrap'
-import { Link } from '../../components/button/Button'
-import { TextBlock, TitleH3 } from '../../components/textBlock/TextBlock'
-import { Section, SectionHead } from '../../layout/section/Section'
+import { Section, SectionContant, SectionHead } from '../../layout/section/Section'
+import { ServiceText } from '../../components/service/Service'
+import { StyledIcon } from '../../components/icon/Icon'
+import { Levels, CodeDisplay, Shield, Play, Headphone, Dashboard, Cloud} from '../../components/svg/Icon'
 
 const Solution = (props) => {
-  return (
-    <Section className={ props.className && props.className } id={props.id && props.id}>
-        <Container>
-            <Row className="justify-content-center text-tenter">
-                <Col xl="7" lg="9">
-                    <SectionHead className="text-center mb-1">
-                        <h2 className="title text-dark mb-0">Solution</h2>
-                        <p>Solution</p>
-                    </SectionHead>
-                </Col>
-            </Row>
-            <Row className="justify-content-center">
-                <Col xl="10">
-                    <Row className="align-items-center g-0">
-                        <Col md="7">
-                            <Card className="card-shadow round-xl bg-dark is-dark pb-4 pb-md-0">
-                                <div className="card-inner card-inner-xl">
-                                    <TextBlock>
-                                        <TitleH3 className="mb-3">Advanced Pack</TitleH3>
-                                        <ul className="list list-nostyle fs-15px mb-1">
-                                            <li>Meta Descri ption Optimizatio</li>
-                                            <li>Baseline Ranking Report</li>
-                                            <li>Increase traffic 100%</li>
-                                            <li>Online 24/7 support</li>
-                                            <li>10 Keyword Optimization</li>
-                                            <li>Free Simple Website</li> 
-                                            <li className="note text-warning fs-14px">+ All future update releases for Free</li>
-                                        </ul>
-                                        <ul className="btns-inline pt-4">
-                                            <li><Link to="https://1.envato.market/reactdashlite" target="_blank" rel="noreferrer" className="btn-round btn-xl btn-primary fs-16px">Purchase Now for $50</Link></li>
-                                        </ul>
-                                    </TextBlock>
-                                </div>
-                            </Card>
-                        </Col>
-                        <Col md="5">
-                            <Card className="card-shadow card-bd-right-3px round-xl ms-lg-n7 ms-md-n5 mx-4 me-md-0 mt-md-0 mt-n4">
-                                <div className="card-inner card-inner-lg">
-                                    <div className="text-block is-compact pe-3">
-                                        <h4 className="title text-azure">Starter Pack</h4>
-                                        <ul className="list list-nostyle fs-15px">
-                                            <li>Meta Descri ption Optimizatio</li>
-                                            <li>Baseline Ranking Report</li>
-                                            <li>Increase traffic 100%</li>
-                                            <li>Online 24/7 support</li>
-                                        </ul>
-                                        <ul className="btns-inline pt-2">
-                                            <li><Link to="https://1.envato.market/reactdashlite" target="_blank" rel="noreferrer" className="btn btn-lg btn-round btn-secondary"> <span>Purchase Now for $28</span><em className="icon ni ni-arrow-long-right"></em></Link></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </Card>
+    return(
+        <Section className={props.className && props.className} id={props.id && props.id}>
+            <Container className="card-shadow round-xl bg-dark is-dark pb-4 pb-md-10">
+                <br></br>
+                <Row className="justify-content-center text-center">
+                    <Col lg="8" md="10">
+                        <SectionHead>
+                            <h2 className="title fw-medium">Distribution and Security Solution</h2>
+                            <p>As Integrated distribution solution tailored to each country/regionDomestic and foreign reference-based retail H/W, solution service and as a security SolutionProvides a stable business environment through optimized convergence security services of information security expert in Lotte groups</p>
+                        </SectionHead>
+                    </Col>
+                </Row>
+                <SectionContant>
+                    <Row className="justify-content-center">
+                        <Col xl="8" lg="10">
+                            <Row className="text-center g-gs">
+                                <Col md="3" xs="6">
+                                    <Card className="card-shadow service is-compact">
+                                        <div className="card-inner">
+                                            <StyledIcon className="service-icon styled-icon-s4 styled-icon-6x circle text-primary">
+                                                <Dashboard />
+                                            </StyledIcon>
+                                            <ServiceText>
+                                                <h6 className="title text-dark fs-14px">LOTTE POS and Peripherals</h6>
+                                            </ServiceText>
+                                        </div>
+                                    </Card>
+                                </Col>
+                                <Col md="3" xs="2">
+                                    <Card className="card-shadow service is-compact">
+                                        <div className="card-inner">
+                                            <StyledIcon className="service-icon styled-icon-s4 styled-icon-6x circle text-primary">
+                                                <Play />
+                                            </StyledIcon>
+                                            <ServiceText>
+                                                <h1 className="title text-dark fs-14px">Retail Management Solution</h1>
+                                            </ServiceText>
+                                        </div>
+                                    </Card>
+                                </Col>
+                                <Col md="3" xs="6">
+                                    <Card className="card-shadow service is-compact">
+                                        <div className="card-inner">
+                                            <StyledIcon className="service-icon styled-icon-s4 styled-icon-6x circle text-primary">
+                                                <CodeDisplay />
+                                            </StyledIcon>
+                                            <ServiceText>
+                                                <h6 className="title text-dark fs-14px">Electronic Shelf Label</h6>
+                                            </ServiceText>
+                                        </div>
+                                    </Card>
+                                </Col>
+                                <Col md="3" xs="6">
+                                    <Card className="card-shadow service is-compact">
+                                        <div className="card-inner">
+                                            <StyledIcon className="service-icon styled-icon-s4 styled-icon-6x circle text-primary">
+                                                <Cloud />
+                                            </StyledIcon>
+                                            <ServiceText>
+                                                <h6 className="title text-dark fs-14px">Whitelist Security Solution</h6>
+                                            </ServiceText>
+                                        </div>
+                                    </Card>
+                                </Col>
+                            </Row>
+                                <br></br>
+                                <br></br>
+                                <br></br>
+                            <Row className="text-center g-gs justify-content-center">
+                                <Col md="4" xs="6" >
+                                    <Card className="card-shadow service is-compact">
+                                        <div className="card-inner ">
+                                            <StyledIcon className="service-icon styled-icon-s4 styled-icon-6x circle text-primary center">
+                                                <Headphone />
+                                            </StyledIcon>
+                                            <ServiceText>
+                                                <h6 className="title text-dark fs-14px">Visitor Management System</h6>
+                                            </ServiceText>
+                                        </div>
+                                    </Card>
+                                </Col>
+                                <Col md="3" xs="6">
+                                    <Card className="card-shadow service is-compact">
+                                        <div className="card-inner">
+                                            <StyledIcon className="service-icon styled-icon-s4 styled-icon-6x circle text-primary">
+                                                <Levels />
+                                            </StyledIcon>
+                                            <ServiceText>
+                                                <h6 className="title text-dark fs-14px">VDI Service</h6>
+                                            </ServiceText>
+                                        </div>
+                                    </Card>
+                                </Col>
+                                <Col md="3" xs="6">
+                                    <Card className="card-shadow service is-compact">
+                                        <div className="card-inner">
+                                            <StyledIcon className="service-icon styled-icon-s4 styled-icon-6x circle text-primary">
+                                                <Shield />
+                                            </StyledIcon>
+                                            <ServiceText>
+                                                <h6 className="title text-dark fs-14px">Anti-Ransomware</h6>
+                                            </ServiceText>
+                                        </div>
+                                    </Card>
+                                </Col>
+                            </Row>
                         </Col>
                     </Row>
-                </Col>
-            </Row>
-        </Container>
-    </Section>
-  )
+                </SectionContant>
+            </Container>
+        </Section>
+    )
 }
 
 export default Solution
