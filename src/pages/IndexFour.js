@@ -11,6 +11,7 @@ import DataCenter from '../section/data-center/data-center'
 import AboutCompany from '../section/about-company/about-company'
 import Business from './page/Business'
 import Partner from './page/Partner'
+import { FeatureOne, FeatureOneAlt } from "../section/feature/FeatureOne"
 import News from './page/News'
 
 
@@ -18,7 +19,9 @@ const IndexFour = (props) => {
   return (
     <div className="nk-main">
         <BannerFour className="header-32 has-header-main-s1 bg-dark" id="#BannerFour" />
-        <AboutCompany className="section-service pb-0" id="#about-company" />
+        <FeatureOne className="section-feature pb-0" id="#feature"/>
+        <FeatureOneAlt className="section-feature"/>
+        {/* <AboutCompany className="section-service pb-0" id="#about-company" /> */}
         <History className="section-service pb-0" id="#history" />
         <OrganizationChard className="section-service pb-0" id="#organization-chard" />
         <ItService className="section-service pb-0" id="#it-service" />

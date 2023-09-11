@@ -4,10 +4,10 @@ import { ImageBlock } from '../../components/images/Images'
 import { Section } from '../../layout/section/Section'
 import ThumbImg1 from '../../images/gfx/a.png'
 import ThumbImg2 from '../../images/gfx/b.png'
-import { Paragraph, TextBlock, TitleH2 } from '../../components/textBlock/TextBlock'
+import { Paragraph, TextBlock, TitleH3 } from '../../components/textBlock/TextBlock'
 import { Link } from '../../components/button/Button'
 import { OutlinedChecked } from '../../components/styledList/StyledList'
-import {FeatureOneList} from './FeatureData'
+import {FeatureOneList, FeatureThereeList} from './FeatureData'
 
 
 const FeatureOne = (props) =>{
@@ -22,8 +22,8 @@ const FeatureOne = (props) =>{
                     </Col>
                     <Col lg="6">
                         <TextBlock className="pe-xl-5">
-                            <TitleH2>Simplifies Saas data warehouse management</TitleH2>
-                            <Paragraph>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</Paragraph>
+                            <TitleH3>LOTTE DATA COMMUNICATION</TitleH3>
+                            <Paragraph>LOTTE is expanding its social welfare infrastructure to make the world a better place, and implementing various aid and support programs to help the socially vulnerable.</Paragraph>
                             <OutlinedChecked className="list-lg list-success list-checked-circle outlined" data={FeatureOneList} />
                             <ul className="btns-inline">
                                 <li><Link to="https://1.envato.market/reactdashlite" target="_blank" rel="noreferrer" className="btn-lg btn-primary">Get The App</Link></li>
@@ -48,9 +48,10 @@ const FeatureOneAlt = (props) =>{
                     </Col>
                     <Col lg="6">
                         <TextBlock>
-                            <TitleH2>Instantly upload any software usage dashlite data</TitleH2>
-                            <Paragraph>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</Paragraph>
-                            <Paragraph>But the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</Paragraph>
+                            <TitleH3>LOTTE DATA COMMUNICATION INDONESIA</TitleH3>
+                            {/* <Paragraph>LOTTE DATA COMMUNICATION INDONESIA is an IT Service Provider who leads knowledge informatization in every sector (e.g. retail, hospitality, manufacturing, financial service, etc.).</Paragraph> */}
+                            <Paragraph>Since the establishment in Indonesia in 2010, LOTTE DATA COMMUNICATION INDONESIA is making a new leap forward.</Paragraph>
+                            <OutlinedChecked className="list-lg list-success list-checked-circle outlined" data={FeatureThereeList} />
                             <ul className="btns-inline">
                                 <li><Link to="https://1.envato.market/reactdashlite" target="_blank" rel="noreferrer" className="btn-lg btn-primary">Get The App</Link></li>
                             </ul>
