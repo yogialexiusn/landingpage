@@ -27,9 +27,9 @@ const IndexFour = (props) => {
         <DataCenter className="section-service pb-0" id="#data-center" />
         <Business className="section-service pb-0" id="#business" />
         <Partner className="section-service pb-0" id="#partner" />
-        <News className="section-service pb-0" id="#news" />
+        {/* <News className="section-service pb-0" id="#news" /> */}
 
-        <CtaFour className="section-cta bg-lighter" id="#cta" />
+        {/* <CtaFour className="section-cta bg-lighter" id="#cta" /> */}
         <FooterThree className=" bg-dark is-dark section section-sm" id="#footer" />
     </div>
   )

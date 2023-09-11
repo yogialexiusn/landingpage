@@ -11,6 +11,7 @@ import { SocialIconOne, LinkDataFour } from './FooterData'
 
 const FooterThree = (props) =>{
     return(
+        
         <Footer className={props.className && props.className} id={props.id && props.id}>
             <Container>
                 <Row className="g-3 align-items-center">

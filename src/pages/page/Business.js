@@ -90,10 +90,6 @@ const Business = (props) =>{
                         <div className="card overflow-hidden p-2 bg-light">
                             <img src={HeaderImg} alt="" />
                         </div>
-                        <br></br>
-                        <br></br>
-                        <br></br>
-                        
                     </Col>
                 </Row>
             </Container>

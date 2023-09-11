@@ -295,9 +295,13 @@ const Partner = (props) =>{
                                 <img src={A44} alt="img"/>
                             </Portrait>
                         </ReviewPortrait>
+                        
                     </Row>
                 </Marquee>
             </Container>
+            <br></br>
+            <br></br>
+            <br></br>
         </Section>
     )
 }

@@ -93,6 +93,8 @@ const DataCenter = (props) => {
                 </Col>
             </Row>
         </Container>
+        <br></br>
+        <br></br>
     </Section>
   )
 }
