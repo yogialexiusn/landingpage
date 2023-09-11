@@ -52,7 +52,7 @@ const FeatureOneAlt = (props) =>{
                         </ImageBlock>
                     </Col>
                     <Col lg="6">
-                        <TextBlock>
+                        <TextBlock className="pe-xl-5">
                             <TitleH3>LOTTE DATA COMMUNICATION INDONESIA</TitleH3>
                             {/* <Paragraph>LOTTE DATA COMMUNICATION INDONESIA is an IT Service Provider who leads knowledge informatization in every sector (e.g. retail, hospitality, manufacturing, financial service, etc.).</Paragraph> */}
                             <Paragraph>Since the establishment in Indonesia in 2010, LOTTE DATA COMMUNICATION INDONESIA is making a new leap forward.</Paragraph>
