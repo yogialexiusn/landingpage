@@ -29,10 +29,10 @@ const BannerOneData = [
                 text:'Solution',
                 to:'#solution'
             },
-            {
-                text:'Platform',
-                to:'#platform'
-            },
+            // {
+            //     text:'Platform',
+            //     to:'#platform'
+            // },
             {
                 text:'Data Center',
                 to:'#data-center'
@@ -282,10 +282,10 @@ const BannerFourData = [
                 text:'Solution',
                 to:'#solution'
             },
-            {
-                text:'Platform',
-                to:'#platform'
-            },
+            // {
+            //     text:'Platform',
+            //     to:'#platform'
+            // },
             {
                 text:'Data Center',
                 to:'#data-center'

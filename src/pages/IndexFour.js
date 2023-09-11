@@ -26,7 +26,7 @@ const IndexFour = (props) => {
         <OrganizationChard className="section-service pb-0" id="#organization-chard" />
         <ItService className="section-service pb-0" id="#it-service" />
         <Solution className="section-service pb-0" id="#solution" />
-        <Platform className="section-service pb-0" id="#platform" />
+        {/* <Platform className="section-service pb-0" id="#platform" /> */}
         <DataCenter className="section-service pb-0" id="#data-center" />
         <Business className="section-service pb-0" id="#business" />
         <Partner className="section-service pb-0" id="#partner" />

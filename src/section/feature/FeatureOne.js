@@ -2,12 +2,14 @@ import React from 'react'
 import { Col, Container, Row } from "reactstrap"
 import { ImageBlock } from '../../components/images/Images'
 import { Section } from '../../layout/section/Section'
-import ThumbImg1 from '../../images/gfx/a.png'
+import ThumbImg1 from '../../images/building/ldci-korea.jpg'
 import ThumbImg2 from '../../images/gfx/b.png'
 import { Paragraph, TextBlock, TitleH3 } from '../../components/textBlock/TextBlock'
 import { Link } from '../../components/button/Button'
 import { OutlinedChecked } from '../../components/styledList/StyledList'
 import {FeatureOneList, FeatureThereeList} from './FeatureData'
+import { PreviewCard, CodeBlock } from "../../components/preview/Preview";
+// import Timeless from 'react-timeless';
 
 
 const FeatureOne = (props) =>{
@@ -15,10 +17,13 @@ const FeatureOne = (props) =>{
         <Section className={props.className && props.className} id={props.id && props.id}>
             <Container>
                 <Row className='justify-content-between align-items-center'>
-                    <Col lg="5">
-                        <ImageBlock className="img-block-s1 left">
-                            <img src={ThumbImg1} alt="Dashlite" />
-                        </ImageBlock>
+                    <Col lg="4">
+                        <PreviewCard>
+                            <ImageBlock className="img-block-s1 left">
+                                <img src={ThumbImg1} alt="Dashlite" />
+                            </ImageBlock>
+                        </PreviewCard>
+                        
                     </Col>
                     <Col lg="6">
                         <TextBlock className="pe-xl-5">

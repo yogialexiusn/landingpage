@@ -107,7 +107,7 @@ const History = (props) => {
               </Row>
               <Row className="g-gs justify-content-center">
                 {moments.map((moment) => (
-                  <Col lg="6">
+                  <Col xl="4" lg="3" md="8">
                       <Card className="card-shadow round-xl">
                           <div className="card-inner card-inner-lg">
                               <Review className="review-s2">
