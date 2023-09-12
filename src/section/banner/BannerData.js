@@ -49,7 +49,7 @@ const BannerOneData = [
     },
     {
         text:'News',
-        to:'#news'
+        to:'/news'
     }
 ]
 const BannerTwoData = [
@@ -302,7 +302,7 @@ const BannerFourData = [
     },
     {
         text:'News',
-        to:'#news'
+        to:'/news'
     }
 ]
 
@@ -492,5 +492,11 @@ const BannerSixData = [
         to:'#reviews'
     },
 ]
+const BannerFourAdd = [
+    {
+        text:'Back',
+        to:''
+    }
+]
 
-export {BannerOneData, BannerTwoData, BannerThreeData, BannerFourData, BannerFiveData, BannerSixData, BannerTwoIcon}
+export {BannerOneData, BannerTwoData, BannerThreeData, BannerFourData, BannerFiveData, BannerSixData, BannerTwoIcon, BannerFourAdd}

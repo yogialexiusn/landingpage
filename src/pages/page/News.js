@@ -8,7 +8,7 @@ import { Col, Container, Row } from "reactstrap"
 import {Header, HeaderContent, HeaderMain, HeaderWrap} from "../../layout/header/Header"
 import {Link} from "../../components/button/Button"
 import { HeaderCaption, HeaderTitle } from '../../components/headerCaption/HeaderCaption'
-import {BannerFourData} from '../../section/banner/BannerData';
+import {BannerFourAdd} from '../../section/banner/BannerData';
 
 
 const News = (props) =>{
@@ -56,7 +56,7 @@ const News = (props) =>{
                             </button>
                         </div>
                         <nav className={`header-menu menu ${toggle === true ? "active" : ""} ${mobileView ? "mobile-menu" : ""}`}> 
-                            {!mobileView ? <Menu className="ms-lg-auto" data={BannerFourData} /> : <MobileMenu data={BannerFourData}/>}
+                            {!mobileView ? <Menu className="ms-lg-auto" data={BannerFourAdd} /> : <MobileMenu data={BannerFourAdd}/>}
                             <ul className="menu-btns">
                                 <li>
                                     <Link to="/landing/pages/auths/auth-login" target="_blank" rel="noreferrer" className="btn-primary btn-lg">Login</Link>
@@ -78,7 +78,7 @@ const News = (props) =>{
                             <HeaderCaption>
                                 <HeaderTitle>Digital Platform Leader for Intelligent Enterprise</HeaderTitle>
                                 We build greater futures through innovation and collective knowledge.
-                        NEWS
+                        NEWSdasd
                                 We build greater futures through innovation and collective knowledge.
                                 We build greater futures through innovation and collective knowledge.
 
