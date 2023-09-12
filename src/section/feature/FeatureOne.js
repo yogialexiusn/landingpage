@@ -51,7 +51,7 @@ const FeatureOneAlt = (props) =>{
                             <img src={ThumbImg2} alt="Dashlite" />
                         </ImageBlock>
                     </Col>
-                    <Col lg="6">
+                    <Col lg="5">
                         <TextBlock className="pe-xl-5">
                             <TitleH3>LOTTE DATA COMMUNICATION INDONESIA</TitleH3>
                             {/* <Paragraph>LOTTE DATA COMMUNICATION INDONESIA is an IT Service Provider who leads knowledge informatization in every sector (e.g. retail, hospitality, manufacturing, financial service, etc.).</Paragraph> */}

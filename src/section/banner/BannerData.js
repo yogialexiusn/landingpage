@@ -5,7 +5,7 @@ const BannerOneData = [
         subMenu: [
             {
                 text:'About Company',
-                to:'#about-company'
+                to:'#feature'
             },
             {
                 text:'History',
@@ -258,7 +258,7 @@ const BannerFourData = [
         subMenu: [
             {
                 text:'About Company',
-                to:'#about-company'
+                to:'#feature'
             },
             {
                 text:'History',

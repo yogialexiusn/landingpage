@@ -110,18 +110,21 @@ $slick-dots-bg-active:      $base-light;
 }
 
 .slick-dots{
-    display: flex;
+    // display: flex;
+    align-items: center;
     justify-content: center;
     li{
-        padding: 0 6px;
+        padding: 0  ;
+        display: inline-block;
         button{
             background-color: $slick-dots-bg;
             border: none;
             border-radius: 20px;
-            text-indent: -99999px;
-            height: 8px;
-            width: 8px;
-            padding: 0;
+            text-indent: 0px;
+            color: white;
+            height: 40px;
+            width: 40px;
+            padding: 1;
             overflow: hidden;
             transition: all .4s linear;
             &:focus{

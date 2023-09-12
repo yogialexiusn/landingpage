@@ -21,6 +21,7 @@
     "react-scroll": "^1.8.4",
     "react-syntax-highlighter": "^15.5.0",
     "reactstrap": "^9.1.5",
+    "react-slick": "^0.29.0",
     "sass": "1.56.1",
     "simplebar-react": "^2.4.3",
     "web-vitals": "^2.1.4"
