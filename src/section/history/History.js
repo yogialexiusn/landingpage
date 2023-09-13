@@ -4,6 +4,7 @@ import { Link } from "../../components/button/Button";
 import { TextBlock, TitleH3 } from "../../components/textBlock/TextBlock";
 import { Section, SectionHead } from "../../layout/section/Section";
 import { Block }  from "../../components/block/Block";
+import { SlickArrowLeft, SlickArrowRight } from "../../components/slick/SlickComponents";
 import {
   Review,
   ReviewContent,
@@ -44,8 +45,11 @@ const settings = {
     { breakpoint: 992, settings: { slidesToShow: 2 } },
     { breakpoint: 768, settings: { slidesToShow: 1 } },
   ],
-  arrows: false,
+  arrows: true,
   dots: true,
+  slide: "li",
+  prevArrow: <SlickArrowLeft />,
+  nextArrow: <SlickArrowRight />,
 };
 
 const moments = [
@@ -173,7 +177,6 @@ const History = (props) => {
                         <b>{item.date}</b>
                       </h5>
                       <p className="card-text">{item.description}</p>
-                      {/* <Button color="primary">Go somewhere</Button> */}
                     </div>
                   </Card>
                 </Col>
