@@ -14,8 +14,16 @@ const Success = () => {
         <div className="nk-block nk-block-middle nk-auth-body">
           <div className="brand-logo pb-5">
             <Link to={`${process.env.PUBLIC_URL}/`} className="logo-link">
-              <img className="logo-light logo-img logo-img-lg" src={Logo} alt="logo" />
-              <img className="logo-dark logo-img logo-img-lg" src={LogoDark} alt="logo-dark" />
+              <img
+                className="logo-light logo-img logo-img-lg"
+                src={Logo}
+                alt="logo"
+              />
+              <img
+                className="logo-dark logo-img logo-img-lg"
+                src={LogoDark}
+                alt="logo-dark"
+              />
             </Link>
           </div>
           <div className="nk-block">
@@ -23,8 +31,11 @@ const Success = () => {
               <h4 className="nk-block-title">Thank you for submitting form</h4>
               <div className="nk-block-des text-success">
                 <p>You can now sign in with your new password</p>
-                <Link to={`${process.env.PUBLIC_URL}/pages/auths/auth-login`} className="btn btn-primary btn-lg">
-                    Back to Login
+                <Link
+                  to={`${process.env.PUBLIC_URL}/pages/auths/auth-login`}
+                  className="btn btn-primary btn-lg"
+                >
+                  Back to Login
                 </Link>
               </div>
             </div>

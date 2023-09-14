@@ -5,7 +5,7 @@ import PageContainer from "../../layout/page-container/PageContainer";
 import Head from "../../layout/head/Head";
 import AuthFooter from "./AuthFooter";
 
-import { Form,  Spinner, Alert, Button } from "reactstrap";
+import { Form, Spinner, Alert, Button } from "reactstrap";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { NioIcon } from "../../components/icon/Icon";
@@ -25,7 +25,7 @@ const Login = () => {
         window.history.pushState(
           `${process.env.PUBLIC_URL ? process.env.PUBLIC_URL : "/"}`,
           "auth-login",
-          `${process.env.PUBLIC_URL ? process.env.PUBLIC_URL : "/"}`
+          `${process.env.PUBLIC_URL ? process.env.PUBLIC_URL : "/"}`,
         );
         window.location.reload();
       }, 2000);
@@ -37,7 +37,11 @@ const Login = () => {
     }
   };
 
-  const {  register, handleSubmit, formState: { errors } } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   return (
     <React.Fragment>
@@ -46,8 +50,16 @@ const Login = () => {
         <div className="nk-block nk-block-middle nk-auth-body wide-xs">
           <div className="brand-logo pb-4 text-center">
             <Link to={process.env.PUBLIC_URL + "/"} className="logo-link">
-              <img className="logo-light logo-img logo-img-lg" src={Logo} alt="logo" />
-              <img className="logo-dark logo-img logo-img-lg" src={LogoDark} alt="logo-dark" />
+              <img
+                className="logo-light logo-img logo-img-lg"
+                src={Logo}
+                alt="logo"
+              />
+              <img
+                className="logo-dark logo-img logo-img-lg"
+                src={LogoDark}
+                alt="logo-dark"
+              />
             </Link>
           </div>
 
@@ -57,15 +69,16 @@ const Login = () => {
                 <div className="nk-block-content">
                   <h5 className="nk-block-title page">Sign-In</h5>
                   <div className="nk-block-des">
-                  <p>Access Dashlite using your email and passcode.</p>
-                  </div >
+                    <p>Access Dashlite using your email and passcode.</p>
+                  </div>
                 </div>
               </div>
               {errorVal && (
                 <div className="mb-3">
                   <Alert color="danger" className="alert-icon">
                     {" "}
-                    <NioIcon icon="alert-circle" /> Unable to login with credentials{" "}
+                    <NioIcon icon="alert-circle" /> Unable to login with
+                    credentials{" "}
                   </Alert>
                 </div>
               )}
@@ -80,11 +93,16 @@ const Login = () => {
                     <input
                       type="text"
                       id="default-01"
-                      {...register('name', { required: "This field is required" })}
+                      {...register("name", {
+                        required: "This field is required",
+                      })}
                       defaultValue="info@softnio.com"
                       placeholder="Enter your email address or username"
-                      className="form-control-lg form-control" />
-                    {errors.name && <span className="invalid">{errors.name.message}</span>}
+                      className="form-control-lg form-control"
+                    />
+                    {errors.name && (
+                      <span className="invalid">{errors.name.message}</span>
+                    )}
                   </div>
                 </div>
                 <div className="form-group">
@@ -92,7 +110,10 @@ const Login = () => {
                     <label className="form-label" htmlFor="password">
                       Passcode
                     </label>
-                    <Link className="link link-primary link-sm" to={`${process.env.PUBLIC_URL}/pages/auths/auth-reset`}>
+                    <Link
+                      className="link link-primary link-sm"
+                      to={`${process.env.PUBLIC_URL}/pages/auths/auth-reset`}
+                    >
                       Forgot Code?
                     </Link>
                   </div>
@@ -103,31 +124,56 @@ const Login = () => {
                         ev.preventDefault();
                         setPassState(!passState);
                       }}
-                      className={`form-icon lg form-icon-right passcode-switch ${passState ? "is-hidden" : "is-shown"}`}
+                      className={`form-icon lg form-icon-right passcode-switch ${
+                        passState ? "is-hidden" : "is-shown"
+                      }`}
                     >
-                      <NioIcon icon="eye" className="passcode-icon icon-show"></NioIcon>
+                      <NioIcon
+                        icon="eye"
+                        className="passcode-icon icon-show"
+                      ></NioIcon>
 
-                      <NioIcon icon="eye-off" className="passcode-icon icon-hide"></NioIcon>
+                      <NioIcon
+                        icon="eye-off"
+                        className="passcode-icon icon-hide"
+                      ></NioIcon>
                     </a>
                     <input
                       type={passState ? "text" : "password"}
                       id="password"
-                      {...register('passcode', { required: "This field is required" })}
+                      {...register("passcode", {
+                        required: "This field is required",
+                      })}
                       defaultValue="123456"
                       placeholder="Enter your passcode"
-                      className={`form-control-lg form-control ${passState ? "is-hidden" : "is-shown"}`} />
-                    {errors.passcode && <span className="invalid">{errors.passcode.message}</span>}
+                      className={`form-control-lg form-control ${
+                        passState ? "is-hidden" : "is-shown"
+                      }`}
+                    />
+                    {errors.passcode && (
+                      <span className="invalid">{errors.passcode.message}</span>
+                    )}
                   </div>
                 </div>
                 <div className="form-group">
-                  <Button size="lg" className="btn-block" type="submit" color="primary">
+                  <Button
+                    size="lg"
+                    className="btn-block"
+                    type="submit"
+                    color="primary"
+                  >
                     {loading ? <Spinner size="sm" color="light" /> : "Sign in"}
                   </Button>
                 </div>
               </Form>
               <div className="form-note-s2 text-center pt-4">
                 {" "}
-                New on our platform? <Link to={`${process.env.PUBLIC_URL}/pages/auths/auth-register`}>Create an account</Link>
+                New on our platform?{" "}
+                <Link
+                  to={`${process.env.PUBLIC_URL}/pages/auths/auth-register`}
+                >
+                  Create an account
+                </Link>
               </div>
               <div className="text-center pt-4 pb-3">
                 <h6 className="overline-title overline-title-sap">
@@ -158,9 +204,9 @@ const Login = () => {
                   </a>
                 </li>
               </ul>
-              </div>
             </div>
           </div>
+        </div>
         <AuthFooter />
       </PageContainer>
     </React.Fragment>

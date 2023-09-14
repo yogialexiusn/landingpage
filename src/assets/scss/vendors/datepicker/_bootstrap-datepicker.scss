@@ -11,8 +11,8 @@ $datepicker-today-bg: $accent-200;
 $datepicker-today-hover-bg: $accent-500;
 $datepicker-today-active-bg: $accent-color;
 $datepicker-today-color: $accent-color;
-$datepicker-today-hover-color:$white;
-$datepicker-today-active-hover-color:$white;
+$datepicker-today-hover-color: $white;
+$datepicker-today-active-hover-color: $white;
 
 $datepicker-range-bg: $light-300;
 
@@ -26,7 +26,7 @@ $datepicker-selected-hover-bg: $light-700;
 $datepicker-selected-active-bg: $light-800;
 
 $datepicker-active-bg: $accent-500;
-$datepicker-active-color:$white;
+$datepicker-active-color: $white;
 $datepicker-active-hover-bg: $accent-color;
 $datepicker-active-active-bg: $accent-color;
 
@@ -43,7 +43,6 @@ $datepicker-switch-hover-bg: $bg-light;
 
 $input-daterange-add-on-bg: $bg-light;
 
-
 .datepicker {
   padding: 10px;
   border-radius: 4px;
@@ -51,7 +50,7 @@ $input-daterange-add-on-bg: $bg-light;
   border: 1px solid $light-300;
   box-shadow: none;
   min-width: 240px;
-  .table-condensed{
+  .table-condensed {
     width: 100%;
   }
 }
@@ -72,7 +71,7 @@ $input-daterange-add-on-bg: $bg-light;
   left: 0;
 }
 .datepicker-dropdown:before {
-  content: '';
+  content: "";
   display: inline-block;
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
@@ -82,7 +81,7 @@ $input-daterange-add-on-bg: $bg-light;
   position: absolute;
 }
 .datepicker-dropdown:after {
-  content: '';
+  content: "";
   display: inline-block;
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
@@ -137,7 +136,7 @@ $input-daterange-add-on-bg: $bg-light;
   -moz-border-radius: 4px;
   border-radius: 4px;
   border: none;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 .table-striped .datepicker table tr td,
 .table-striped .datepicker table tr th {
@@ -344,7 +343,7 @@ $input-daterange-add-on-bg: $bg-light;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 .datepicker table tr td span:hover,
 .datepicker table tr td span.focused {

@@ -13,7 +13,10 @@ const Support = () => {
             <h6 className="title">Support Requests</h6>
           </CardTitle>
           <div className="card-tools">
-            <Link to={`${process.env.PUBLIC_URL}/app-messages`} className="link">
+            <Link
+              to={`${process.env.PUBLIC_URL}/app-messages`}
+              className="link"
+            >
               All Tickets
             </Link>
           </div>
@@ -23,14 +26,22 @@ const Support = () => {
         {supportData.map((item, idx) => {
           return (
             <li className="nk-support-item" key={idx}>
-              <UserAvatar image={item.img} theme={item.theme} text={item.initial} />
+              <UserAvatar
+                image={item.img}
+                theme={item.theme}
+                text={item.initial}
+              />
               <div className="nk-support-content">
                 <div className="title">
                   <span>{item.name}</span>
                   <Badge
                     className="badge-dot badge-dot-xs"
                     color={
-                      item.status === "Solved" ? "success" : item.status === "Pending" ? "warning" : "info"
+                      item.status === "Solved"
+                        ? "success"
+                        : item.status === "Pending"
+                        ? "warning"
+                        : "info"
                     }
                   >
                     {item.status}

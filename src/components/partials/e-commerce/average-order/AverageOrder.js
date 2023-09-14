@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import { Icon } from "../../../Component";
-import { Card, UncontrolledDropdown, DropdownItem, DropdownMenu, DropdownToggle } from "reactstrap";
+import {
+  Card,
+  UncontrolledDropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownToggle,
+} from "reactstrap";
 import { AverageOrderChart } from "../../charts/e-commerce/EcomCharts";
 
 const AverageOrder = () => {

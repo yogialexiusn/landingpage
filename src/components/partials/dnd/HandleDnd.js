@@ -50,7 +50,12 @@ const DragHandleDnd = () => {
         setDndSet2(items);
       }
     } else {
-      const result = move(getList(source.droppableId), getList(destination.droppableId), source, destination);
+      const result = move(
+        getList(source.droppableId),
+        getList(destination.droppableId),
+        source,
+        destination,
+      );
       setDndSet1(result.droppable1);
       setDndSet2(result.droppable2);
     }
@@ -69,7 +74,10 @@ const DragHandleDnd = () => {
                       {...provided.draggableProps}
                       className="p-3 bg-white border border-light round-lg mb-3 dnd-handle"
                     >
-                      <span {...provided.dragHandleProps} className="handle"></span>
+                      <span
+                        {...provided.dragHandleProps}
+                        className="handle"
+                      ></span>
                       <span>{item.text}</span>
                     </div>
                   )}
@@ -92,7 +100,10 @@ const DragHandleDnd = () => {
                       {...provided.draggableProps}
                       className="p-3 bg-white border border-light round-lg mb-3 dnd-handle"
                     >
-                      <span {...provided.dragHandleProps} className="handle"></span>
+                      <span
+                        {...provided.dragHandleProps}
+                        className="handle"
+                      ></span>
                       <span>{item.text}</span>
                     </div>
                   )}

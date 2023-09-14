@@ -8,7 +8,9 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 export const PreviewCard = ({ className, bodyClass, ...props }) => {
   return (
     <Card className={`card-preview ${className ? className : ""}`}>
-      <div className={`card-inner ${bodyClass ? bodyClass : ""}`}>{props.children}</div>
+      <div className={`card-inner ${bodyClass ? bodyClass : ""}`}>
+        {props.children}
+      </div>
     </Card>
   );
 };
@@ -16,7 +18,9 @@ export const PreviewCard = ({ className, bodyClass, ...props }) => {
 export const PreviewAltCard = ({ className, bodyClass, ...props }) => {
   return (
     <Card className={`${className ? className : ""}`}>
-      <div className={`card-inner ${bodyClass ? bodyClass : ""}`}>{props.children}</div>
+      <div className={`card-inner ${bodyClass ? bodyClass : ""}`}>
+        {props.children}
+      </div>
     </Card>
   );
 };
@@ -24,7 +28,13 @@ export const PreviewAltCard = ({ className, bodyClass, ...props }) => {
 export const PreviewTable = ({ ...props }) => {
   return (
     <Card className="card card-bordered card-preview">
-      <table className={`table preview-reference ${props.size ? `table-${props.size}` : ""}`}>{props.children}</table>
+      <table
+        className={`table preview-reference ${
+          props.size ? `table-${props.size}` : ""
+        }`}
+      >
+        {props.children}
+      </table>
     </Card>
   );
 };
@@ -37,7 +47,11 @@ export const CodeBlock = ({ language, ...props }) => {
     setTimeout(() => setCopyState(false), 2000);
   };
   return (
-    <div className={`code-block code-block-clean ${copyState ? "clipboard-success" : ""}`}>
+    <div
+      className={`code-block code-block-clean ${
+        copyState ? "clipboard-success" : ""
+      }`}
+    >
       {/* <OverlineTitle className="title">{props.title ? props.title : "Code Example"}</OverlineTitle>
       <CopyToClipboard text={copyText} onCopy={onCopyClick}>
         <Button color="blank" size="sm" className="clipboard-init">

@@ -18,19 +18,28 @@ const OrderStatistics = () => {
           <ul className="nk-ecwg7-legends">
             <li>
               <div className="title">
-                <span className="dot dot-lg sq" style={{ background: "#816bff" }}></span>
+                <span
+                  className="dot dot-lg sq"
+                  style={{ background: "#816bff" }}
+                ></span>
                 <span>Completed</span>
               </div>
             </li>
             <li>
               <div className="title">
-                <span className="dot dot-lg sq" style={{ background: "#13c9f2" }}></span>
+                <span
+                  className="dot dot-lg sq"
+                  style={{ background: "#13c9f2" }}
+                ></span>
                 <span>Processing</span>
               </div>
             </li>
             <li>
               <div className="title">
-                <span className="dot dot-lg sq" style={{ background: "#ff82b7" }}></span>
+                <span
+                  className="dot dot-lg sq"
+                  style={{ background: "#ff82b7" }}
+                ></span>
                 <span>Canclled</span>
               </div>
             </li>

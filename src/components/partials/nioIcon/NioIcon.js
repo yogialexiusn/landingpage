@@ -15,9 +15,15 @@ const NicoIconCard = ({ iconName, tag, ...props }) => {
   return (
     <React.Fragment>
       <li className="preview-icon-item">
-        <div className={`preview-icon-box card ${copy ? "clipboard-success" : ""}`}>
+        <div
+          className={`preview-icon-box card ${copy ? "clipboard-success" : ""}`}
+        >
           <CopyToClipboard text={text}>
-            <Button type="button" className="btn-icon btn-clipboard clipboard-init clipboard-text" onClick={handleCopy}>
+            <Button
+              type="button"
+              className="btn-icon btn-clipboard clipboard-init clipboard-text"
+              onClick={handleCopy}
+            >
               <Icon name="copy"></Icon>
             </Button>
           </CopyToClipboard>

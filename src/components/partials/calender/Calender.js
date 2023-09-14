@@ -5,7 +5,15 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 import listPlugin from "@fullcalendar/list";
 import bootstrapPlugin from "@fullcalendar/bootstrap5";
 import DatePicker from "react-datepicker";
-import { Popover, PopoverHeader, PopoverBody, ModalHeader, Modal, ModalBody,  Button } from "reactstrap";
+import {
+  Popover,
+  PopoverHeader,
+  PopoverBody,
+  ModalHeader,
+  Modal,
+  ModalBody,
+  Button,
+} from "reactstrap";
 import { useForm } from "react-hook-form";
 import { Col, Row, RSelect } from "../../Component";
 import { setDateForPicker } from "../../../utils/Utils";
@@ -16,7 +24,11 @@ const EventView = (event) => {
   const { title, extendedProps, publicId } = event.event.event._def;
   return (
     <React.Fragment>
-      <div id={publicId} onMouseEnter={() => setMouseEnter(true)} onMouseLeave={() => setMouseEnter(false)}>
+      <div
+        id={publicId}
+        onMouseEnter={() => setMouseEnter(true)}
+        onMouseLeave={() => setMouseEnter(false)}
+      >
         {title}
       </div>{" "}
       <Popover placement="bottom" isOpen={mouseEnter} target={publicId}>
@@ -44,7 +56,12 @@ const CalenderApp = ({ events, onDelete, onEdit }) => {
     updateEvents(events);
   }, [events]);
 
-  const { reset, register, handleSubmit, formState: { errors } } = useForm();
+  const {
+    reset,
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const handleFormSubmit = (formData) => {
     let newEvent = {};
@@ -78,7 +95,7 @@ const CalenderApp = ({ events, onDelete, onEdit }) => {
   };
 
   useEffect(() => {
-    reset(event)
+    reset(event);
   }, [event]);
 
   return (
@@ -151,7 +168,10 @@ const CalenderApp = ({ events, onDelete, onEdit }) => {
       <Modal isOpen={edit} toggle={toggleEdit} className="modal-md">
         <ModalHeader toggle={toggleEdit}>Edit Event</ModalHeader>
         <ModalBody>
-          <form className="form-validate is-alter" onSubmit={handleSubmit(handleFormSubmit)}>
+          <form
+            className="form-validate is-alter"
+            onSubmit={handleSubmit(handleFormSubmit)}
+          >
             <Row className="gx-4 gy-3">
               <Col size="12">
                 <div className="form-group">
@@ -162,11 +182,16 @@ const CalenderApp = ({ events, onDelete, onEdit }) => {
                     <input
                       type="text"
                       id="event-title"
-                      {...register('title', { required: true })}
+                      {...register("title", { required: true })}
                       className="form-control"
-                      value={event.title} 
-                      onChange={(e) => updateEvent({ ...event, title: e.target.value })}/>
-                    {errors.title && <p className="invalid">This field is required</p>}
+                      value={event.title}
+                      onChange={(e) =>
+                        updateEvent({ ...event, title: e.target.value })
+                      }
+                    />
+                    {errors.title && (
+                      <p className="invalid">This field is required</p>
+                    )}
                   </div>
                 </div>
               </Col>
@@ -178,7 +203,12 @@ const CalenderApp = ({ events, onDelete, onEdit }) => {
                       <div className="form-control-wrap">
                         <DatePicker
                           selected={new Date(event.start)}
-                          onChange={(date) => updateEvent({ ...event, start: setDateForPicker(date) })}
+                          onChange={(date) =>
+                            updateEvent({
+                              ...event,
+                              start: setDateForPicker(date),
+                            })
+                          }
                           className="form-control date-picker"
                         />
                       </div>
@@ -187,7 +217,9 @@ const CalenderApp = ({ events, onDelete, onEdit }) => {
                       <div className="form-control-wrap has-timepicker">
                         <DatePicker
                           selected={dates.startTime}
-                          onChange={(date) => setDates({ ...dates, startTime: date })}
+                          onChange={(date) =>
+                            setDates({ ...dates, startTime: date })
+                          }
                           showTimeSelect
                           showTimeSelectOnly
                           timeIntervals={15}
@@ -208,7 +240,12 @@ const CalenderApp = ({ events, onDelete, onEdit }) => {
                       <div className="form-control-wrap">
                         <DatePicker
                           selected={new Date(event.end)}
-                          onChange={(date) => updateEvent({ ...event, end: setDateForPicker(date) })}
+                          onChange={(date) =>
+                            updateEvent({
+                              ...event,
+                              end: setDateForPicker(date),
+                            })
+                          }
                           className="form-control date-picker"
                         />
                       </div>
@@ -217,7 +254,9 @@ const CalenderApp = ({ events, onDelete, onEdit }) => {
                       <div className="form-control-wrap has-timepicker">
                         <DatePicker
                           selected={dates.endTime}
-                          onChange={(date) => setDates({ ...dates, endTime: date })}
+                          onChange={(date) =>
+                            setDates({ ...dates, endTime: date })
+                          }
                           showTimeSelect
                           showTimeSelectOnly
                           timeIntervals={15}
@@ -239,10 +278,15 @@ const CalenderApp = ({ events, onDelete, onEdit }) => {
                     <textarea
                       className="form-control"
                       id="event-description"
-                      {...register('description', { required: true })}
+                      {...register("description", { required: true })}
                       value={event.description}
-                      onChange={(e) => updateEvent({ ...event, description: e.target.value })}></textarea>
-                    {errors.description && <p className="invalid">This field is required</p>}
+                      onChange={(e) =>
+                        updateEvent({ ...event, description: e.target.value })
+                      }
+                    ></textarea>
+                    {errors.description && (
+                      <p className="invalid">This field is required</p>
+                    )}
                   </div>
                 </div>
               </Col>
@@ -267,7 +311,11 @@ const CalenderApp = ({ events, onDelete, onEdit }) => {
                     </Button>
                   </li>
                   <li>
-                    <Button color="danger" className="btn-dim" onClick={toggleEdit}>
+                    <Button
+                      color="danger"
+                      className="btn-dim"
+                      onClick={toggleEdit}
+                    >
                       Discard
                     </Button>
                   </li>

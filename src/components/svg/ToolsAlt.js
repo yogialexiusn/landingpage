@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const ToolsAlt = () => {
   return (
@@ -13,7 +13,7 @@ const ToolsAlt = () => {
       <path d="M403.9 446.3L357 493.2c30 21.9 69.6 24.6 101.9 8.1l-55-55zM53.1 10.7l55 55L155 18.8c-29.9-22-69.6-24.7-101.9-8.1z"></path>
       <path d="M194.3 109.4c3-24.1-3.1-49-18-69.4L87 129.3 10.7 53.1C-8.1 89.7-2.1 135.8 28.6 166.4c22.1 22.1 52.1 31.4 80.9 27.8l40.5 40.5 84.9-84.8-40.6-40.5z"></path>
     </svg>
-  )
-}
+  );
+};
 
-export default ToolsAlt
+export default ToolsAlt;

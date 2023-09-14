@@ -1,8 +1,18 @@
 import React from "react";
 import UserAvatar from "../../../user/UserAvatar";
 import Icon from "../../../icon/Icon";
-import { DropdownItem, DropdownMenu, DropdownToggle, Progress, UncontrolledDropdown } from "reactstrap";
-import { DataTableHead, DataTableItem, DataTableRow } from "../../../table/DataTable";
+import {
+  DropdownItem,
+  DropdownMenu,
+  DropdownToggle,
+  Progress,
+  UncontrolledDropdown,
+} from "reactstrap";
+import {
+  DataTableHead,
+  DataTableItem,
+  DataTableRow,
+} from "../../../table/DataTable";
 import { findUpper } from "../../../../utils/Utils";
 import { investData } from "./InvestData";
 
@@ -54,15 +64,24 @@ const RecentInvest = () => {
             <DataTableItem key={item.id}>
               <DataTableRow>
                 <div className="align-center">
-                  <UserAvatar size="sm" theme="light" text={item.plan}></UserAvatar>
+                  <UserAvatar
+                    size="sm"
+                    theme="light"
+                    text={item.plan}
+                  ></UserAvatar>
                   <span className="tb-sub ms-2">
-                    {item.title} <span className="d-none d-md-inline">- {item.desc}</span>
+                    {item.title}{" "}
+                    <span className="d-none d-md-inline">- {item.desc}</span>
                   </span>
                 </div>
               </DataTableRow>
               <DataTableRow size="sm">
                 <div className="user-card">
-                  <UserAvatar size="sm" theme={item.theme} text={findUpper(item.who)} />
+                  <UserAvatar
+                    size="sm"
+                    theme={item.theme}
+                    text={findUpper(item.who)}
+                  />
                   <div className="user-name">
                     <span className="tb-lead">{item.who}</span>
                   </div>
@@ -80,12 +99,18 @@ const RecentInvest = () => {
                 {item.status === "Completed" ? (
                   <span className="tb-sub text-success">Completed</span>
                 ) : (
-                  <Progress className="progress-sm w-80px" value={item.status}></Progress>
+                  <Progress
+                    className="progress-sm w-80px"
+                    value={item.status}
+                  ></Progress>
                 )}
               </DataTableRow>
               <DataTableRow className="nk-tb-col-action">
                 <UncontrolledDropdown>
-                  <DropdownToggle tag="a" className="text-soft dropdown-toggle btn btn-sm btn-icon btn-trigger">
+                  <DropdownToggle
+                    tag="a"
+                    className="text-soft dropdown-toggle btn btn-sm btn-icon btn-trigger"
+                  >
                     <Icon name="chevron-right"></Icon>
                   </DropdownToggle>
                   <DropdownMenu end className="dropdown-menu-xs">

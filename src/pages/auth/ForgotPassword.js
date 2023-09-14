@@ -4,7 +4,7 @@ import LogoDark from "../../images/logo-dark.png";
 import PageContainer from "../../layout/page-container/PageContainer";
 import Head from "../../layout/head/Head";
 import AuthFooter from "./AuthFooter";
-import {  Button } from "reactstrap";
+import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
 
 const ForgotPassword = () => {
@@ -15,8 +15,16 @@ const ForgotPassword = () => {
         <div className="nk-block nk-block-middle nk-auth-body wide-xs">
           <div className="brand-logo pb-4 text-center">
             <Link to={process.env.PUBLIC_URL + "/"} className="logo-link">
-              <img className="logo-light logo-img logo-img-lg" src={Logo} alt="logo" />
-              <img className="logo-dark logo-img logo-img-lg" src={LogoDark} alt="logo-dark" />
+              <img
+                className="logo-light logo-img logo-img-lg"
+                src={Logo}
+                alt="logo"
+              />
+              <img
+                className="logo-dark logo-img logo-img-lg"
+                src={LogoDark}
+                alt="logo-dark"
+              />
             </Link>
           </div>
           <div className="card-preview card-bordered">
@@ -25,8 +33,11 @@ const ForgotPassword = () => {
                 <div className="nk-block-content">
                   <h5 className="nk-block-title page">Reset Password</h5>
                   <div className="nk-block-des">
-                    <p>If you forgot your password, well, then we’ll email you instructions to reset your password.</p>
-                  </div >
+                    <p>
+                      If you forgot your password, well, then we’ll email you
+                      instructions to reset your password.
+                    </p>
+                  </div>
                 </div>
               </div>
               <form>
@@ -44,7 +55,12 @@ const ForgotPassword = () => {
                   />
                 </div>
                 <div className="form-group">
-                  <Button color="primary" size="lg" className="btn-block" onClick={(ev) => ev.preventDefault()}>
+                  <Button
+                    color="primary"
+                    size="lg"
+                    className="btn-block"
+                    onClick={(ev) => ev.preventDefault()}
+                  >
                     Send Reset Link
                   </Button>
                 </div>

@@ -64,7 +64,8 @@ const InvestOverview = () => {
               <div className="invest-ov-details">
                 <div className="invest-ov-info">
                   <div className="amount">
-                    49,395.395 <span className="currency currency-usd">USD</span>
+                    49,395.395{" "}
+                    <span className="currency currency-usd">USD</span>
                   </div>
                   <div className="title">Amount</div>
                 </div>
@@ -82,7 +83,8 @@ const InvestOverview = () => {
               <div className="invest-ov-details">
                 <div className="invest-ov-info">
                   <div className="amount">
-                    49,395.395 <span className="currency currency-usd">USD</span>
+                    49,395.395{" "}
+                    <span className="currency currency-usd">USD</span>
                   </div>
                   <div className="title">Paid Profit</div>
                 </div>
@@ -93,7 +95,8 @@ const InvestOverview = () => {
               <div className="invest-ov-details">
                 <div className="invest-ov-info">
                   <div className="amount">
-                    49,395.395 <span className="currency currency-usd">USD</span>
+                    49,395.395{" "}
+                    <span className="currency currency-usd">USD</span>
                   </div>
                   <div className="title">Amount</div>
                 </div>
@@ -119,7 +122,8 @@ const InvestOverview = () => {
               <div className="invest-ov-details">
                 <div className="invest-ov-info">
                   <div className="amount">
-                    89,395.395 <span className="currency currency-usd">USD</span>
+                    89,395.395{" "}
+                    <span className="currency currency-usd">USD</span>
                   </div>
                   <div className="title">Amount</div>
                 </div>
@@ -137,7 +141,8 @@ const InvestOverview = () => {
               <div className="invest-ov-details">
                 <div className="invest-ov-info">
                   <div className="amount">
-                    99,395.395 <span className="currency currency-usd">USD</span>
+                    99,395.395{" "}
+                    <span className="currency currency-usd">USD</span>
                   </div>
                   <div className="title">Paid Profit</div>
                 </div>
@@ -148,7 +153,8 @@ const InvestOverview = () => {
               <div className="invest-ov-details">
                 <div className="invest-ov-info">
                   <div className="amount">
-                    149,395.395 <span className="currency currency-usd">USD</span>
+                    149,395.395{" "}
+                    <span className="currency currency-usd">USD</span>
                   </div>
                   <div className="title">Amount</div>
                 </div>
@@ -174,7 +180,8 @@ const InvestOverview = () => {
               <div className="invest-ov-details">
                 <div className="invest-ov-info">
                   <div className="amount">
-                    249,395.395 <span className="currency currency-usd">USD</span>
+                    249,395.395{" "}
+                    <span className="currency currency-usd">USD</span>
                   </div>
                   <div className="title">Amount</div>
                 </div>
@@ -192,7 +199,8 @@ const InvestOverview = () => {
               <div className="invest-ov-details">
                 <div className="invest-ov-info">
                   <div className="amount">
-                    149,395.395 <span className="currency currency-usd">USD</span>
+                    149,395.395{" "}
+                    <span className="currency currency-usd">USD</span>
                   </div>
                   <div className="title">Paid Profit</div>
                 </div>
@@ -203,7 +211,8 @@ const InvestOverview = () => {
               <div className="invest-ov-details">
                 <div className="invest-ov-info">
                   <div className="amount">
-                    249,395.395 <span className="currency currency-usd">USD</span>
+                    249,395.395{" "}
+                    <span className="currency currency-usd">USD</span>
                   </div>
                   <div className="title">Amount</div>
                 </div>

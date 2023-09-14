@@ -13,7 +13,11 @@ const TotalSales = () => {
               <h6 className="title">Total Sales</h6>
             </div>
             <div className="card-tools">
-              <a href="#report" onClick={(ev) => ev.preventDefault()} className="link">
+              <a
+                href="#report"
+                onClick={(ev) => ev.preventDefault()}
+                className="link"
+              >
                 View Report
               </a>
             </div>

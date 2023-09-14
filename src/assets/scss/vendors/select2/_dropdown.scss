@@ -11,11 +11,11 @@
   left: -100000px;
   z-index: 1051;
   padding: 6px;
-  &--below{
+  &--below {
     margin-top: -1px;
     border-radius: 0 0 $select2-border-radius $select2-border-radius;
   }
-  &--above{
+  &--above {
     margin-top: 1px;
     border-radius: $select2-border-radius $select2-border-radius 0 0;
   }
@@ -33,19 +33,18 @@
 }
 
 .select2-results__option {
-  
-  padding: .375rem ($select2-padding-x - .25rem);
+  padding: 0.375rem ($select2-padding-x - 0.25rem);
   border-radius: $select2-border-radius;
   user-select: none;
   -webkit-user-select: none;
-  &:not(:last-child){
+  &:not(:last-child) {
     margin-bottom: 0.125rem;
   }
   &[aria-selected] {
     cursor: pointer;
   }
-  .select2-lg &{
-    padding: .5rem ($select2-padding-x-lg - .25rem);
+  .select2-lg & {
+    padding: 0.5rem ($select2-padding-x-lg - 0.25rem);
   }
 }
 
@@ -58,20 +57,20 @@
   display: block;
   padding: 0;
   .select2-search__field {
-    padding: .375rem ($select2-padding-x - .25rem);
+    padding: 0.375rem ($select2-padding-x - 0.25rem);
     width: 100%;
     border-radius: $select2-border-radius;
     margin-bottom: 6px;
     color: $select2-color;
-    &:focus{
+    &:focus {
       outline: none;
       border-color: $select2-focus-border-color;
     }
     &::-webkit-search-cancel-button {
       -webkit-appearance: none;
     }
-    .select2-lg &{
-      padding: .5rem ($select2-padding-x-lg - .25rem);
+    .select2-lg & {
+      padding: 0.5rem ($select2-padding-x-lg - 0.25rem);
     }
   }
 

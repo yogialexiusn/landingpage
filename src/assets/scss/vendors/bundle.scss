@@ -2,16 +2,16 @@
 ///        INCLUDED THIRD-PARTY VENDORS         ///
 ///////////////////////////////////////////////////
 
-// Include NioIcon 
+// Include NioIcon
 @import "nioicon/nioicon";
 
-// Include Select2 
+// Include Select2
 @import "select2/core.scss";
 
 // Include Simplebar
 @import "simplebar";
 .simplebar-scroll-content {
-	@extend .simplebar-content-wrapper;
+  @extend .simplebar-content-wrapper;
 }
 
 // Include Slick
@@ -38,6 +38,5 @@
 // Include sweetalert2
 @import "sweetalert2/sweetalert2";
 
-
 //React Video Modal
-@import 'react-modal-video';
+@import "react-modal-video";

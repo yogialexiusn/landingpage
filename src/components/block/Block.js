@@ -20,7 +20,11 @@ export const BlockContent = ({ className, ...props }) => {
 };
 
 export const BlockBetween = ({ className, ...props }) => {
-  return <div className={`nk-block-between ${className ? className : ""}`}>{props.children}</div>;
+  return (
+    <div className={`nk-block-between ${className ? className : ""}`}>
+      {props.children}
+    </div>
+  );
 };
 export const BlockHead = ({ className, size, wide, ...props }) => {
   const blockHeadClass = classNames({
@@ -32,10 +36,20 @@ export const BlockHead = ({ className, size, wide, ...props }) => {
   return <div className={blockHeadClass}>{props.children}</div>;
 };
 export const BlockHeadContent = ({ className, ...props }) => {
-  return <div className={[`nk-block-head-content${className ? " " + className : ""}`]}>{props.children}</div>;
+  return (
+    <div
+      className={[`nk-block-head-content${className ? " " + className : ""}`]}
+    >
+      {props.children}
+    </div>
+  );
 };
 export const BlockTitle = ({ className, page, ...props }) => {
-  const classes = [`nk-block-title ${page ? "page-title" : "title"}${className ? " " + className : ""}`];
+  const classes = [
+    `nk-block-title ${page ? "page-title" : "title"}${
+      className ? " " + className : ""
+    }`,
+  ];
   return (
     <React.Fragment>
       {!props.tag ? (

@@ -1,6 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { Card, DropdownMenu, DropdownToggle, DropdownItem, UncontrolledDropdown } from "reactstrap";
-import { productData, productDataSet2, productDataSet3, productDataSet4 } from "./ProductData";
+import {
+  Card,
+  DropdownMenu,
+  DropdownToggle,
+  DropdownItem,
+  UncontrolledDropdown,
+} from "reactstrap";
+import {
+  productData,
+  productDataSet2,
+  productDataSet3,
+  productDataSet4,
+} from "./ProductData";
 
 const TopProducts = () => {
   const [data, setData] = useState("Weekly");
@@ -94,7 +105,9 @@ const TopProducts = () => {
                 <div className="price">${item.price}</div>
               </div>
               <div className="total">
-                <div className="amount">$ {returnTotal(item.price, item.sold)}</div>
+                <div className="amount">
+                  $ {returnTotal(item.price, item.sold)}
+                </div>
                 <div className="count">{item.sold} Sold</div>
               </div>
             </li>

@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { Card, UncontrolledDropdown, DropdownMenu, DropdownItem, DropdownToggle } from "reactstrap";
+import {
+  Card,
+  UncontrolledDropdown,
+  DropdownMenu,
+  DropdownItem,
+  DropdownToggle,
+} from "reactstrap";
 import { Icon } from "../../../Component";
 import { TrafficSourcesChart } from "../../charts/e-commerce/EcomCharts";
 
@@ -73,31 +79,51 @@ const TrafficSources = () => {
             <ul className="nk-ecwg4-legends">
               <li>
                 <div className="title">
-                  <span className="dot dot-lg sq" style={{ background: "#9cabff" }}></span>
+                  <span
+                    className="dot dot-lg sq"
+                    style={{ background: "#9cabff" }}
+                  ></span>
                   <span>Organic Search</span>
                 </div>
-                <div className="amount amount-xs">{data === "7" ? "2505" : data === "15" ? "3505" : "4000"}</div>
+                <div className="amount amount-xs">
+                  {data === "7" ? "2505" : data === "15" ? "3505" : "4000"}
+                </div>
               </li>
               <li>
                 <div className="title">
-                  <span className="dot dot-lg sq" style={{ background: "#ffa9ce" }}></span>
+                  <span
+                    className="dot dot-lg sq"
+                    style={{ background: "#ffa9ce" }}
+                  ></span>
                   <span>Referrals</span>
                 </div>
-                <div className="amount amount-xs">{data === "7" ? "482" : data === "15" ? "800" : "1250"}</div>
+                <div className="amount amount-xs">
+                  {data === "7" ? "482" : data === "15" ? "800" : "1250"}
+                </div>
               </li>
               <li>
                 <div className="title">
-                  <span className="dot dot-lg sq" style={{ background: "#b8acff" }}></span>
+                  <span
+                    className="dot dot-lg sq"
+                    style={{ background: "#b8acff" }}
+                  ></span>
                   <span>Social Media</span>
                 </div>
-                <div className="amount amount-xs">{data === "7" ? "859" : data === "15" ? "1650" : "3250"}</div>
+                <div className="amount amount-xs">
+                  {data === "7" ? "859" : data === "15" ? "1650" : "3250"}
+                </div>
               </li>
               <li>
                 <div className="title">
-                  <span className="dot dot-lg sq" style={{ background: "#f9db7b" }}></span>
+                  <span
+                    className="dot dot-lg sq"
+                    style={{ background: "#f9db7b" }}
+                  ></span>
                   <span>Others</span>
                 </div>
-                <div className="amount amount-xs">{data === "7" ? "138" : data === "15" ? "150" : "250"}</div>
+                <div className="amount amount-xs">
+                  {data === "7" ? "138" : data === "15" ? "150" : "250"}
+                </div>
               </li>
             </ul>
           </div>
@@ -105,7 +131,10 @@ const TrafficSources = () => {
         <div className="card-inner card-inner-md bg-light">
           <div className="card-note">
             <Icon className="info-fill"></Icon>
-            <span>Traffic channels have beed generating the most traffics over past days.</span>
+            <span>
+              Traffic channels have beed generating the most traffics over past
+              days.
+            </span>
           </div>
         </div>
       </div>

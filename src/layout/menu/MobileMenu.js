@@ -5,8 +5,17 @@ import Scroll from "react-scroll";
 
 const ScrollLink = Scroll.Link;
 
-
-const MenuItem = ({ icon, link, text, sub, newTab, sidebarToggle, mobileView, badge, ...props }) => {
+const MenuItem = ({
+  icon,
+  link,
+  text,
+  sub,
+  newTab,
+  sidebarToggle,
+  mobileView,
+  badge,
+  ...props
+}) => {
   let currentUrl;
 
   if (window.location.pathname !== undefined) {
@@ -49,15 +58,23 @@ const MenuItem = ({ icon, link, text, sub, newTab, sidebarToggle, mobileView, ba
   };
 
   useEffect(() => {
-    var element = document.getElementsByClassName("menu-item active current-page");
+    var element = document.getElementsByClassName(
+      "menu-item active current-page",
+    );
     var arrayElement = [...element];
 
     arrayElement.forEach((dom) => {
-      if (dom.parentElement.parentElement.parentElement.classList[0] === "menu-item") {
+      if (
+        dom.parentElement.parentElement.parentElement.classList[0] ===
+        "menu-item"
+      ) {
         dom.parentElement.parentElement.parentElement.classList.add("active");
         const subMenuHeight = menuHeight(dom.parentNode.children);
         dom.parentElement.parentElement.style.height = subMenuHeight + "px";
-        makeParentActive(dom.parentElement.parentElement.parentElement, subMenuHeight);
+        makeParentActive(
+          dom.parentElement.parentElement.parentElement,
+          subMenuHeight,
+        );
       }
     });
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
@@ -104,7 +121,8 @@ const MenuItem = ({ icon, link, text, sub, newTab, sidebarToggle, mobileView, ba
           for (var l = 0; l < parentMenus.length; l++) {
             if (typeof parentMenus !== "undefined") {
               if (parentMenus[l].classList.contains("menu-wrap")) {
-                parentMenus[l].style.height = subMenuHeight + parentMenus[l].clientHeight + "px";
+                parentMenus[l].style.height =
+                  subMenuHeight + parentMenus[l].clientHeight + "px";
               }
             }
           }
@@ -121,7 +139,8 @@ const MenuItem = ({ icon, link, text, sub, newTab, sidebarToggle, mobileView, ba
         for (var k = 0; k < parentMenus.length; k++) {
           if (typeof parentMenus !== "undefined") {
             if (parentMenus[k].classList.contains("menu-wrap")) {
-              parentMenus[k].style.height = parentMenus[k].clientHeight - subMenuHeight + "px";
+              parentMenus[k].style.height =
+                parentMenus[k].clientHeight - subMenuHeight + "px";
             }
           }
         }
@@ -141,9 +160,10 @@ const MenuItem = ({ icon, link, text, sub, newTab, sidebarToggle, mobileView, ba
         <ScrollLink
           to={link}
           href="#"
-          spy={true} 
-          smooth={true}  
-          className="menu-link">
+          spy={true}
+          smooth={true}
+          className="menu-link"
+        >
           <span className="menu-text">{text}</span>
         </ScrollLink>
       ) : (
@@ -157,14 +177,26 @@ const MenuItem = ({ icon, link, text, sub, newTab, sidebarToggle, mobileView, ba
       )}
       {sub ? (
         <div className="menu-wrap">
-          <MenuSub sub={sub} sidebarToggle={sidebarToggle} mobileView={mobileView} />
+          <MenuSub
+            sub={sub}
+            sidebarToggle={sidebarToggle}
+            mobileView={mobileView}
+          />
         </div>
       ) : null}
     </li>
   );
 };
 
-const MenuSub = ({ icon, link, text, sub, sidebarToggle, mobileView, ...props }) => {
+const MenuSub = ({
+  icon,
+  link,
+  text,
+  sub,
+  sidebarToggle,
+  mobileView,
+  ...props
+}) => {
   return (
     <ul className="menu-sub" style={props.style}>
       {sub.map((item, i) => (

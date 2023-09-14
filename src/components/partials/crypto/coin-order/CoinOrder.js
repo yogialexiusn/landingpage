@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { UncontrolledDropdown, CardTitle, DropdownMenu, DropdownItem, DropdownToggle } from "reactstrap";
+import {
+  UncontrolledDropdown,
+  CardTitle,
+  DropdownMenu,
+  DropdownItem,
+  DropdownToggle,
+} from "reactstrap";
 import Icon from "../../../icon/Icon";
 import { HorizontalBarChart } from "../../charts/sales/Charts";
 
@@ -11,13 +17,21 @@ const CoinOrder = () => {
         <CardTitle className="card-title">
           <h6 className="title">Top Coin in Orders</h6>
           <p>
-            In last {coinOrder === "day" ? "30 days" : coinOrder === "month" ? "3 months" : "15 days"} buy and sells
-            overview.
+            In last{" "}
+            {coinOrder === "day"
+              ? "30 days"
+              : coinOrder === "month"
+              ? "3 months"
+              : "15 days"}{" "}
+            buy and sells overview.
           </p>
         </CardTitle>
         <div className="card-tools mt-n1 me-n1">
           <UncontrolledDropdown>
-            <DropdownToggle tag="a" className="dropdown-toggle btn btn-icon btn-trigger">
+            <DropdownToggle
+              tag="a"
+              className="dropdown-toggle btn btn-icon btn-trigger"
+            >
               <Icon name="more-h"></Icon>
             </DropdownToggle>
             <DropdownMenu end>
@@ -69,23 +83,38 @@ const CoinOrder = () => {
         </div>
         <ul className="nk-coin-ovwg-legends">
           <li>
-            <span className="dot dot-lg sq" style={{ background: "#f98c45" }}></span>
+            <span
+              className="dot dot-lg sq"
+              style={{ background: "#f98c45" }}
+            ></span>
             <span>Bitcoin</span>
           </li>
           <li>
-            <span className="dot dot-lg sq" style={{ background: "#9cabff" }}></span>
+            <span
+              className="dot dot-lg sq"
+              style={{ background: "#9cabff" }}
+            ></span>
             <span>Ethereum</span>
           </li>
           <li>
-            <span className="dot dot-lg sq" style={{ background: "#8feac5" }}></span>
+            <span
+              className="dot dot-lg sq"
+              style={{ background: "#8feac5" }}
+            ></span>
             <span>NioCoin</span>
           </li>
           <li>
-            <span className="dot dot-lg sq" style={{ background: "#6b79c8" }}></span>
+            <span
+              className="dot dot-lg sq"
+              style={{ background: "#6b79c8" }}
+            ></span>
             <span>Litecoin</span>
           </li>
           <li>
-            <span className="dot dot-lg sq" style={{ background: "#79f1dc" }}></span>
+            <span
+              className="dot dot-lg sq"
+              style={{ background: "#79f1dc" }}
+            ></span>
             <span>Bitcoin Cash</span>
           </li>
         </ul>

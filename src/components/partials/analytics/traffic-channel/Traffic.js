@@ -5,8 +5,18 @@ import {
   trafficChannelDataSet3,
   trafficChannelDataSet4,
 } from "../../charts/analytics/AnalyticsData";
-import { DropdownToggle, DropdownMenu, UncontrolledDropdown, DropdownItem } from "reactstrap";
-import { Icon, DataTableHead, DataTableRow, DataTableItem } from "../../../Component";
+import {
+  DropdownToggle,
+  DropdownMenu,
+  UncontrolledDropdown,
+  DropdownItem,
+} from "reactstrap";
+import {
+  Icon,
+  DataTableHead,
+  DataTableRow,
+  DataTableItem,
+} from "../../../Component";
 import { WPCharts } from "../../charts/analytics/AnalyticsCharts";
 
 const TrafficChannel = () => {

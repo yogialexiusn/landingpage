@@ -3,8 +3,11 @@ import { Card, Col, Container, Row } from "reactstrap";
 import { Link } from "../../components/button/Button";
 import { TextBlock, TitleH3 } from "../../components/textBlock/TextBlock";
 import { Section, SectionHead } from "../../layout/section/Section";
-import { Block }  from "../../components/block/Block";
-import { SlickArrowLeft, SlickArrowRight } from "../../components/slick/SlickComponents";
+import { Block } from "../../components/block/Block";
+import {
+  SlickArrowLeft,
+  SlickArrowRight,
+} from "../../components/slick/SlickComponents";
 import {
   Review,
   ReviewContent,
@@ -158,9 +161,7 @@ const History = (props) => {
         </SectionHead>
         <Block>
           <PreviewCard bodyClass="card-inner-x2">
-            <Slider
-              {...settings}
-            >
+            <Slider {...settings}>
               {moments.map((item) => (
                 <Col key={item.id} className="px-1">
                   <Card>

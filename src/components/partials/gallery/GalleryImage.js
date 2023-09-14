@@ -20,7 +20,12 @@ const ImageContainer = ({ img }) => {
         <button type="button" className="mfp-close" onClick={toggle}>
           ×
         </button>
-        <img className="w-100 rounded-top" style={{ height: "100%" }} src={img} alt="" />
+        <img
+          className="w-100 rounded-top"
+          style={{ height: "100%" }}
+          src={img}
+          alt=""
+        />
       </Modal>
     </a>
   );

@@ -1,7 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { pagePerUserData, pagePerUserDataSet2, pagePerUserDataSet3 } from "../../charts/analytics/AnalyticsData";
-import { DataTableRow, DataTableHead, DataTableItem } from "../../../table/DataTable";
-import { DropdownToggle, DropdownMenu, UncontrolledDropdown, DropdownItem } from "reactstrap";
+import {
+  pagePerUserData,
+  pagePerUserDataSet2,
+  pagePerUserDataSet3,
+} from "../../charts/analytics/AnalyticsData";
+import {
+  DataTableRow,
+  DataTableHead,
+  DataTableItem,
+} from "../../../table/DataTable";
+import {
+  DropdownToggle,
+  DropdownMenu,
+  UncontrolledDropdown,
+  DropdownItem,
+} from "reactstrap";
 
 const PageViewer = () => {
   const [pageViewer, setPageViewer] = useState("30");

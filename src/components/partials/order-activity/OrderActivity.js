@@ -2,7 +2,12 @@ import React, { useEffect, useState } from "react";
 import Icon from "../../icon/Icon";
 import { orderActivityData } from "./OrderData";
 import { CardTitle } from "reactstrap";
-import { DataTableBody, DataTableHead, DataTableItem, DataTableRow } from "../../table/DataTable";
+import {
+  DataTableBody,
+  DataTableHead,
+  DataTableItem,
+  DataTableRow,
+} from "../../table/DataTable";
 
 const OrderActivity = () => {
   const [orderData, setOrderData] = useState(orderActivityData);
@@ -10,9 +15,13 @@ const OrderActivity = () => {
   useEffect(() => {
     let data;
     if (orderActivity === "Buy") {
-      data = orderActivityData.filter((item) => item.desc.split(" ")[0] === "Buy");
+      data = orderActivityData.filter(
+        (item) => item.desc.split(" ")[0] === "Buy",
+      );
     } else if (orderActivity === "Sell") {
-      data = orderActivityData.filter((item) => item.desc.split(" ")[0] === "Sell");
+      data = orderActivityData.filter(
+        (item) => item.desc.split(" ")[0] === "Sell",
+      );
     } else {
       data = orderActivityData;
     }
@@ -38,7 +47,10 @@ const OrderActivity = () => {
           </CardTitle>
           <div className="card-tools">
             <ul className="card-tools-nav">
-              <li className={orderActivity === "Buy" ? "active" : ""} onClick={() => setActivity("Buy")}>
+              <li
+                className={orderActivity === "Buy" ? "active" : ""}
+                onClick={() => setActivity("Buy")}
+              >
                 <a
                   href="#buy"
                   onClick={(ev) => {
@@ -48,7 +60,10 @@ const OrderActivity = () => {
                   <span>Buy</span>
                 </a>
               </li>
-              <li className={orderActivity === "Sell" ? "active" : ""} onClick={() => setActivity("Sell")}>
+              <li
+                className={orderActivity === "Sell" ? "active" : ""}
+                onClick={() => setActivity("Sell")}
+              >
                 <a
                   href="#sell"
                   onClick={(ev) => {
@@ -58,7 +73,10 @@ const OrderActivity = () => {
                   <span>Sell</span>
                 </a>
               </li>
-              <li className={orderActivity === "" ? "active" : ""} onClick={() => setActivity("")}>
+              <li
+                className={orderActivity === "" ? "active" : ""}
+                onClick={() => setActivity("")}
+              >
                 <a
                   href="#all"
                   onClick={(ev) => {

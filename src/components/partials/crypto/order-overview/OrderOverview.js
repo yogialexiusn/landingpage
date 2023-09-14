@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { UncontrolledDropdown, CardTitle, DropdownMenu, DropdownItem, DropdownToggle } from "reactstrap";
+import {
+  UncontrolledDropdown,
+  CardTitle,
+  DropdownMenu,
+  DropdownItem,
+  DropdownToggle,
+} from "reactstrap";
 import Icon from "../../../icon/Icon";
 import { DoubleBar } from "../../charts/sales/Charts";
 import { Row, Col } from "../../../grid/Grid";
@@ -12,7 +18,8 @@ const OrderOverview = () => {
         <CardTitle className="card-title">
           <h6 className="title">Orders Overview</h6>
           <p>
-            In last {orderOverview === "set2" ? "30" : "15"} days buy and sells overview.{" "}
+            In last {orderOverview === "set2" ? "30" : "15"} days buy and sells
+            overview.{" "}
             <a
               href="#stats"
               onClick={(ev) => {
@@ -26,7 +33,10 @@ const OrderOverview = () => {
         </CardTitle>
         <div className="card-tools mt-n1 me-n1">
           <UncontrolledDropdown>
-            <DropdownToggle tag="a" className="dropdown-toggle btn btn-icon btn-trigger">
+            <DropdownToggle
+              tag="a"
+              className="dropdown-toggle btn btn-icon btn-trigger"
+            >
               <Icon name="more-h"></Icon>
             </DropdownToggle>
             <DropdownMenu end>
@@ -72,7 +82,8 @@ const OrderOverview = () => {
               <Col xxl="12" sm="6">
                 <div className="nk-order-ovwg-data buy">
                   <div className="amount">
-                    {orderOverview === "set2" ? "12,495" : "8,051"} <small className="currenct currency-usd">USD</small>
+                    {orderOverview === "set2" ? "12,495" : "8,051"}{" "}
+                    <small className="currenct currency-usd">USD</small>
                   </div>
                   <div className="info">
                     Last {orderOverview === "set2" ? "30" : "15"} days{" "}

@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { Card, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from "reactstrap";
+import {
+  Card,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+} from "reactstrap";
 import { DefaultSalesStatistics } from "../charts/default/DefaultCharts";
 
 const SalesStatistics = () => {
@@ -71,13 +77,19 @@ const SalesStatistics = () => {
           <ul className="nk-ecwg8-legends">
             <li>
               <div className="title">
-                <span className="dot dot-lg sq" style={{ background: "#6576ff" }}></span>
+                <span
+                  className="dot dot-lg sq"
+                  style={{ background: "#6576ff" }}
+                ></span>
                 <span>Total Order</span>
               </div>
             </li>
             <li>
               <div className="title">
-                <span className="dot dot-lg sq" style={{ background: "#eb6459" }}></span>
+                <span
+                  className="dot dot-lg sq"
+                  style={{ background: "#eb6459" }}
+                ></span>
                 <span>Cancelled Order</span>
               </div>
             </li>
@@ -87,7 +99,10 @@ const SalesStatistics = () => {
           </div>
           <div className="chart-label-group ps-5">
             <div className="chart-label">01 Jul, 2020</div>
-            <div className="chart-label">{data === "Daily" ? "02" : data === "Weekly" ? "07" : "30"} Jul, 2020</div>
+            <div className="chart-label">
+              {data === "Daily" ? "02" : data === "Weekly" ? "07" : "30"} Jul,
+              2020
+            </div>
           </div>
         </div>
       </div>

@@ -1,5 +1,11 @@
 import React from "react";
-import { DropdownMenu, DropdownToggle, UncontrolledDropdown, Progress, Badge } from "reactstrap";
+import {
+  DropdownMenu,
+  DropdownToggle,
+  UncontrolledDropdown,
+  Progress,
+  Badge,
+} from "reactstrap";
 import { PreviewCard } from "../../Component";
 import UserAvatar from "../../user/UserAvatar";
 import Icon from "../../icon/Icon";
@@ -97,24 +103,45 @@ export const ProjectBody = ({ desc, task, percentage, team, date }) => {
           {team.slice(0, 2).map((item) => {
             return (
               <li>
-                <UserAvatar size="sm" text={item.text} theme={item.theme} image={item.image} />
+                <UserAvatar
+                  size="sm"
+                  text={item.text}
+                  theme={item.theme}
+                  image={item.image}
+                />
               </li>
             );
           })}
           {team.length > 2 && (
             <li>
-              <UserAvatar theme="light" size="sm" text={`+${team.length - 2}`} />
+              <UserAvatar
+                theme="light"
+                size="sm"
+                text={`+${team.length - 2}`}
+              />
             </li>
           )}
         </ul>
         <Badge
           className="badge-dim"
           color={
-            days > 10 ? "light" : days <= 10 && days >= 2 ? "warning" : days === 1 ? "danger" : days === 0 && "success"
+            days > 10
+              ? "light"
+              : days <= 10 && days >= 2
+              ? "warning"
+              : days === 1
+              ? "danger"
+              : days === 0 && "success"
           }
         >
           <Icon name="clock"></Icon>
-          <span>{days === 0 ? "Done" : days === 1 ? "Due Tomorrow" : days + " Days Left"}</span>
+          <span>
+            {days === 0
+              ? "Done"
+              : days === 1
+              ? "Due Tomorrow"
+              : days + " Days Left"}
+          </span>
         </Badge>
       </div>
     </React.Fragment>
