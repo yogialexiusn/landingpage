@@ -101,31 +101,33 @@ const Career = (props) => {
   if (dummyJob != null) {
     divElements = dummyJob.map((item, index) => {
       return (
-        <div className="d-flex justify-content-between bg-color-">
-          <div class="card mt-5 w-40 ">
+        <Col lg="5" md="5">
+          {/* <div className=" mb-3"> */}
+          <div class="card shadow border mt-5 center bg-primary">
             {" "}
-            <div class="card-header border-bottom">
+            <div class="card-header bg-primary">
               <h4> {item.title}</h4>
             </div>{" "}
-            <ul class="list-group list-group-flush">
+            <ul class="list-group list-group-flush ">
               {" "}
-              <li class="list-group-item">
+              <li class="list-group-item center">
                 <p>
                   {item.department} - {item.team}
                 </p>
               </li>{" "}
-              <li class="list-group-item">
+              <li class="list-group-item center">
                 <p>
                   {item.location} - {item.country}
                 </p>
               </li>{" "}
-              <li class="list-group-item">{item.descriptionPlain}</li>{" "}
-              <li class="list-group-item">
-                <Button>asd</Button>
+              <li class="list-group-item center">{item.descriptionPlain}</li>{" "}
+              <li class="list-group-item center">
+                <Button>Apply</Button>
               </li>{" "}
             </ul>
           </div>
-        </div>
+          {/* </div> */}
+        </Col>
       );
     });
   }
@@ -184,7 +186,7 @@ const Career = (props) => {
       <HeaderContent className="py-6 is-black mt-lg-n1 mt-n3">
         <Container>
           <Row className="row justify-content-center g-gs">
-            <Col lg="12" md="1 ">
+            <Col lg="10" md="5 ">
               <HeaderCaption>
                 <HeaderTitle className="mt-4 center">CAREER</HeaderTitle>
                 <div>
@@ -208,8 +210,7 @@ const Career = (props) => {
                 </div>
               </HeaderCaption>
 
-              {divElements}
-
+              <div class="d-flex justify-content-around">{divElements}</div>
               <div className="center mt-6">
                 <nav>
                   {" "}

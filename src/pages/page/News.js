@@ -169,7 +169,7 @@ const News = (props) => {
       <HeaderContent className="py-6 is-black mt-lg-n1 mt-n3">
         <Container>
           <Row className="row justify-content-center g-gs">
-            <Col lg="12" md="1 ">
+            <Col lg="12" md="1">
               <HeaderCaption>
                 <HeaderTitle className="mt-4 center">NEWS</HeaderTitle>
                 <div>
