@@ -4,7 +4,8 @@ import LogoLight2x from "../../images/logo2x.png";
 import Menu from "../../layout/menu/Menu";
 import MobileMenu from "../../layout/menu/MobileMenu";
 import { Logo } from "../../components/logo/Logo";
-import { Col, Container, Row } from "reactstrap";
+import { Card, Col, Container, Row } from "reactstrap";
+import { useNavigate } from "react-router-dom";
 import {
   Header,
   HeaderContent,
@@ -17,23 +18,48 @@ import {
   HeaderTitle,
 } from "../../components/headerCaption/HeaderCaption";
 import { BannerFourAdd } from "../../section/banner/BannerData";
+import news_img from "../../images/ldci_news.png";
+// import dummyNews from "./News/DummyNews";
 
 const News = (props) => {
   const [toggle, setToggle] = useState(false);
   const [offset, setOffset] = useState(0);
   const [mobileView, setMobileView] = useState(false);
+  // const [news, setNews] = useState(dummyNews);
+  const navigate = useNavigate();
+
+  const dummyNews = [
+    {
+      id: 1,
+      date: "2023, 10 Januari",
+      newsType: "BUSINESS",
+      newsContentPlain:
+        "Lorem Ipsum Weend Going to Lotte Mrart Going toLorem Ipsum Weend Going to Lotte Mrart Going to Zebra WihtoutLorem Ipsum Weend Going to Lotte Mrart Going to Zebra Wihtout Zebra Wihtout Lorem Ipsum Weend Going to Lotte Mrart Going to Zebra Wihtout Lorem Ipsum Weend Going to Lotte Mrart Going to Zebra Wihtout Lorem Ipsum Weend Going to Lotte Mrart Going to Zebra Wihtout Lorem Ipsum Weend Going to Lotte Mrart Going to Zebra Wihtout Lorem Ipsum Weend Going to Lotte Mrart Going to Zebra Wihtout Lorem Ipsum Weend Going to Lotte Mrart Going to Zebra Wihtout Lorem Ipsum Weend Going to Lotte Mrart Going to Zebra Wihtout Lorem Ipsum Weend Going to Lotte Mrart Going to Zebra Wihtout Lorem Ipsum Weend Going to Lotte Mrart Going to Zebra Wihtout Lorem Ipsum Weend Going to Lotte Mrart Going to Zebra Wihtout Lorem Ipsum Weend Going to Lotte Mrart Going to Zebra WihtoutLorem Ipsum Weend Going to Lotte Mrart Going to Zebra WihtoutLorem IpsumLorem Ipsum Weend Going to Lotte Mrart Going to Zebra WihtoutLorem Ipsum Weend Going to Lotte Mrart Going to Zebra WihtoutLorem Ipsum Weend Going to Lotte Mrart Going to Zebra Wihtout Weend Going to Lotte Mrart Going to Zebra Wihtout End ",
+      newsTitle: "JUDUL BERITANYA",
+    },
+    {
+      id: 2,
+      date: "2023, 10 Januari",
+      newsType: "NETRAL",
+      newsContentPlain:
+        "Lorem Ipsum Weend Going to Lotte Mrart Going to Zebra Wihtout Lorem Ipsum Weend Going to Lotte Mrart Going to Zebra Wihtout Lorem Ipsum Weend Going to Lotte Mrart Going to Zebra Wihtout Lorem Ipsum Weend Going to Lotte Mrart Going to Zebra Wihtout Lorem Ipsum Weend Going to Lotte Mrart Going to Zebra Wihtout Lorem Ipsum Weend Going to Lotte Mrart Going to Zebra Wihtout v",
+      newsTitle: "JUDUL BERITANYA TEST",
+    },
+  ];
 
   useEffect(() => {
+    // let newNews = dummyNews;
+    // setNews(newNews);
     window.onscroll = () => {
       setOffset(window.pageYOffset);
     };
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
     viewChange();
     window.addEventListener("resize", viewChange);
     return () => {
       window.removeEventListener("resize", viewChange);
     };
-  }, []);
+  });
 
   // function to change the design view under 1200 px
   const viewChange = () => {
@@ -43,6 +69,51 @@ const News = (props) => {
       setMobileView(false);
     }
   };
+
+  const handleNewsDetail = async (event, item) => {
+    event.preventDefault();
+    let id = item.newsId;
+    try {
+      navigate(`/news/detail/${id}`);
+    } catch (error) {
+      navigate("/error", {
+        state: { message: "Failed to show news detail page..." },
+      });
+    }
+  };
+
+  let divElements;
+  // console.log("yogi", divElements);
+  // console.log("yogi2", news);
+  if (dummyNews != null) {
+    divElements = dummyNews.map((item, index) => {
+      return (
+        <div key={item.id} class="text-left d-flex flex-row bg-lighter mt-5 ">
+          <Card class="shadow border">
+            <Link
+              to="#"
+              onClick={(e) => handleNewsDetail(e, item)}
+              text-lowercase
+            >
+              <img class="w-30" src={news_img} alt="" />
+              <div
+                className="ms-5 d-block w-100 si"
+                style={{ textAlign: "left" }}
+              >
+                <h5>{item.date}</h5>
+                <h4>
+                  <span text-left>[{item.newsType}]</span>
+                  &nbsp;
+                  <span>{item.newsTitle}</span>
+                </h4>
+                <p>{item.newsContentPlain.substring(0, 500) + "..."}</p>
+              </div>
+            </Link>
+          </Card>
+        </div>
+      );
+    });
+  }
 
   return (
     <Header
@@ -95,43 +166,54 @@ const News = (props) => {
           </HeaderWrap>
         </Container>
       </HeaderMain>
-      <HeaderContent className="py-6 is-dark mt-lg-n1 mt-n3">
+      <HeaderContent className="py-6 is-black mt-lg-n1 mt-n3">
         <Container>
-          <Row className="row justify-content-center text-center g-gs">
-            <Col lg="6" md="7">
+          <Row className="row justify-content-center g-gs">
+            <Col lg="12" md="1 ">
               <HeaderCaption>
-                <HeaderTitle>
-                  Digital Platform Leader for Intelligent Enterprise
-                </HeaderTitle>
-                We build greater futures through innovation and collective
-                knowledge. NEWSdasd We build greater futures through innovation
-                and collective knowledge. We build greater futures through
-                innovation and collective knowledge. We build greater futures
-                through innovation and collective knowledge. We build greater
-                futures through innovation and collective knowledge. We build
-                greater futures through innovation and collective knowledge. We
-                build greater futures through innovation and collective
-                knowledge. We build greater futures through innovation and
-                collective knowledge. We build greater futures through
-                innovation and collective knowledge. We build greater futures
-                through innovation and collective knowledge. v1We build greater
-                futures through innovation and collective knowledge. We build
-                greater futures through innovation and collective knowledge. We
-                build greater futures through innovation and collective
-                knowledge. We build greater futures through innovation and
-                collective knowledge. We build greater futures through
-                innovation and collective knowledge. We build greater futures
-                through innovation and collective knowledge. We build greater
-                futures through innovation and collective knowledge. We build
-                greater futures through innovation and collective knowledge. We
-                build greater futures through innovation and collective
-                knowledge. We build greater futures through innovation and
-                collective knowledge. We build greater futures through
-                innovation and collective knowledge. We build greater futures
-                through innovation and collective knowledge. v1We build greater
-                futures through innovation and collective knowledge. We build
-                greater futures through innovation and collective knowledge. v1
+                <HeaderTitle className="mt-4 center">NEWS</HeaderTitle>
+                <div>
+                  <img src={news_img} />
+                  <div>
+                    <div class="mt-2 d-flex flex-row bg-lighter">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="default-01"
+                        placeholder="Search"
+                      />
+
+                      <a href="#" class="btn ms-3 btn-round btn-primary">
+                        <em class="icon ni ni-search"></em>
+                        <span>Search News</span>
+                        {""}
+                      </a>
+                    </div>
+                  </div>
+                </div>
               </HeaderCaption>
+              {divElements}
+              <div className="center mt-6">
+                <nav>
+                  {" "}
+                  <ul class="pagination pagination-lg">
+                    {" "}
+                    <li class="page-item active" aria-current="page">
+                      <span class="page-link">1</span>
+                    </li>{" "}
+                    <li class="page-item">
+                      <a class="page-link" href="#">
+                        2
+                      </a>
+                    </li>{" "}
+                    <li class="page-item">
+                      <a class="page-link" href="#">
+                        3
+                      </a>
+                    </li>{" "}
+                  </ul>
+                </nav>
+              </div>
             </Col>
           </Row>
         </Container>

@@ -51,6 +51,10 @@ const BannerOneData = [
     text: "News",
     to: "/news",
   },
+  {
+    text: "Career",
+    to: "/career",
+  },
 ];
 const BannerTwoData = [
   {
@@ -309,6 +313,10 @@ const BannerFourData = [
   {
     text: "News",
     to: "/news",
+  },
+  {
+    text: "Career",
+    to: "/career",
   },
 ];
 

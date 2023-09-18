@@ -12,7 +12,6 @@ import AboutCompany from "../section/about-company/about-company";
 import Business from "./page/Business";
 import Partner from "./page/Partner";
 import { FeatureOne, FeatureOneAlt } from "../section/feature/FeatureOne";
-import News from "./page/News";
 
 const IndexFour = (props) => {
   return (

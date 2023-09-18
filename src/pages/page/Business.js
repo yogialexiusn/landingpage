@@ -88,7 +88,7 @@ const Business = (props) => {
                     rel="noreferrer"
                     className="btn-primary btn-lg"
                   >
-                    Download the app
+                    Login
                   </Link>
                 </li>
               </ul>
