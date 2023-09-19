@@ -3,40 +3,40 @@
 ///////////////////////////////////////////////////
 
 // Include NioIcon
-@import "nioicon/nioicon";
+@import 'nioicon/nioicon';
 
 // Include Select2
-@import "select2/core.scss";
+@import 'select2/core.scss';
 
 // Include Simplebar
-@import "simplebar";
+@import 'simplebar';
 .simplebar-scroll-content {
-  @extend .simplebar-content-wrapper;
+    @extend .simplebar-content-wrapper;
 }
 
 // Include Slick
-@import "slick/slick";
+@import 'slick/slick';
 
 // Include dropzone
-@import "dropzone/dropzone";
+@import 'dropzone/dropzone';
 
 // Include nouislider
-@import "nouislider/nouislider";
+@import 'nouislider/nouislider';
 
 // Include datepicker
-@import "datepicker/bootstrap-datepicker";
+@import 'datepicker/bootstrap-datepicker';
 
 // Include time
-@import "timepicker/jquery.timepicker";
+@import 'timepicker/jquery.timepicker';
 
 // Include Magnific Popup
-@import "magnific-popup/main";
+@import 'magnific-popup/main';
 
 // Include toastr
-@import "toastr/toastr";
+@import 'toastr/toastr';
 
 // Include sweetalert2
-@import "sweetalert2/sweetalert2";
+@import 'sweetalert2/sweetalert2';
 
 //React Video Modal
-@import "react-modal-video";
+@import 'react-modal-video';

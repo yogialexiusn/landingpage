@@ -74,8 +74,8 @@ $swal2-input-font-size: 0.875rem !default;
 $swal2-input-background: inherit !default;
 $swal2-input-color: inherit !default;
 $swal2-input-transition:
-  border-color 0.3s,
-  box-shadow 0.3s !default;
+    border-color 0.3s,
+    box-shadow 0.3s !default;
 
 // TEXTAREA SPECIFIC VARIABLES
 $swal2-textarea-height: 6.75em !default;
@@ -183,8 +183,8 @@ $swal2-toast-input-font-size: 1em !default;
 $swal2-toast-validation-font-size: 1em !default;
 $swal2-toast-buttons-font-size: 1em !default;
 $swal2-toast-button-focus-box-shadow:
-  0 0 0 1px $swal2-background,
-  0 0 0 3px $swal2-outline-color !default;
+    0 0 0 1px $swal2-background,
+    0 0 0 3px $swal2-outline-color !default;
 $swal2-toast-footer-margin: 0.5em 0 0 !default;
 $swal2-toast-footer-padding: 0.5em 0 0 !default;
 $swal2-toast-footer-font-size: 0.8em !default;

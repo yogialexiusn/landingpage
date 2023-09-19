@@ -1,4 +1,4 @@
-@use "sass:math";
+@use 'sass:math';
 
 $dropdown-indicator-icon: $ni-chevron-down !default;
 $dropup-indicator-icon: $ni-chevron-up !default;
@@ -19,215 +19,215 @@ $dropup-indicator-unfold-icon: $ni-unfold-more !default;
 .dropright,
 .dropdown,
 .dropleft {
-  display: inline-flex;
+    display: inline-flex;
 }
 
 // Dropdown Menu
 .dropdown-toggle {
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  margin-bottom: 0;
-  &:not([class*="indicator"]):after {
-    display: none;
-  }
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 0;
+    &:not([class*='indicator']):after {
+        display: none;
+    }
 }
 .clickable {
-  * {
-    pointer-events: none;
-  }
+    * {
+        pointer-events: none;
+    }
 }
 .dropdown-menu {
-  overflow: hidden;
-  border: $dropdown-border-width solid $dropdown-border-color;
-  box-shadow: $dropdown-box-shadow;
+    overflow: hidden;
+    border: $dropdown-border-width solid $dropdown-border-color;
+    box-shadow: $dropdown-box-shadow;
 }
 .dropdown {
-  &-inner {
-    padding: 0 1.75rem;
-    + .dropdown-inner {
-      border-top: $dropdown-border-width solid $border-light;
+    &-inner {
+        padding: 0 1.75rem;
+        + .dropdown-inner {
+            border-top: $dropdown-border-width solid $border-light;
+        }
     }
-  }
-  &-head,
-  &-foot {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.75rem 1.25rem;
-    border-bottom: $dropdown-border-width solid $border-light;
-    &.center {
-      justify-content: center;
+    &-head,
+    &-foot {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.75rem 1.25rem;
+        border-bottom: $dropdown-border-width solid $border-light;
+        &.center {
+            justify-content: center;
+        }
     }
-  }
-  &-head {
-    border-bottom: $dropdown-border-width solid $border-light;
-  }
-  &-foot {
-    border-top: $dropdown-border-width solid $border-light;
-  }
-  &-body {
-    &-sm {
-      padding: 0.75rem;
+    &-head {
+        border-bottom: $dropdown-border-width solid $border-light;
     }
-    &-rg {
-      padding: 1.25rem;
+    &-foot {
+        border-top: $dropdown-border-width solid $border-light;
     }
-    &-md {
-      padding: 1.5rem;
+    &-body {
+        &-sm {
+            padding: 0.75rem;
+        }
+        &-rg {
+            padding: 1.25rem;
+        }
+        &-md {
+            padding: 1.5rem;
+        }
+        &-lg {
+            padding: 2.25rem;
+        }
     }
-    &-lg {
-      padding: 2.25rem;
+    &-title {
+        font-weight: $fw-medium;
+        color: $base-color;
     }
-  }
-  &-title {
-    font-weight: $fw-medium;
-    color: $base-color;
-  }
 }
 
 //Indicators
-[class*="dropdown-indicator"] {
-  &:after {
-    border: none !important;
-    font-family: $nk-dashlite-font;
-    vertical-align: middle;
-    content: $dropdown-indicator-icon;
-    margin-left: 0.25rem;
-    line-height: 1;
-    display: inline-flex;
-    align-items: center;
-    font-size: 14px;
-    .dropup & {
-      content: $dropup-indicator-icon;
+[class*='dropdown-indicator'] {
+    &:after {
+        border: none !important;
+        font-family: $nk-dashlite-font;
+        vertical-align: middle;
+        content: $dropdown-indicator-icon;
+        margin-left: 0.25rem;
+        line-height: 1;
+        display: inline-flex;
+        align-items: center;
+        font-size: 14px;
+        .dropup & {
+            content: $dropup-indicator-icon;
+        }
     }
-  }
 }
 .dropdown {
-  &-indicator {
-    &-caret {
-      &:after {
-        content: $dropdown-indicator-caret-icon;
-        .dropup & {
-          content: $dropup-indicator-caret-icon;
+    &-indicator {
+        &-caret {
+            &:after {
+                content: $dropdown-indicator-caret-icon;
+                .dropup & {
+                    content: $dropup-indicator-caret-icon;
+                }
+            }
         }
-      }
-    }
-    &-caret-up {
-      &:after {
-        content: $dropdown-indicator-caret-up-icon;
-        .dropup & {
-          content: $dropup-indicator-caret-up-icon;
+        &-caret-up {
+            &:after {
+                content: $dropdown-indicator-caret-up-icon;
+                .dropup & {
+                    content: $dropup-indicator-caret-up-icon;
+                }
+            }
         }
-      }
-    }
-    &-up {
-      &:after {
-        content: $dropdown-indicator-up-icon;
-        .dropup & {
-          content: $dropup-indicator-up-icon;
+        &-up {
+            &:after {
+                content: $dropdown-indicator-up-icon;
+                .dropup & {
+                    content: $dropup-indicator-up-icon;
+                }
+            }
         }
-      }
-    }
-    &-down {
-      &:after {
-        content: $dropdown-indicator-down-icon;
-        .dropup & {
-          content: $dropup-indicator-down-icon;
+        &-down {
+            &:after {
+                content: $dropdown-indicator-down-icon;
+                .dropup & {
+                    content: $dropup-indicator-down-icon;
+                }
+            }
         }
-      }
-    }
-    &-dubble {
-      &:after {
-        content: $dropdown-indicator-dubble-icon;
-        .dropup & {
-          content: $dropup-indicator-dubble-icon;
+        &-dubble {
+            &:after {
+                content: $dropdown-indicator-dubble-icon;
+                .dropup & {
+                    content: $dropup-indicator-dubble-icon;
+                }
+            }
         }
-      }
-    }
-    &-unfold {
-      &:after {
-        content: $dropdown-indicator-unfold-icon;
-        .dropup & {
-          content: $dropup-indicator-unfold-icon;
+        &-unfold {
+            &:after {
+                content: $dropdown-indicator-unfold-icon;
+                .dropup & {
+                    content: $dropup-indicator-unfold-icon;
+                }
+            }
         }
-      }
     }
-  }
 }
 
 //Sizes
 .dropdown-menu {
-  &-center {
-    left: 50% !important;
-  }
-  &-bottom {
-    bottom: 0 !important;
-  }
-  &-xxs {
-    min-width: $dropdown-width-xxs;
-    max-width: $dropdown-width-xxs;
-    &.dropdown-menu-center {
-      margin-left: math.div($dropdown-width-xxs, 2);
+    &-center {
+        left: 50% !important;
     }
-  }
-  &-xs {
-    min-width: $dropdown-width-xs;
-    max-width: $dropdown-width-xs;
-    &.dropdown-menu-center {
-      margin-left: math.div($dropdown-width-xs, 2);
+    &-bottom {
+        bottom: 0 !important;
     }
-  }
-  &-md {
-    min-width: $dropdown-width-md;
-    max-width: $dropdown-width-md;
-    &.dropdown-menu-center {
-      margin-left: math.div($dropdown-width-md, 2);
+    &-xxs {
+        min-width: $dropdown-width-xxs;
+        max-width: $dropdown-width-xxs;
+        &.dropdown-menu-center {
+            margin-left: math.div($dropdown-width-xxs, 2);
+        }
     }
-  }
-  &-sm {
-    min-width: $dropdown-width-sm;
-    max-width: $dropdown-width-sm;
-    &.dropdown-menu-center {
-      margin-left: math.div($dropdown-width-sm, 2);
+    &-xs {
+        min-width: $dropdown-width-xs;
+        max-width: $dropdown-width-xs;
+        &.dropdown-menu-center {
+            margin-left: math.div($dropdown-width-xs, 2);
+        }
     }
-  }
-  &-lg {
-    min-width: $dropdown-width-lg;
-    max-width: $dropdown-width-lg;
-    &.dropdown-menu-center {
-      margin-left: math.div($dropdown-width-lg, 2);
+    &-md {
+        min-width: $dropdown-width-md;
+        max-width: $dropdown-width-md;
+        &.dropdown-menu-center {
+            margin-left: math.div($dropdown-width-md, 2);
+        }
     }
-  }
-  &-xl {
-    min-width: $dropdown-width-xl;
-    max-width: $dropdown-width-xl;
-    &.dropdown-menu-center {
-      margin-left: math.div($dropdown-width-xl, 2);
+    &-sm {
+        min-width: $dropdown-width-sm;
+        max-width: $dropdown-width-sm;
+        &.dropdown-menu-center {
+            margin-left: math.div($dropdown-width-sm, 2);
+        }
     }
-  }
-  &-auto {
-    min-width: 100%;
-    max-width: 100%;
-  }
-  &-mxh {
-    max-height: 400px;
-    overflow: auto;
-  }
+    &-lg {
+        min-width: $dropdown-width-lg;
+        max-width: $dropdown-width-lg;
+        &.dropdown-menu-center {
+            margin-left: math.div($dropdown-width-lg, 2);
+        }
+    }
+    &-xl {
+        min-width: $dropdown-width-xl;
+        max-width: $dropdown-width-xl;
+        &.dropdown-menu-center {
+            margin-left: math.div($dropdown-width-xl, 2);
+        }
+    }
+    &-auto {
+        min-width: 100%;
+        max-width: 100%;
+    }
+    &-mxh {
+        max-height: 400px;
+        overflow: auto;
+    }
 }
 
 @media (max-width: 420px) {
-  .dropdown-menu-xl,
-  .dropdown-menu-lg,
-  .dropdown-menu-md {
-    min-width: calc(100vw - 40px);
-    max-width: calc(100vw - 40px);
-  }
+    .dropdown-menu-xl,
+    .dropdown-menu-lg,
+    .dropdown-menu-md {
+        min-width: calc(100vw - 40px);
+        max-width: calc(100vw - 40px);
+    }
 }
 
 .dropdown-toggle-split {
-  > .icon {
-    margin-left: -0.25rem;
-    margin-right: -0.25rem;
-  }
+    > .icon {
+        margin-left: -0.25rem;
+        margin-right: -0.25rem;
+    }
 }

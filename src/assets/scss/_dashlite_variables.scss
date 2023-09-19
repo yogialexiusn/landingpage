@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////
 ////////     CORE DASHLITE VARIABLES    ///// //////////
 ////////////////////////////////////////////////////////
-@use "sass:math";
+@use 'sass:math';
 /////////    COLORS    ///////////
 //////////////////////////////////////
 $white: #fff;
@@ -89,29 +89,29 @@ $brand-color-google: #de5246;
 
 $extend-mix: #fff;
 $extend-colors: (
-  "blue": $blue,
-  "azure": $azure,
-  "indigo": $indigo,
-  "purple": $purple,
-  "pink": $pink,
-  "orange": $orange,
-  "teal": $teal,
-  "blue-dim": mix($blue, $extend-mix, 13%),
-  "azure-dim": mix($azure, $extend-mix, 13%),
-  "indigo-dim": mix($indigo, $extend-mix, 13%),
-  "purple-dim": mix($purple, $extend-mix, 13%),
-  "pink-dim": mix($pink, $extend-mix, 13%),
-  "orange-dim": mix($orange, $extend-mix, 13%),
-  "teal-dim": mix($teal, $extend-mix, 13%),
-  // for bootstrap
-  "primary-dim": mix($accent-color, $extend-mix, 13%),
-  "success-dim": mix($success, $extend-mix, 13%),
-  "info-dim": mix($info, $extend-mix, 13%),
-  "warning-dim": mix($warning, $extend-mix, 13%),
-  "danger-dim": mix($danger, $extend-mix, 13%),
-  "secondary-dim": #e5ecf5,
-  "dark-dim": #d9e1ef,
-  "gray-dim": #edf2f9,
+    'blue': $blue,
+    'azure': $azure,
+    'indigo': $indigo,
+    'purple': $purple,
+    'pink': $pink,
+    'orange': $orange,
+    'teal': $teal,
+    'blue-dim': mix($blue, $extend-mix, 13%),
+    'azure-dim': mix($azure, $extend-mix, 13%),
+    'indigo-dim': mix($indigo, $extend-mix, 13%),
+    'purple-dim': mix($purple, $extend-mix, 13%),
+    'pink-dim': mix($pink, $extend-mix, 13%),
+    'orange-dim': mix($orange, $extend-mix, 13%),
+    'teal-dim': mix($teal, $extend-mix, 13%),
+    // for bootstrap
+    'primary-dim': mix($accent-color, $extend-mix, 13%),
+    'success-dim': mix($success, $extend-mix, 13%),
+    'info-dim': mix($info, $extend-mix, 13%),
+    'warning-dim': mix($warning, $extend-mix, 13%),
+    'danger-dim': mix($danger, $extend-mix, 13%),
+    'secondary-dim': #e5ecf5,
+    'dark-dim': #d9e1ef,
+    'gray-dim': #edf2f9,
 );
 
 /////////    GLOBAL UTILITY    //////////
@@ -321,8 +321,8 @@ $btn-border-width: $field-border-width;
 
 $btn-font-weight: $fw-bold;
 $btn-box-shadow:
-  inset 0 1px 0 rgba($white, 0.15),
-  0 1px 1px rgba($darker, 0.075);
+    inset 0 1px 0 rgba($white, 0.15),
+    0 1px 1px rgba($darker, 0.075);
 $btn-focus-width: $field-focus-width;
 $btn-focus-box-shadow: $field-focus-box-shadow;
 $btn-disabled-opacity: 0.5;
@@ -339,10 +339,10 @@ $btn-border-radius-sm: $field-border-radius-sm;
 $btn-border-radius-xs: 3px;
 
 $btn-transition:
-  color 0.15s ease-in-out,
-  background-color 0.15s ease-in-out,
-  border-color 0.15s ease-in-out,
-  box-shadow 0.15s ease-in-out;
+    color 0.15s ease-in-out,
+    background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
 
 /////////    FORMS    /////////////////
 ///////////////////////////////////////
@@ -390,8 +390,7 @@ $input-focus-box-shadow: $field-focus-box-shadow;
 
 $input-error-color: $field-color;
 $input-error-border-color: $field-error-border-color;
-$input-error-focus-box-shadow: $field-focus-shadow
-  rgba($field-error-border-color, 0.1);
+$input-error-focus-box-shadow: $field-focus-shadow rgba($field-error-border-color, 0.1);
 
 $input-placeholder-color: $field-placeholder-color;
 $input-plaintext-color: $field-plaintext-color;
@@ -403,10 +402,7 @@ $input-height-inner-sm: $input-line-height-sm + $input-padding-y-sm * 2;
 $input-height-inner-lg: $input-line-height-lg + $input-padding-y-lg * 2;
 $input-height-inner-xl: $input-line-height-xl + $input-padding-y-xl * 2;
 $input-height-inner-half: add($input-line-height * 0.5, $input-padding-y);
-$input-height-inner-quarter: add(
-  $input-line-height * 0.25,
-  math.div($input-padding-y, 2)
-);
+$input-height-inner-quarter: add($input-line-height * 0.25, math.div($input-padding-y, 2));
 
 $input-height: calc(#{$input-height-inner} + #{$input-height-border});
 $input-height-sm: calc(#{$input-height-inner-sm} + #{$input-height-border});
@@ -414,8 +410,8 @@ $input-height-lg: calc(#{$input-height-inner-lg} + #{$input-height-border});
 $input-height-xl: calc(#{$input-height-inner-xl} + #{$input-height-border});
 
 $input-transition:
-  border-color 0.15s ease-in-out,
-  box-shadow 0.15s ease-in-out;
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
 
 $textarea-min-height: 122px;
 $textarea-min-height-sm: 92px;
@@ -524,7 +520,7 @@ $breadcrumb-margin-bottom: 0;
 $breadcrumb-bg: transparent;
 $breadcrumb-divider-color: $light-500;
 $breadcrumb-active-color: $light-400;
-$breadcrumb-divider: quote("/");
+$breadcrumb-divider: quote('/');
 
 $breadcrumb-border-radius: $border-radius;
 
@@ -547,9 +543,7 @@ $dropdown-bg: $white;
 $dropdown-border-color: $light-200;
 $dropdown-border-radius: $border-radius;
 $dropdown-border-width: $border-width;
-$dropdown-inner-border-radius: calc(
-  #{$dropdown-border-radius} - #{$dropdown-border-width}
-);
+$dropdown-inner-border-radius: calc(#{$dropdown-border-radius} - #{$dropdown-border-width});
 $dropdown-divider-bg: $light-200;
 $dropdown-divider-margin-y: 12px;
 $dropdown-box-shadow: 0 3px 12px 1px rgba($accent-dark, 0.15);
@@ -661,25 +655,13 @@ $switch-indicator-active-clac: $switch-width - $switch-indicator-size;
 $switch-indicator-active-clac-sm: $switch-width-sm - $switch-indicator-size-sm;
 $switch-indicator-active-clac-lg: $switch-width-lg - $switch-indicator-size-lg;
 
-$switch-indicator-active-position: calc(
-  #{$switch-indicator-active-clac} - #{$switch-border-calc-2x}
-);
-$switch-indicator-active-position-sm: calc(
-  #{$switch-indicator-active-clac-sm} - #{$switch-border-calc-2x}
-);
-$switch-indicator-active-position-lg: calc(
-  #{$switch-indicator-active-clac-lg} - #{$switch-border-calc-3x}
-);
+$switch-indicator-active-position: calc(#{$switch-indicator-active-clac} - #{$switch-border-calc-2x});
+$switch-indicator-active-position-sm: calc(#{$switch-indicator-active-clac-sm} - #{$switch-border-calc-2x});
+$switch-indicator-active-position-lg: calc(#{$switch-indicator-active-clac-lg} - #{$switch-border-calc-3x});
 
-$switch-indicator-active-position-right: calc(
-  (-#{$switch-indicator-active-clac} + #{$switch-border-calc-2x})
-);
-$switch-indicator-active-position-right-sm: calc(
-  (-#{$switch-indicator-active-clac-sm} + #{$switch-border-calc-2x})
-);
-$switch-indicator-active-position-right-lg: calc(
-  (-#{$switch-indicator-active-clac-lg} + #{$switch-border-calc-3x})
-);
+$switch-indicator-active-position-right: calc((-#{$switch-indicator-active-clac} + #{$switch-border-calc-2x}));
+$switch-indicator-active-position-right-sm: calc((-#{$switch-indicator-active-clac-sm} + #{$switch-border-calc-2x}));
+$switch-indicator-active-position-right-lg: calc((-#{$switch-indicator-active-clac-lg} + #{$switch-border-calc-3x}));
 
 /////////    Modals    ///////////////
 ///////////////////////////////////////
@@ -782,9 +764,7 @@ $header-main-gap-x: $content-gap-x;
 $header-main-gap-x-sm: $content-gap-x-sm;
 $header-main-gap-y: 14px;
 $header-main-border-width: 1px;
-$header-height: (
-  $header-main-gap-y * 2 + $logo-height + $header-main-border-width
-);
+$header-height: ($header-main-gap-y * 2 + $logo-height + $header-main-border-width);
 $header-min-width: $min-body-width;
 
 $header-bg-color: $lighter;
@@ -832,5 +812,5 @@ $gd_investment: true;
 
 /////////    THIRD-PARTY VARIABLE    //////////
 ///////////////////////////////////////////////
-$nk-dashlite-font: "Nioicon";
-@import "vendors/nioicon/variables";
+$nk-dashlite-font: 'Nioicon';
+@import 'vendors/nioicon/variables';

@@ -7,9 +7,9 @@ $menu-item-gap-y-desk: 1rem;
 $menu-sub-gap-x: $menu-item-gap-x;
 $menu-sub-gap-y: 0.75rem;
 
-@import "layouts/base";
-@import "layouts/menu";
-@import "layouts/header";
-@import "layouts/footer";
-@import "layouts/split";
-@import "layouts/section";
+@import 'layouts/base';
+@import 'layouts/menu';
+@import 'layouts/header';
+@import 'layouts/footer';
+@import 'layouts/split';
+@import 'layouts/section';
