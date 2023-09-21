@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import LogoDrak2x from '../../images/logo-dark2x.png';
 import LogoLight2x from '../../images/logo2x.png';
 import Menu from '../../layout/menu/Menu';
@@ -11,14 +11,24 @@ import { Link } from '../../components/button/Button';
 import { HeaderCaption, HeaderTitle } from '../../components/headerCaption/HeaderCaption';
 import { BannerFourAdd } from '../../section/banner/BannerData';
 import news_img from '../../images/ldci_news.png';
-// import dummyNews from "./News/DummyNews";
+import ReactPaginate from 'react-paginate';
+import { Button } from 'reactstrap';
 
 const News = (props) => {
     const [toggle, setToggle] = useState(false);
     const [offset, setOffset] = useState(0);
     const [mobileView, setMobileView] = useState(false);
-    // const [news, setNews] = useState(dummyNews);
+    const [pageCount, setpageCount] = useState(0);
+    const [items, setItems] = useState([]);
+    const [selectedCareer, setSelectedCareer] = useState([]);
+    const [page, setPage] = useState(0);
+    const [size, setSize] = useState('5');
+    const [filter, setFilter] = useState('');
     const navigate = useNavigate();
+
+    useEffect(() => {
+        getJob(page);
+    }, []);
 
     const dummyNews = [
         {
@@ -38,6 +48,18 @@ const News = (props) => {
             newsTitle: 'JUDUL BERITANYA TEST',
         },
     ];
+
+    const getJob = useCallback(
+        async (page) => {
+            console.log('click page ', page);
+            const res = await fetch('http://localhost:8080/api/v1/jobs?page=' + page + '&size=' + size);
+            const data = await res.json();
+            const total = JSON.stringify(data.data.totalPages);
+            setpageCount(total);
+            setItems(data.data.content);
+        },
+        [items],
+    );
 
     useEffect(() => {
         // let newNews = dummyNews;
@@ -62,6 +84,16 @@ const News = (props) => {
         }
     };
 
+    const handlePageClick = async (data) => {
+        setPage(data.selected);
+        console.log('page click12', data.selected);
+        getJob(data.selected);
+    };
+
+    const selectCareer = (item) => {
+        setSelectedCareer(item);
+    };
+
     const handleNewsDetail = async (event, item) => {
         event.preventDefault();
         let id = item.newsId;
@@ -80,22 +112,39 @@ const News = (props) => {
     if (dummyNews != null) {
         divElements = dummyNews.map((item, index) => {
             return (
-                <div key={item.id} class='text-left d-flex flex-row bg-lighter mt-5 '>
-                    <Card class='shadow border'>
-                        <Link to='#' onClick={(e) => handleNewsDetail(e, item)} text-lowercase>
-                            <img class='w-30' src={news_img} alt='' />
-                            <div className='ms-5 d-block w-100 si' style={{ textAlign: 'left' }}>
-                                <h5>{item.date}</h5>
-                                <h4>
-                                    <span text-left>[{item.newsType}]</span>
-                                    &nbsp;
-                                    <span>{item.newsTitle}</span>
-                                </h4>
-                                <p>{item.newsContentPlain.substring(0, 500) + '...'}</p>
-                            </div>
-                        </Link>
-                    </Card>
-                </div>
+                <Col lg='5' md='5'>
+                    <div class='card shadow border mt-5 center bg-primary'>
+                        {' '}
+                        <div class='card-header bg-primary'>
+                            <h4> {item.title}</h4>
+                        </div>{' '}
+                        <ul class='list-group list-group-flush '>
+                            {' '}
+                            <li class='list-group-item center'>
+                                <p>
+                                    {item.department} - {item.team}
+                                </p>
+                            </li>{' '}
+                            <li class='list-group-item center'>
+                                <p>
+                                    {item.location} - {item.country}
+                                </p>
+                            </li>{' '}
+                            <li class='list-group-item center'>{item.descriptionPlain}</li>{' '}
+                            <li class='list-group-item center'>
+                                <Button
+                                    color='primary'
+                                    onClick={() => {
+                                        // toggleForm();
+                                        selectCareer(item);
+                                    }}>
+                                    Apply
+                                </Button>
+                            </li>{' '}
+                        </ul>
+                    </div>
+                    {/* </div> */}
+                </Col>
             );
         });
     }
@@ -150,26 +199,26 @@ const News = (props) => {
                                 </div>
                             </HeaderCaption>
                             {divElements}
-                            <div className='center mt-6'>
-                                <nav>
-                                    {' '}
-                                    <ul class='pagination pagination-lg'>
-                                        {' '}
-                                        <li class='page-item active' aria-current='page'>
-                                            <span class='page-link'>1</span>
-                                        </li>{' '}
-                                        <li class='page-item'>
-                                            <a class='page-link' href='#'>
-                                                2
-                                            </a>
-                                        </li>{' '}
-                                        <li class='page-item'>
-                                            <a class='page-link' href='#'>
-                                                3
-                                            </a>
-                                        </li>{' '}
-                                    </ul>
-                                </nav>
+                            <div className='center mt-5'>
+                                <ReactPaginate
+                                    previousLabel={'<<'}
+                                    nextLabel={'>>'}
+                                    breakLabel={'...'}
+                                    pageCount={pageCount}
+                                    marginPagesDisplayed={2}
+                                    pageRangeDisplayed={2}
+                                    onPageChange={handlePageClick}
+                                    containerClassName={'pagination'}
+                                    pageClassName={'page-item'}
+                                    pageLinkClassName={'page-link'}
+                                    previousClassName={'page-item'}
+                                    previousLinkClassName={'page-link'}
+                                    nextClassName={'page-item'}
+                                    nextLinkClassName={'page-link'}
+                                    breakClassName={'page-item'}
+                                    breakLinkClassName={'page-link'}
+                                    activeClassName={'active'}
+                                />
                             </div>
                         </Col>
                     </Row>

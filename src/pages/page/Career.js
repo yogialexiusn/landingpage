@@ -1,55 +1,93 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import LogoDrak2x from '../../images/logo-dark2x.png';
 import LogoLight2x from '../../images/logo2x.png';
 import Menu from '../../layout/menu/Menu';
 import MobileMenu from '../../layout/menu/MobileMenu';
 import { Logo } from '../../components/logo/Logo';
-import { useNavigate } from 'react-router-dom';
-// import { Button } from "../../components/button/Button";
+import { useDropzone } from 'react-dropzone';
+import NioIcon from '../../components/icon/Icons';
 import { Card, Col, Container, Row } from 'reactstrap';
 import { Header, HeaderContent, HeaderMain, HeaderWrap } from '../../layout/header/Header';
 import { Link } from '../../components/button/Button';
 import { HeaderCaption, HeaderTitle } from '../../components/headerCaption/HeaderCaption';
 import { BannerFourAdd } from '../../section/banner/BannerData';
 import career from '../../images/career.jpg';
-import { Button } from '../../components/button/Button';
 import ReactPaginate from 'react-paginate';
-import { async } from 'q';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+// import { axiosInstance } from '../../config/AxiosInasdstance';
+// import { axiosInstanceApply } from '../../config/AxiosInstance';
 
-const Career = (props) => {
+export default function Career(props) {
     const [toggle, setToggle] = useState(false);
     const [offset, setOffset] = useState(0);
     const [mobileView, setMobileView] = useState(false);
     const [pageCount, setpageCount] = useState(0);
-    // const [news, setNews] = useState(dummyNews);
-    // const navigate = useNavigate();
-    // const [showModal, setShowModal] = useState(false);
+    const [modalForm, setModalForm] = useState(false);
 
-    const [items, setItems] = useState();
+    const [items, setItems] = useState([]);
+    const [selectedCareer, setSelectedCareer] = useState([]);
+    const [page, setPage] = useState(0);
+    const [size, setSize] = useState('5');
+    const [filter, setFilter] = useState('');
 
     useEffect(() => {
-        const getJob = async () => {
-            const res = await fetch('http://localhost:8080/api/v1/jobs?page=0&size=3');
+        getJob(page);
+    }, []);
+
+    const getJob = useCallback(
+        async (page) => {
+            console.log('click page ', page);
+            const res = await fetch('http://localhost:8080/api/v1/jobs?page=' + page + '&size=' + size);
             const data = await res.json();
             const total = JSON.stringify(data.data.totalPages);
             setpageCount(total);
-            console.log('yogis' + total);
-            setItems(data);
-        };
-        getJob();
-    }, []);
+            setItems(data.data.content);
+        },
+        [items],
+    );
 
-    const fetchJob = async (currentPage) => {
-        const res = await fetch('http://localhost:8080/api/v1/jobs?page=' + currentPage + '&size=3');
-        const data = await res.json();
-        return data;
-    };
+    const toggleForm = () => setModalForm(!modalForm);
 
     const handlePageClick = async (data) => {
-        let currentPage = data.selected;
-        const jobFormServer = await fetchJob(currentPage);
-        setItems(jobFormServer);
+        setPage(data.selected);
+        console.log('page click12', data.selected);
+        getJob(data.selected);
     };
+
+    const handleFilter = async (param) => {
+        console.log('handleFilter param: ', param);
+        setFilter(param);
+        let requestBody = {
+            param: filter,
+        };
+    };
+
+    const handleSearchCareer = async () => {
+        getJob(page);
+    };
+
+    const { acceptedFiles, fileRejections, getRootProps, getInputProps } = useDropzone({
+        accept: {
+            'document/pdf': ['.pdf'],
+        },
+    });
+
+    const acceptedFileItems = acceptedFiles.map((file) => (
+        <li key={file.path}>
+            {file.path} - {file.size} bytes
+        </li>
+    ));
+
+    const fileRejectionItems = fileRejections.map(({ file, errors }) => (
+        <li key={file.path}>
+            {file.path} - {file.size} bytes
+            <ul>
+                {errors.map((e) => (
+                    <li key={e.code}>{e.message}</li>
+                ))}
+            </ul>
+        </li>
+    ));
 
     useEffect(() => {
         window.onscroll = () => {
@@ -70,52 +108,9 @@ const Career = (props) => {
         }
     };
 
-    // const handleNewsDetail = async (event, item) => {
-    //     event.preventDefault();
-    //     let id = item.newsId;
-    //     try {
-    //         navigate(`/news/detail/${id}`);
-    //     } catch (error) {
-    //         navigate('/error', {
-    //             state: { message: 'Failed to show news detail page...' },
-    //         });
-    //     }
-    // };
-
-    let divElements;
-    if (items) {
-        divElements = items.data.content.map((item, index) => {
-            return (
-                <Col lg='5' md='5'>
-                    {/* <div className=" mb-3"> */}
-                    <div class='card shadow border mt-5 center bg-primary'>
-                        {' '}
-                        <div class='card-header bg-primary'>
-                            <h4> {item.title}</h4>
-                        </div>{' '}
-                        <ul class='list-group list-group-flush '>
-                            {' '}
-                            <li class='list-group-item center'>
-                                <p>
-                                    {item.department} - {item.team}
-                                </p>
-                            </li>{' '}
-                            <li class='list-group-item center'>
-                                <p>
-                                    {item.location} - {item.country}
-                                </p>
-                            </li>{' '}
-                            <li class='list-group-item center'>{item.descriptionPlain}</li>{' '}
-                            <li class='list-group-item center'>
-                                <Button>Apply</Button>
-                            </li>{' '}
-                        </ul>
-                    </div>
-                    {/* </div> */}
-                </Col>
-            );
-        });
-    }
+    const selectCareer = (item) => {
+        setSelectedCareer(item);
+    };
 
     return (
         <Header className={props.className && props.className} id={props.id && props.id}>
@@ -155,19 +150,161 @@ const Career = (props) => {
                                     <img src={career} />
                                     <div className='bg-primary'>
                                         <div class='mt-2 d-flex flex-row '>
-                                            <input type='text' class='form-control' id='default-01' placeholder='Search' />
+                                            <input
+                                                type='text'
+                                                class='form-control'
+                                                id='default-01'
+                                                placeholder='Search'
+                                                onChange={(e) => handleFilter(e.target.value)}
+                                            />
 
-                                            <a href='#' class='btn ms-3 btn-round btn-primary'>
+                                            <Button
+                                                color='btn ms-3 btn-round btn-primary'
+                                                onClick={() => {
+                                                    handleSearchCareer();
+                                                }}>
                                                 <em class='icon ni ni-search'></em>
                                                 <span>Search Career</span>
                                                 {''}
-                                            </a>
+                                            </Button>
                                         </div>
                                     </div>
                                 </div>
                             </HeaderCaption>
 
-                            <div class='d-flex justify-content-around'>{divElements}</div>
+                            <div class='d-flex justify-content-around card shadow border mt-5 center bg-primary'>
+                                {items.map((item, index) => {
+                                    return (
+                                        <Col lg='5' md='5'>
+                                            <div class='card shadow border mt-5 center bg-primary'>
+                                                {' '}
+                                                <div class='card-header bg-primary'>
+                                                    <h4> {item.title}</h4>
+                                                </div>{' '}
+                                                <ul class='list-group list-group-flush '>
+                                                    {' '}
+                                                    <li class='list-group-item center'>
+                                                        <p>
+                                                            {item.department} - {item.team}
+                                                        </p>
+                                                    </li>{' '}
+                                                    <li class='list-group-item center'>
+                                                        <p>
+                                                            {item.location} - {item.country}
+                                                        </p>
+                                                    </li>{' '}
+                                                    <li class='list-group-item center'>{item.descriptionPlain}</li>{' '}
+                                                    <li class='list-group-item center'>
+                                                        <Button
+                                                            color='primary'
+                                                            onClick={() => {
+                                                                toggleForm();
+                                                                selectCareer(item);
+                                                            }}>
+                                                            Apply
+                                                        </Button>
+                                                    </li>{' '}
+                                                </ul>
+                                            </div>
+                                            {/* </div> */}
+                                        </Col>
+                                    );
+                                })}
+                            </div>
+
+                            <div>
+                                <Modal isOpen={modalForm} toggle={toggleForm}>
+                                    <ModalHeader
+                                        toggle={toggleForm}
+                                        close={
+                                            <button className='close' onClick={toggleForm}>
+                                                <NioIcon name='cross' />
+                                            </button>
+                                        }>
+                                        <h4>Biodata {selectedCareer.department}</h4>
+                                    </ModalHeader>
+                                    <ModalBody>
+                                        <form>
+                                            <div className='form-group md-1 '>
+                                                <label className='form-label' htmlFor='full-name'>
+                                                    Full Name
+                                                </label>
+                                                <div className='form-control-wrap'>
+                                                    <input type='text' className='form-control' id='full-name' />
+                                                </div>
+                                            </div>
+                                            <div className='form-group'>
+                                                <label className='form-label' htmlFor='full-name'>
+                                                    Email
+                                                </label>
+                                                <div className='form-control-wrap'>
+                                                    <input type='text' className='form-control' id='full-name' />
+                                                </div>
+                                            </div>
+                                            <div className='form-group'>
+                                                <label className='form-label' htmlFor='email'>
+                                                    Phone
+                                                </label>
+                                                <div className='form-control-wrap'>
+                                                    <input type='text' className='form-control' id='email' />
+                                                </div>
+                                            </div>
+                                            <div className='form-group'>
+                                                <label className='form-label' htmlFor='phone-no'>
+                                                    Current Company
+                                                </label>
+                                                <div className='form-control-wrap'>
+                                                    <input type='number' className='form-control' id='phone-no' defaultValue='' />
+                                                </div>
+                                            </div>
+                                            <div className='form-group'>
+                                                <label className='form-label' htmlFor='phone-no'>
+                                                    Linkedin Url
+                                                </label>
+                                                <div className='form-control-wrap'>
+                                                    <input type='number' className='form-control' id='phone-no' defaultValue='0880' />
+                                                </div>
+                                            </div>
+                                            <div className='form-group'>
+                                                <label className='form-label' htmlFor='phone-no'>
+                                                    Github Url
+                                                </label>
+                                                <div className='form-control-wrap'>
+                                                    <input type='number' className='form-control' id='phone-no' defaultValue='0880' />
+                                                </div>
+                                            </div>
+                                            <div className='form-group'>
+                                                <label className='form-label' htmlFor='phone-no'>
+                                                    Upload File
+                                                </label>
+                                                <div className='form-control-wrap'>
+                                                    <section className='container'>
+                                                        <div {...getRootProps({ className: 'dropzone' })}>
+                                                            <input {...getInputProps()} />
+                                                            <p>Drag 'n' drop some files here, or click to select files</p>
+                                                            <em>(Only file or document with *.pdf will be accepted)</em>
+                                                        </div>
+                                                        <aside>
+                                                            <b>
+                                                                <ul className='center mt-1'>{acceptedFileItems}</ul>
+                                                            </b>
+                                                        </aside>
+                                                    </section>
+                                                </div>
+                                            </div>
+                                            <div className='form-group center'>
+                                                <Button color='primary' type='submit' onClick={(ev) => ev.preventDefault()} size='lg'>
+                                                    Apply
+                                                </Button>
+                                            </div>
+                                        </form>
+                                    </ModalBody>
+                                    <ModalFooter className='bg-light'>
+                                        <span className='sub-text'>PT Lotte Data Communication Indonesia</span>
+                                    </ModalFooter>
+                                </Modal>
+                            </div>
+
                             <div className='center mt-5'>
                                 <ReactPaginate
                                     previousLabel={'<<'}
@@ -195,6 +332,4 @@ const Career = (props) => {
             </HeaderContent>
         </Header>
     );
-};
-
-export default Career;
+}
