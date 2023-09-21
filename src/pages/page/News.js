@@ -5,14 +5,14 @@ import Menu from '../../layout/menu/Menu';
 import MobileMenu from '../../layout/menu/MobileMenu';
 import { Logo } from '../../components/logo/Logo';
 import { Card, Col, Container, Row } from 'reactstrap';
-import { useNavigate } from 'react-router-dom';
 import { Header, HeaderContent, HeaderMain, HeaderWrap } from '../../layout/header/Header';
-import { Link } from '../../components/button/Button';
+import { Link, useNavigate } from 'react-router-dom';
 import { HeaderCaption, HeaderTitle } from '../../components/headerCaption/HeaderCaption';
 import { BannerFourAdd } from '../../section/banner/BannerData';
 import news_img from '../../images/ldci_news.png';
 import ReactPaginate from 'react-paginate';
 import { Button } from 'reactstrap';
+import { axiosInstance } from '../../config/AxiosInstance';
 
 const News = (props) => {
     const [toggle, setToggle] = useState(false);
@@ -20,14 +20,17 @@ const News = (props) => {
     const [mobileView, setMobileView] = useState(false);
     const [pageCount, setpageCount] = useState(0);
     const [items, setItems] = useState([]);
+    const [params, setParams] = useState('');
     const [selectedCareer, setSelectedCareer] = useState([]);
-    const [page, setPage] = useState(0);
+    const [page, setPage] = useState(2);
     const [size, setSize] = useState('5');
     const [filter, setFilter] = useState('');
     const navigate = useNavigate();
+    const [sortField, setSortField] = useState('insert_date');
+    const [sortOrder, setSortOrder] = useState('desc');
 
     useEffect(() => {
-        getJob(page);
+        handleSearchNews();
     }, []);
 
     const dummyNews = [
@@ -49,16 +52,31 @@ const News = (props) => {
         },
     ];
 
-    const getJob = useCallback(
-        async (page) => {
-            console.log('click page ', page);
-            const res = await fetch('http://localhost:8080/api/v1/jobs?page=' + page + '&size=' + size);
-            const data = await res.json();
-            const total = JSON.stringify(data.data.totalPages);
-            setpageCount(total);
-            setItems(data.data.content);
+    const getNews = useCallback(
+        async (halaman) => {
+            let requestBody = {
+                param: params,
+                statusCodes: [1],
+                sortField: 'title',
+                sortOrder: 'asc',
+                page: halaman,
+                size: 2,
+            };
+            let response = await axiosInstance().post('/api/v1/trc_news/byparams', requestBody);
+
+            if (response.data.status === 200) {
+                // setTotalData(response.data.totalData);
+                // setTotalPages(response.data.totalPages);
+                const total = JSON.stringify(response.data.totalPages);
+                setpageCount(total);
+                setItems(response.data.data);
+            } else {
+                // setRequestChanges([]);
+                // setMessage(response.data.message);
+            }
+            // setShouldFetchData(false);
         },
-        [items],
+        [items, params],
     );
 
     useEffect(() => {
@@ -84,10 +102,20 @@ const News = (props) => {
         }
     };
 
+    const handleParamsChange = (event) => {
+        const params = event.target.value;
+        setParams(params);
+    };
+
     const handlePageClick = async (data) => {
+        // console.log('page click12', data.selected);
         setPage(data.selected);
-        console.log('page click12', data.selected);
-        getJob(data.selected);
+
+        getNews(data.selected);
+    };
+
+    const handleSearchNews = async () => {
+        getNews(0);
     };
 
     const selectCareer = (item) => {
@@ -95,10 +123,11 @@ const News = (props) => {
     };
 
     const handleNewsDetail = async (event, item) => {
+        console.log('yogisdasds');
         event.preventDefault();
-        let id = item.newsId;
+        let id = item.id;
         try {
-            navigate(`/news/detail/${id}`);
+            navigate(`/landing/news/detail/${id}`);
         } catch (error) {
             navigate('/error', {
                 state: { message: 'Failed to show news detail page...' },
@@ -107,43 +136,28 @@ const News = (props) => {
     };
 
     let divElements;
-    // console.log("yogi", divElements);
-    // console.log("yogi2", news);
-    if (dummyNews != null) {
-        divElements = dummyNews.map((item, index) => {
+    // console.log("yog232i", JSON.stringify(items))
+    if (items != null) {
+        divElements = items.map((item, index) => {
             return (
                 <Col lg='5' md='5'>
-                    <div class='card shadow border mt-5 center bg-primary'>
-                        {' '}
-                        <div class='card-header bg-primary'>
-                            <h4> {item.title}</h4>
-                        </div>{' '}
-                        <ul class='list-group list-group-flush '>
-                            {' '}
-                            <li class='list-group-item center'>
-                                <p>
-                                    {item.department} - {item.team}
-                                </p>
-                            </li>{' '}
-                            <li class='list-group-item center'>
-                                <p>
-                                    {item.location} - {item.country}
-                                </p>
-                            </li>{' '}
-                            <li class='list-group-item center'>{item.descriptionPlain}</li>{' '}
-                            <li class='list-group-item center'>
-                                <Button
-                                    color='primary'
-                                    onClick={() => {
-                                        // toggleForm();
-                                        selectCareer(item);
-                                    }}>
-                                    Apply
-                                </Button>
-                            </li>{' '}
-                        </ul>
+                    <div key={item.id} class='text-left d-flex flex-row bg-lighter mt-5 '>
+                        <Card class='shadow border'>
+                            <Link to='#' onClick={(e) => handleNewsDetail(e, item)}>
+                                {console.log('cek123')}
+                                <img class='w-30' src={news_img} alt='' />
+                                <div className='ms-5 d-block w-100 si' style={{ textAlign: 'left' }}>
+                                    <h5>{item.title}</h5>
+                                    <h4>
+                                        <span text-left>[BUSINESS]</span>
+                                        &nbsp;
+                                        <span>{item.content}</span>
+                                    </h4>
+                                    {/* <p>{item.newsContentPlain.substring(0, 500) + '...'}</p> */}
+                                </div>
+                            </Link>
+                        </Card>
                     </div>
-                    {/* </div> */}
                 </Col>
             );
         });
@@ -187,13 +201,24 @@ const News = (props) => {
                                     <img src={news_img} />
                                     <div>
                                         <div class='mt-2 d-flex flex-row bg-lighter'>
-                                            <input type='text' class='form-control' id='default-01' placeholder='Search' />
+                                            <input
+                                                type='text'
+                                                class='form-control'
+                                                id='default-01'
+                                                placeholder='Search News'
+                                                value={params}
+                                                onChange={(e) => handleParamsChange(e)}
+                                            />
 
-                                            <a href='#' class='btn ms-3 btn-round btn-primary'>
+                                            <Button
+                                                color='btn ms-3 btn-round btn-primary'
+                                                onClick={() => {
+                                                    handleSearchNews();
+                                                }}>
                                                 <em class='icon ni ni-search'></em>
-                                                <span>Search News</span>
+                                                <span>Search Career</span>
                                                 {''}
-                                            </a>
+                                            </Button>
                                         </div>
                                     </div>
                                 </div>

@@ -49,8 +49,8 @@ export default function Career(props) {
     const toggleForm = () => setModalForm(!modalForm);
 
     const handlePageClick = async (data) => {
-        setPage(data.selected);
-        console.log('page click12', data.selected);
+        // setPage(data.selected);
+        // console.log('page click12', data.selected);
         getJob(data.selected);
     };
 

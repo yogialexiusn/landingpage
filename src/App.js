@@ -25,6 +25,7 @@ import OrganizationChard from './section/organization-chard/OrganizationChard';
 import History from './section/history/History';
 import AboutCompany from './section/about-company/about-company';
 import Career from './pages/page/Career';
+import NewsDetail from './pages/page/NewsDetail';
 
 function App() {
     useEffect(() => {
@@ -42,14 +43,9 @@ function App() {
                         <Route path={`indexfive`} element={<IndexFive />} />
                         <Route path={`indexsix`} element={<IndexSix />} />
                         <Route index element={<IndexFour />} />
-                        <Route path='business' element={<Business />}></Route>
-                        <Route path='partner' element={<Partner />}></Route>
+                        <Route path='/landing/news/detail/:id' element={<NewsDetail />} />
                         <Route path='news' element={<News />}></Route>
                         <Route path='career' element={<Career />}></Route>
-                        <Route path='it-service' element={<Success />}></Route>
-                        <Route path='solution' element={<ForgotPassword />}></Route>
-                        <Route path='platform' element={<Register />}></Route>
-                        <Route path='data-center' element={<DataCenter />}></Route>
                     </Route>
                     <Route path={`${process.env.PUBLIC_URL}/pages`}>
                         <Route path='auths'>
