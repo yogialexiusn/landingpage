@@ -14,7 +14,7 @@ import { BannerFourAdd } from '../../section/banner/BannerData';
 import career from '../../images/career.jpg';
 import ReactPaginate from 'react-paginate';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-// import { axiosInstance } from '../../config/AxiosInasdstance';
+import { axiosInstance } from '../../config/AxiosInstance';
 // import { axiosInstanceApply } from '../../config/AxiosInstance';
 
 export default function Career(props) {
@@ -23,12 +23,36 @@ export default function Career(props) {
     const [mobileView, setMobileView] = useState(false);
     const [pageCount, setpageCount] = useState(0);
     const [modalForm, setModalForm] = useState(false);
+    const [apply, setApply] = useState([]);
 
     const [items, setItems] = useState([]);
     const [selectedCareer, setSelectedCareer] = useState([]);
     const [page, setPage] = useState(0);
     const [size, setSize] = useState('5');
     const [filter, setFilter] = useState('');
+
+    const [fullName, setFullName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [currentCompany, setCurrentCompany] = useState('cacad');
+    const [linkedInUrl, setLinkedinUrl] = useState('');
+    const [gitHubUrl, setGithubUrl] = useState('');
+    const [curriculumVitae, setCuriculumVitae] = useState('');
+
+    const handleFileChange = (e) => {
+        console.log('cek = ', e.target.files[0]);
+        setCuriculumVitae(e.target.files[0]);
+    };
+
+    // const [input, setInput] = useState({
+    //     fullName: '',
+    //     email: '',
+    //     phone: '',
+    //     currentCompany: '',
+    //     linkedInUrl: '',
+    //     gitHubUrl: '',
+    //     curriculumVitae: '',
+    // });
 
     useEffect(() => {
         getJob(page);
@@ -57,9 +81,6 @@ export default function Career(props) {
     const handleFilter = async (param) => {
         console.log('handleFilter param: ', param);
         setFilter(param);
-        let requestBody = {
-            param: filter,
-        };
     };
 
     const handleSearchCareer = async () => {
@@ -78,6 +99,37 @@ export default function Career(props) {
         </li>
     ));
 
+    const applyNow = useCallback(
+        async (e) => {
+            setModalForm(false);
+            e.preventDefault();
+            const createApplyDTO = new FormData();
+            console.log('fullName = ', fullName);
+            createApplyDTO.append('fullName', fullName);
+            createApplyDTO.append('email', email);
+            createApplyDTO.append('phone', phone);
+            createApplyDTO.append('currentCompany', currentCompany);
+            createApplyDTO.append('linkedInUrl', linkedInUrl);
+            createApplyDTO.append('gitHubUrl', gitHubUrl);
+            createApplyDTO.append('curriculumVitae', curriculumVitae);
+
+            let response = await axiosInstance().post('/api/v1/trc_news/byparams1', createApplyDTO);
+
+            if (response.data.status === 200) {
+                // setTotalData(response.data.totalData);
+                // setTotalPages(response.data.totalPages);
+                const total = JSON.stringify(response.data.totalPages);
+                setpageCount(total);
+                setApply(response.data.data);
+            } else {
+                // setRequestChanges([]);
+                // setMessage(response.data.message);
+            }
+            // setShouldFetchData(false);
+        },
+        [apply, fullName, email, phone, currentCompany, linkedInUrl, gitHubUrl, curriculumVitae],
+    );
+
     const fileRejectionItems = fileRejections.map(({ file, errors }) => (
         <li key={file.path}>
             {file.path} - {file.size} bytes
@@ -88,17 +140,6 @@ export default function Career(props) {
             </ul>
         </li>
     ));
-
-    useEffect(() => {
-        window.onscroll = () => {
-            setOffset(window.pageYOffset);
-        };
-        viewChange();
-        window.addEventListener('resize', viewChange);
-        return () => {
-            window.removeEventListener('resize', viewChange);
-        };
-    });
 
     const viewChange = () => {
         if (window.innerWidth < 992) {
@@ -230,47 +271,83 @@ export default function Career(props) {
                                                     Full Name
                                                 </label>
                                                 <div className='form-control-wrap'>
-                                                    <input type='text' className='form-control' id='full-name' />
-                                                </div>
-                                            </div>
-                                            <div className='form-group'>
-                                                <label className='form-label' htmlFor='full-name'>
-                                                    Email
-                                                </label>
-                                                <div className='form-control-wrap'>
-                                                    <input type='text' className='form-control' id='full-name' />
+                                                    <input
+                                                        type='text'
+                                                        className='form-control'
+                                                        id='full-name'
+                                                        onChange={(e) => setFullName(e.target.value)}
+                                                        required
+                                                    />
                                                 </div>
                                             </div>
                                             <div className='form-group'>
                                                 <label className='form-label' htmlFor='email'>
+                                                    Email
+                                                </label>
+                                                <div className='form-control-wrap'>
+                                                    <input
+                                                        type='text'
+                                                        className='form-control'
+                                                        id='email'
+                                                        onChange={(e) => setEmail(e.target.value)}
+                                                        required
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div className='form-group'>
+                                                <label className='form-label' htmlFor='phone'>
                                                     Phone
                                                 </label>
                                                 <div className='form-control-wrap'>
-                                                    <input type='text' className='form-control' id='email' />
+                                                    <input
+                                                        type='number'
+                                                        className='form-control'
+                                                        id='phone'
+                                                        onChange={(e) => setPhone(e.target.value)}
+                                                        required
+                                                    />
                                                 </div>
                                             </div>
                                             <div className='form-group'>
-                                                <label className='form-label' htmlFor='phone-no'>
+                                                <label className='form-label' htmlFor='current-company'>
                                                     Current Company
                                                 </label>
                                                 <div className='form-control-wrap'>
-                                                    <input type='number' className='form-control' id='phone-no' defaultValue='' />
+                                                    <input
+                                                        type='text'
+                                                        className='form-control'
+                                                        id='current-company'
+                                                        onChange={(e) => setCurrentCompany(e.target.value)}
+                                                        required
+                                                    />
                                                 </div>
                                             </div>
                                             <div className='form-group'>
-                                                <label className='form-label' htmlFor='phone-no'>
+                                                <label className='form-label' htmlFor='linkedin'>
                                                     Linkedin Url
                                                 </label>
                                                 <div className='form-control-wrap'>
-                                                    <input type='number' className='form-control' id='phone-no' defaultValue='0880' />
+                                                    <input
+                                                        type='text'
+                                                        className='form-control'
+                                                        id='linkedin'
+                                                        onChange={(e) => setLinkedinUrl(e.target.value)}
+                                                        required
+                                                    />
                                                 </div>
                                             </div>
                                             <div className='form-group'>
-                                                <label className='form-label' htmlFor='phone-no'>
+                                                <label className='form-label' htmlFor='github'>
                                                     Github Url
                                                 </label>
                                                 <div className='form-control-wrap'>
-                                                    <input type='number' className='form-control' id='phone-no' defaultValue='0880' />
+                                                    <input
+                                                        type='text'
+                                                        className='form-control'
+                                                        id='github'
+                                                        onChange={(e) => setGithubUrl(e.target.value)}
+                                                        required
+                                                    />
                                                 </div>
                                             </div>
                                             <div className='form-group'>
@@ -278,23 +355,13 @@ export default function Career(props) {
                                                     Upload File
                                                 </label>
                                                 <div className='form-control-wrap'>
-                                                    <section className='container'>
-                                                        <div {...getRootProps({ className: 'dropzone' })}>
-                                                            <input {...getInputProps()} />
-                                                            <p>Drag 'n' drop some files here, or click to select files</p>
-                                                            <em>(Only file or document with *.pdf will be accepted)</em>
-                                                        </div>
-                                                        <aside>
-                                                            <b>
-                                                                <ul className='center mt-1'>{acceptedFileItems}</ul>
-                                                            </b>
-                                                        </aside>
-                                                    </section>
+                                                    <input id='file_input' type='file' accept='.pdf' onChange={handleFileChange} />
+                                                    <p>Only file or document with *.pdf will be accepted</p>
                                                 </div>
                                             </div>
                                             <div className='form-group center'>
-                                                <Button color='primary' type='submit' onClick={(ev) => ev.preventDefault()} size='lg'>
-                                                    Apply
+                                                <Button color='primary' onClick={applyNow} size='lg'>
+                                                    Apply Now
                                                 </Button>
                                             </div>
                                         </form>
