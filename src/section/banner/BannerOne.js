@@ -40,7 +40,7 @@ const BannerOne = (props) => {
 
     return (
         <Header className={props.className && props.className} id={props.id && props.id}>
-            <HeaderMain className={`header-main header-main-s1 is-sticky on-dark is-transparent ${offset > 0 ? 'has-fixed' : ''}`}>
+            <HeaderMain className={`header-main header-main-s1 y on-dark is-transparent ${offset > 0 ? 'has-fixed' : ''}`}>
                 <Container className='header-container'>
                     <HeaderWrap>
                         <div className='header-logo'>

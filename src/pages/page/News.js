@@ -125,8 +125,6 @@ const News = (props) => {
                     <div key={item.id}>
                         <Card class='shadow border'>
                             <Link to='#' onClick={(e) => handleNewsDetail(e, item)} className='text-left d-flex flex-row mt-5'>
-                                {console.log('cek123')}
-                                <img src={news_img} width='500' height='300' />
                                 <div className='ms-5 d-block w-100 si' style={{ textAlign: 'left' }}>
                                     <h5>15 Oktober 2023</h5>
                                     <h3 className='text-danger'>[BUSINESS] - {item.title}</h3>
@@ -146,7 +144,7 @@ const News = (props) => {
 
     return (
         <Header className={props.className && props.className} id={props.id && props.id}>
-            <HeaderMain className={` ${offset > 0 ? 'has-fixed' : ''}`}>
+            <HeaderMain className={`header-main header-main-s1 y on-dark is-transparent ${offset > 0 ? 'has-fixed' : ''}`}>
                 <Container className='header-container'>
                     <HeaderWrap>
                         <div className='header-logo'>
@@ -162,7 +160,7 @@ const News = (props) => {
                             {!mobileView ? <Menu className='ms-lg-auto' data={BannerFourAdd} /> : <MobileMenu data={BannerFourAdd} />}
                             <ul className='menu-btns'>
                                 <li>
-                                    <Link to='/landing/pages/auths/auth-login' target='_blank' rel='noreferrer' className='btn-primary btn-lg'>
+                                    <Link to='https://1.envato.market/reactdashlite' target='_blank' rel='noreferrer' className='btn-primary btn-lg'>
                                         Login
                                     </Link>
                                 </li>
@@ -177,9 +175,7 @@ const News = (props) => {
                     <Row className='row justify-content-center g-gs'>
                         <Col lg='12' md='5'>
                             <HeaderCaption>
-                                <HeaderTitle className='mt-4 center'>NEWS</HeaderTitle>
                                 <div>
-                                    <img src={news_img} />
                                     <div>
                                         <div class='mt-2 d-flex flex-row bg-lighter'>
                                             <input

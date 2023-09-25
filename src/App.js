@@ -14,9 +14,6 @@ import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
 import ForgotPassword from './pages/auth/ForgotPassword';
 import Success from './pages/auth/Success';
-import Partner from './pages/page/Partner';
-import Business from './pages/page/Business';
-import News from './pages/page/News';
 import DataCenter from './section/data-center/data-center';
 import Platform from './section/platform/platform';
 import Solution from './section/solution/solution';
@@ -26,6 +23,8 @@ import History from './section/history/History';
 import AboutCompany from './section/about-company/about-company';
 import Career from './pages/page/Career';
 import NewsDetail from './pages/page/NewsDetail';
+import IndexNews from './pages/IndexNews';
+import IndexCareer from './pages/IndexCareer';
 
 function App() {
     useEffect(() => {
@@ -44,8 +43,8 @@ function App() {
                         <Route path={`indexsix`} element={<IndexSix />} />
                         <Route index element={<IndexFour />} />
                         <Route path='/landing/news/detail/:id' element={<NewsDetail />} />
-                        <Route path='news' element={<News />}></Route>
-                        <Route path='career' element={<Career />}></Route>
+                        <Route path='news' element={<IndexNews />}></Route>
+                        <Route path='career' element={<IndexCareer />}></Route>
                     </Route>
                     <Route path={`${process.env.PUBLIC_URL}/pages`}>
                         <Route path='auths'>
