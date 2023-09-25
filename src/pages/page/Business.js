@@ -66,7 +66,7 @@ const Business = (props) => {
                     </HeaderWrap>
                 </Container>
             </HeaderMain>
-            <HeaderContent className='my-auto py-5'>
+            <HeaderContent className='py-6 is-dark mt-lg-n1 mt-n3'>
                 <div className='container'>
                     <Row className='row justify-content-center text-center'>
                         <Col lg='7' md='1'>
@@ -74,23 +74,25 @@ const Business = (props) => {
                                 <HeaderTitle>Business</HeaderTitle>
                                 <HeaderText>
                                     <p>New Business Promotion Item : Retail & Service, Smart Building, Smart Office and Mobility</p>
+                                    <br></br>
                                 </HeaderText>
                             </HeaderCaption>
                         </Col>
                     </Row>
                 </div>
+
+                <HeaderImage>
+                    <Container>
+                        <Row className='justify-content-center'>
+                            <Col xl='30'>
+                                <div className='card overflow-hidden p-2 bg-light'>
+                                    <img src={HeaderImg} alt='' />
+                                </div>
+                            </Col>
+                        </Row>
+                    </Container>
+                </HeaderImage>
             </HeaderContent>
-            <HeaderImage>
-                <Container>
-                    <Row className='justify-content-center'>
-                        <Col xl='30'>
-                            <div className='card overflow-hidden p-2 bg-light'>
-                                <img src={HeaderImg} alt='' />
-                            </div>
-                        </Col>
-                    </Row>
-                </Container>
-            </HeaderImage>
         </Header>
     );
 };

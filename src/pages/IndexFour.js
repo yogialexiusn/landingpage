@@ -26,7 +26,7 @@ const IndexFour = (props) => {
             <Solution className='section-service pb-0' id='#solution' />
             {/* <Platform className="section-service pb-0" id="#platform" /> */}
             <DataCenter className='section-service pb-0' id='#data-center' />
-            <Business className='section-service pb-0' id='#business' />
+            <Business className='header-32 has-header-main-s1 bg-dark' id='#business' />
             <Partner className='section-service pb-0' id='#partner' />
             {/* <News className="section-service pb-0" id="#news" /> */}
 

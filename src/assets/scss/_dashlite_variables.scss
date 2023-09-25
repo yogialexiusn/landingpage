@@ -10,7 +10,7 @@ $black: #000;
 $light-100: #ebeef2;
 $light-200: #e5e9f2;
 $light-300: #dbdfea;
-$light-400: white;
+$light-400: #b7c2d0;
 $light-500: #8091a7;
 $light-600: #3c4d62;
 $light-700: #344357;
@@ -27,7 +27,7 @@ $yellow: #f4bd0e;
 $green: #1ee0ac;
 $cyan: #09c2de;
 $blue: #559bfb;
-$azure: black; // organization
+$azure: #1676fb;
 $indigo: #2c3782;
 $purple: #816bff;
 $pink: #ff63a5;
@@ -38,11 +38,11 @@ $teal: #20c997;
 $base-100: #ecf2ff;
 $base-200: #dfe9fe;
 $base-300: #b6c6e3;
-$base-400: black; // base huruf keterangan
+$base-400: #8094ae;
 $base-500: #526484;
 
-$base-color: black; // warna text merah lotte
-$base-dark: #f5cf0f;
+$base-color: #364a63;
+$base-dark: #1c2b46;
 $base-text: $base-400;
 $base-light: $base-300;
 $base-dim: mix($base-color, $white, 8%);
@@ -54,9 +54,9 @@ $accent-300: #c4cefe;
 $accent-400: #9cabff;
 $accent-500: #798bff;
 
-$accent-color: #e26412;
+$accent-color: #6576ff;
 $accent-light: $accent-300;
-$accent-dark: #e26412;
+$accent-dark: #2c3782;
 $accent-dim: #e3e7fe;
 
 $body-bg: $lighter;

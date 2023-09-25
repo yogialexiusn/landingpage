@@ -34,6 +34,8 @@ const settings = {
     slidesToShow: 1,
     centerMode: false,
     slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
     infinite: true,
     responsive: [
         { breakpoint: 1539, settings: { slidesToShow: 3 } },
