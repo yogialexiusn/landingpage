@@ -12,6 +12,7 @@ import AboutCompany from '../section/about-company/about-company';
 import Business from './page/Business';
 import Partner from './page/Partner';
 import { FeatureOne, FeatureOneAlt } from '../section/feature/FeatureOne';
+
 import HistoryTitle from '../section/history/HistoryTitle';
 
 const IndexFour = (props) => {
@@ -24,7 +25,8 @@ const IndexFour = (props) => {
 
             {/* <HistoryTitle className='section-facts pb-0 bg-dark has-bg-image' id='#facts' /> */}
             <History className='section-service pb-0' id='#history' />
-            {/* <OrganizationChard className='section-service pb-0' id='#organization-chard' /> */}
+            <OrganizationChard className='section-cta is-dark has-bg-image mt-6' id='#organization-chard' />
+            {/* <CtaFive className='section-cta is-dark has-bg-image' id='#cta' /> */}
             <ItService className='section-service pb-0' id='#it-service' />
             <Solution className='section-service pb-0' id='#solution' />
             {/* <Platform className="section-service pb-0" id="#platform" /> */}

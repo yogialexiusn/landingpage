@@ -13,7 +13,7 @@ const TeamOne = (props) => {
         <Section className={props.className && props.className} id={props.id && props.id}>
             <Container>
                 <Row className='justify-content-center text-center'>
-                    <Col xl='7' lg='9'>
+                    <Col lg='9' md='10'>
                         <SectionHead>
                             <h2 className='title text-dark px-1'>Have questions or need support? Our team is here to help!</h2>
                             <p>

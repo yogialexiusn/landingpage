@@ -4,13 +4,14 @@ import { Link } from '../../components/button/Button';
 import { TextBlock, TitleH3 } from '../../components/textBlock/TextBlock';
 import { Section, SectionHead } from '../../layout/section/Section';
 import { Tree, TreeNode } from 'react-organizational-chart';
+import { BgImage } from '../../layout/ovm/Ovm';
 
 const OrganizationChard = (props) => {
     return (
         <Section className={props.className && props.className} id={props.id && props.id}>
-            <Container className='card-shadow round-xl bg-dark is-dark pb-4 pb-md-10'>
+            <Container>
                 <Row className='justify-content-center text-tenter'>
-                    <Col xl='7' lg='9'>
+                    <Col lg='10' md='5'>
                         <SectionHead className='text-center mb-1'>
                             <h2 className='title text-white mb-0'>Organization Chard</h2>
                         </SectionHead>
@@ -30,8 +31,8 @@ const OrganizationChard = (props) => {
                             src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
                             alt="image"
                           /> */}
-                                        <h5 className='title text-azure'>Cho Chunghwan</h5>
-                                        <span className='text-xs text-gray-500 dark:text-gray-400'>CEO</span>
+                                        <h5 className='title text-black'>Cho Chunghwan</h5>
+                                        <span className='text-black'>CEO</span>
                                     </div>
                                 </Card>
                             </div>
@@ -46,8 +47,8 @@ const OrganizationChard = (props) => {
                             src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
                             alt="image"
                           /> */}
-                                            <h5 className='title text-azure'>Kim Chang Min</h5>
-                                            <span className='text-xs text-gray-500 dark:text-gray-400'>Manager Business Support</span>
+                                            <h5 className='title text-black'>Kim Chang Min</h5>
+                                            <span className='text-black'>Manager Business Support</span>
                                         </div>
                                     </Card>
                                 </div>
@@ -62,14 +63,14 @@ const OrganizationChard = (props) => {
                             src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
                             alt="image"
                           /> */}
-                                                <h5 className='title text-azure'>Management Support Team</h5>
-                                                <span className='text-xs text-gray-500 dark:text-gray-400'>HR-GAF</span>
-                                                <span className='text-xs text-gray-500 dark:text-gray-400'>Fin-Accounting</span>
-                                                <span className='text-xs text-gray-500 dark:text-gray-400'>Tax</span>
-                                                <h5 className='title text-azure'>Management Planning Team</h5>
-                                                <span className='text-xs text-gray-500 dark:text-gray-400'>Business Plan</span>
-                                                <span className='text-xs text-gray-500 dark:text-gray-400'>Business Performance</span>
-                                                <span className='text-xs text-gray-500 dark:text-gray-400'>Business Research</span>
+                                                <h5 className='title text-black'>Management Support Team</h5>
+                                                <span className='text-black'>HR-GAF</span>
+                                                <span className='text-black'>Fin-Accounting</span>
+                                                <span className='text-black'>Tax</span>
+                                                <h5 className='title text-black'>Management Planning Team</h5>
+                                                <span className='text-black'>Business Plan</span>
+                                                <span className='text-black'>Business Performance</span>
+                                                <span className='text-black'>Business Research</span>
                                             </div>
                                         </Card>
                                     </div>
@@ -85,8 +86,8 @@ const OrganizationChard = (props) => {
                             src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
                             alt="image"
                           /> */}
-                                            <h5 className='title text-azure'>Noh Gyu-Tae</h5>
-                                            <span className='text-xs text-gray-500 dark:text-gray-400'>Director IT-Sales</span>
+                                            <h5 className='title text-black'>Noh Gyu-Tae</h5>
+                                            <span className='text-black'>Director IT-Sales</span>
                                         </div>
                                     </Card>
                                 </div>
@@ -101,15 +102,15 @@ const OrganizationChard = (props) => {
                             src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
                             alt="image"
                           /> */}
-                                                <h5 className='title text-azure'>Marketing Team</h5>
-                                                <span className='text-xs text-gray-500 dark:text-gray-400'>Sales Orders</span>
-                                                <h5 className='title text-azure'>New Business Team</h5>
-                                                <span className='text-xs text-gray-500 dark:text-gray-400'>EV Charger</span>
-                                                <span className='text-xs text-gray-500 dark:text-gray-400'>Security Solution</span>
-                                                <h5 className='title text-azure'>Purchasing Team 1</h5>
-                                                <span className='text-xs text-gray-500 dark:text-gray-400'>(internal)</span>
-                                                <h5 className='title text-azure'>Purchasing Team 2</h5>
-                                                <span className='text-xs text-gray-500 dark:text-gray-400'>(exsternal)</span>
+                                                <h5 className='title text-black'>Marketing Team</h5>
+                                                <span className='text-black'>Sales Orders</span>
+                                                <h5 className='title text-black'>New Business Team</h5>
+                                                <span className='text-black'>EV Charger</span>
+                                                <span className='text-black'>Security Solution</span>
+                                                <h5 className='title text-black'>Purchasing Team 1</h5>
+                                                <span className='text-black'>(internal)</span>
+                                                <h5 className='title text-black'>Purchasing Team 2</h5>
+                                                <span className='text-black'>(exsternal)</span>
                                             </div>
                                         </Card>
                                     </div>
@@ -125,8 +126,8 @@ const OrganizationChard = (props) => {
                             src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
                             alt="image"
                           /> */}
-                                            <h5 className='title text-azure'>Park Seongsu</h5>
-                                            <span className='text-xs text-gray-500 dark:text-gray-400'>Team Head IT-Infra</span>
+                                            <h5 className='title text-black'>Park Seongsu</h5>
+                                            <span className='text-black'>Team Head IT-Infra</span>
                                         </div>
                                     </Card>
                                 </div>
@@ -141,14 +142,14 @@ const OrganizationChard = (props) => {
                             src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
                             alt="image"
                           /> */}
-                                                <h5 className='title text-azure'>SI Team</h5>
-                                                <span className='text-xs text-gray-500 dark:text-gray-400'>System Diagnostic</span>
-                                                <span className='text-xs text-gray-500 dark:text-gray-400'>Design, Implementation</span>
-                                                <h5 className='title text-azure'>SM Team</h5>
-                                                <span className='text-xs text-gray-500 dark:text-gray-400'>System Management</span>
-                                                <span className='text-xs text-gray-500 dark:text-gray-400'>Maintenance, etc</span>
-                                                <h5 className='title text-azure'>Infra Team</h5>
-                                                <h5 className='title text-azure'>POS & EDC Team</h5>
+                                                <h5 className='title text-black'>SI Team</h5>
+                                                <span className='text-black'>System Diagnostic</span>
+                                                <span className='text-black'>Design, Implementation</span>
+                                                <h5 className='title text-black'>SM Team</h5>
+                                                <span className='text-black'>System Management</span>
+                                                <span className='text-black'>Maintenance, etc</span>
+                                                <h5 className='title text-black'>Infra Team</h5>
+                                                <h5 className='title text-black'>POS & EDC Team</h5>
                                             </div>
                                         </Card>
                                     </div>
@@ -164,8 +165,8 @@ const OrganizationChard = (props) => {
                             src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
                             alt="image"
                           /> */}
-                                            <h5 className='title text-azure'>Kim Seungkon</h5>
-                                            <span className='text-xs text-gray-500 dark:text-gray-400'>Team Head System Mgmt</span>
+                                            <h5 className='title text-black'>Kim Seungkon</h5>
+                                            <span className='text-black'>Team Head System Mgmt</span>
                                         </div>
                                     </Card>
                                 </div>
@@ -180,9 +181,9 @@ const OrganizationChard = (props) => {
                             src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
                             alt="image"
                           /> */}
-                                                <h5 className='title text-azure'>Mart SM Team</h5>
-                                                <span className='text-xs text-gray-500 dark:text-gray-400'>50 stores in Indonesia</span>
-                                                <span className='text-xs text-gray-500 dark:text-gray-400 whitespace-pre-line'>
+                                                <h5 className='title text-black'>Mart SM Team</h5>
+                                                <span className='text-black'>50 stores in Indonesia</span>
+                                                <span className='text-black whitespace-pre-line'>
                                                     Mart System Operation, Development, Remuneration, etc.
                                                 </span>
                                             </div>
@@ -200,8 +201,8 @@ const OrganizationChard = (props) => {
                             src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
                             alt="image"
                           /> */}
-                                            <h5 className='title text-azure'>Han Yoon Gyo</h5>
-                                            <span className='text-xs text-gray-500 dark:text-gray-400'>Team Head Development</span>
+                                            <h5 className='title text-black'>Han Yoon Gyo</h5>
+                                            <span className='text-black'>Team Head Development</span>
                                         </div>
                                     </Card>
                                 </div>
@@ -216,8 +217,8 @@ const OrganizationChard = (props) => {
                             src="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
                             alt="image"
                           /> */}
-                                                <h5 className='title text-azure'>Offshore</h5>
-                                                <h5 className='title text-azure'>Solution Development</h5>
+                                                <h5 className='title text-black'>Offshore</h5>
+                                                <h5 className='title text-black'>Solution Development</h5>
                                             </div>
                                         </Card>
                                     </div>
@@ -226,7 +227,14 @@ const OrganizationChard = (props) => {
                     </Tree>
                 </Row>
             </Container>
+            <BgImage className='bg-image bg-overlay after-bg-dark after-opacity-90 overlay-fall bg-image-loaded bg-image-cta-a' />
         </Section>
+
+        // <Section className={props.className && props.className} id={props.id && props.id}>
+        //     <Container className='card-shadow round-xl bg-dark is-dark pb-4 pb-md-10'>
+
+        //     </Container>
+        // </Section>
     );
 };
 

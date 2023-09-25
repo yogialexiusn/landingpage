@@ -24,7 +24,7 @@ const Success = () => {
                             <div className='nk-block-des text-success'>
                                 <p>You can now sign in with your new password</p>
                                 <Link to={`${process.env.PUBLIC_URL}/pages/auths/auth-login`} className='btn btn-primary btn-lg'>
-                                    Back to Login
+                                    Back to
                                 </Link>
                             </div>
                         </div>

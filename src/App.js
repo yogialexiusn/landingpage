@@ -63,7 +63,7 @@ function App() {
                     <Route path={`${process.env.PUBLIC_URL}/about`}>
                         <Route path='about-company' element={<AboutCompany />}></Route>
                         <Route path='history' element={<History />}></Route>
-                        <Route path='organization-chard' element={<OrganizationChard />}></Route>
+                        <Route path='' element={<OrganizationChard />}></Route>
                     </Route>
                     <Route path={`${process.env.PUBLIC_URL}/service-solution`}>
                         <Route path='it-service' element={<ItService />}></Route>

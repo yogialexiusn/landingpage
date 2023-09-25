@@ -5,6 +5,11 @@ import { TextBlock, TitleH2 } from '../../components/textBlock/TextBlock';
 import { Section, SectionHead } from '../../layout/section/Section';
 import LdciKorea from '../../images/building/ldci-korea.jpg';
 import { ImageBlock } from '../../components/images/Images';
+import NioIcon from '../../components/icon/Icons';
+import teamImg1 from '../../images/team/a.jpg';
+import teamImg2 from '../../images/team/b.jpg';
+import teamImg3 from '../../images/team/c.jpg';
+import teamImg4 from '../../images/team/d.jpg';
 import { RatingText, Review, ReviewBrand, ReviewContent, ReviewRating, ReviewText } from '../../components/review/Review';
 
 const AboutCompany = (props) => {
