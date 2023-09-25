@@ -147,6 +147,10 @@ const History = (props) => {
             <Container className='justify-content-center text-center'>
                 <SectionHead>
                     <h2 className='title'>HISTORY</h2>
+                    <p>
+                        Lotte Data Communication Indonesia's story is a captivating journey through time, filled with milestones, challenges, and
+                        remarkable achievements.
+                    </p>
                 </SectionHead>
                 <Block>
                     <PreviewCard bodyClass='card-inner-x2'>

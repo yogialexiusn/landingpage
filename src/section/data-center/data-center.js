@@ -46,7 +46,7 @@ const DataCenter = (props) => {
                 <Row className='text-center g-gs justify-center'>
                     <Col lg='4' sm='6' xs='9'>
                         <a href='https://react.dashlite.net/demo1/' target='_blank' rel='noreferrer' className='card card-shadow product product-s2'>
-                            <div className='card-inner product-img bg-purple'>
+                            <div className='card-inner product-img bg-gray'>
                                 <img src={demo1} alt='' />
                             </div>
                             <div className='card-inner product-info'>
@@ -56,7 +56,7 @@ const DataCenter = (props) => {
                     </Col>
                     <Col lg='4' sm='6' xs='9'>
                         <a href='https://react.dashlite.net/demo2/' target='_blank' rel='noreferrer' className='card card-shadow product product-s2'>
-                            <div className='card-inner product-img bg-pink'>
+                            <div className='card-inner product-img bg-gray'>
                                 <img src={demo2} alt='' />
                             </div>
                             <div className='card-inner product-info'>
@@ -66,7 +66,7 @@ const DataCenter = (props) => {
                     </Col>
                     <Col lg='4' sm='6' xs='9'>
                         <a href='https://react.dashlite.net/demo3/' target='_blank' rel='noreferrer' className='card card-shadow product product-s2'>
-                            <div className='card-inner product-img bg-teal'>
+                            <div className='card-inner product-img bg-gray'>
                                 <img src={demo3} alt='' />
                             </div>
                             <div className='card-inner product-info'>
@@ -76,7 +76,7 @@ const DataCenter = (props) => {
                     </Col>
                     <Col lg='4' sm='6' xs='9'>
                         <a href='https://react.dashlite.net/demo4/' target='_blank' rel='noreferrer' className='card card-shadow product product-s2'>
-                            <div className='card-inner product-img bg-danger'>
+                            <div className='card-inner product-img bg-gray'>
                                 <img src={demo4} alt='' />
                             </div>
                             <div className='card-inner product-info'>
@@ -86,7 +86,7 @@ const DataCenter = (props) => {
                     </Col>
                     <Col lg='4' sm='6' xs='9'>
                         <a href='https://react.dashlite.net/demo5/' target='_blank' rel='noreferrer' className='card card-shadow product product-s2'>
-                            <div className='card-inner product-img bg-warning'>
+                            <div className='card-inner product-img bg-gray'>
                                 <img src={demo5} alt='' />
                             </div>
                             <div className='card-inner product-info'>
@@ -96,7 +96,7 @@ const DataCenter = (props) => {
                     </Col>
                     <Col lg='4' sm='6' xs='9'>
                         <a href='https://react.dashlite.net/demo6/' target='_blank' rel='noreferrer' className='card card-shadow product product-s2'>
-                            <div className='card-inner product-img bg-info'>
+                            <div className='card-inner product-img bg-gray'>
                                 <img src={demo6} alt='' />
                             </div>
                             <div className='card-inner product-info'>

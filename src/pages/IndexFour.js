@@ -12,21 +12,24 @@ import AboutCompany from '../section/about-company/about-company';
 import Business from './page/Business';
 import Partner from './page/Partner';
 import { FeatureOne, FeatureOneAlt } from '../section/feature/FeatureOne';
+import HistoryTitle from '../section/history/HistoryTitle';
 
 const IndexFour = (props) => {
     return (
         <div className='nk-main'>
             <BannerFour className='header-32 has-header-main-s1 bg-dark' id='#BannerFour' />
             <FeatureOne className='section-feature pb-0' id='#feature' />
-            <FeatureOneAlt className='section-feature' />
+            <FeatureOneAlt className='section-service pb-0' />
             {/* <AboutCompany className="section-service pb-0" id="#about-company" /> */}
+
+            {/* <HistoryTitle className='section-facts pb-0 bg-dark has-bg-image' id='#facts' /> */}
             <History className='section-service pb-0' id='#history' />
-            <OrganizationChard className='section-service pb-0' id='#organization-chard' />
+            {/* <OrganizationChard className='section-service pb-0' id='#organization-chard' /> */}
             <ItService className='section-service pb-0' id='#it-service' />
             <Solution className='section-service pb-0' id='#solution' />
             {/* <Platform className="section-service pb-0" id="#platform" /> */}
             <DataCenter className='section-service pb-0' id='#data-center' />
-            <Business className='header-32 has-header-main-s1 bg-dark' id='#business' />
+            <Business className='header-32 has-header-main-s2 bg-dark' id='#business' />
             <Partner className='section-service pb-0' id='#partner' />
             {/* <News className="section-service pb-0" id="#news" /> */}
 

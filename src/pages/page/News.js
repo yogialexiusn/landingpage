@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import LogoDrak2x from '../../images/logo-dark2x.png';
-import LogoLight2x from '../../images/logo2x.png';
+// import LogoLight2x from '../../images/logo2x.png';
+import LogoLight2x from '../../images/logo-putih2x.png';
 import Menu from '../../layout/menu/Menu';
 import MobileMenu from '../../layout/menu/MobileMenu';
 import { Logo } from '../../components/logo/Logo';
@@ -160,9 +161,9 @@ const News = (props) => {
                             {!mobileView ? <Menu className='ms-lg-auto' data={BannerFourAdd} /> : <MobileMenu data={BannerFourAdd} />}
                             <ul className='menu-btns'>
                                 <li>
-                                    <Link to='https://1.envato.market/reactdashlite' target='_blank' rel='noreferrer' className='btn-primary btn-lg'>
+                                    <Button to='/landing/pages/auths/auth-login' target='_blank' rel='noreferrer' className='btn-primary btn-lg'>
                                         Login
-                                    </Link>
+                                    </Button>
                                 </li>
                             </ul>
                         </nav>

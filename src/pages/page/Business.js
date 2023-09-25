@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import HeaderImg from '../../images/header/business.jpg';
 import LogoDrak2x from '../../images/logo-dark2x.png';
-import LogoLight2x from '../../images/logo2x.png';
+// import LogoLight2x from '../../images/logo2x.png';
+import LogoLight2x from '../../images/logo-putih2x.png';
 import Menu from '../../layout/menu/Menu';
 import MobileMenu from '../../layout/menu/MobileMenu';
 import { Logo } from '../../components/logo/Logo';
-import { Col, Container, Row } from 'reactstrap';
+import { Col, Container, Row, Button } from 'reactstrap';
 import { Header, HeaderWrap, HeaderContent, HeaderMain } from '../../layout/header/Header';
 import { Link } from '../../components/button/Button';
 import { HeaderCaption, HeaderText, HeaderTitle } from '../../components/headerCaption/HeaderCaption';
 import { HeaderImage } from '../../components/images/Images';
 import { BannerOneData } from '../../../src/section/banner/BannerData';
+import UserAvatar from '../../components/user/UserAvatar';
 
 const Business = (props) => {
     const [toggle, setToggle] = useState(false);
@@ -56,9 +58,13 @@ const Business = (props) => {
                             {!mobileView ? <Menu className='ms-lg-auto' data={BannerOneData} /> : <MobileMenu data={BannerOneData} />}
                             <ul className='menu-btns'>
                                 <li>
-                                    <Link to='https://1.envato.market/reactdashlite' target='_blank' rel='noreferrer' className='btn-primary btn-lg'>
+                                    <Button
+                                        to='https://1.envato.market/reactdashlite'
+                                        target='_blank'
+                                        rel='noreferrer'
+                                        className='btn-primary btn-lg'>
                                         Login
-                                    </Link>
+                                    </Button>
                                 </li>
                             </ul>
                         </nav>
@@ -85,9 +91,15 @@ const Business = (props) => {
                     <Container>
                         <Row className='justify-content-center'>
                             <Col xl='30'>
-                                <div className='card overflow-hidden p-2 bg-light'>
-                                    <img src={HeaderImg} alt='' />
-                                </div>
+                                <a
+                                    href='https://react.dashlite.net/demo6/'
+                                    target='_blank'
+                                    rel='noreferrer'
+                                    className='card card-shadow product product-s2'>
+                                    <div className='card-inner product-img bg-black'>
+                                        <img src={HeaderImg} alt='' />
+                                    </div>
+                                </a>
                             </Col>
                         </Row>
                     </Container>
