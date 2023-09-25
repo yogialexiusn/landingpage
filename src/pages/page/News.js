@@ -33,25 +33,6 @@ const News = (props) => {
         handleSearchNews();
     }, []);
 
-    const dummyNews = [
-        {
-            id: 1,
-            date: '2023, 10 Januari',
-            newsType: 'BUSINESS',
-            newsContentPlain:
-                'Lorem Ipsum Weend Going to Lotte Mrart Going toLorem Ipsum Weend Going to Lotte Mrart Going to Zebra WihtoutLorem Ipsum Weend Going to Lotte Mrart Going to Zebra Wihtout Zebra Wihtout Lorem Ipsum Weend Going to Lotte Mrart Going to Zebra Wihtout Lorem Ipsum Weend Going to Lotte Mrart Going to Zebra Wihtout Lorem Ipsum Weend Going to Lotte Mrart Going to Zebra Wihtout Lorem Ipsum Weend Going to Lotte Mrart Going to Zebra Wihtout Lorem Ipsum Weend Going to Lotte Mrart Going to Zebra Wihtout Lorem Ipsum Weend Going to Lotte Mrart Going to Zebra Wihtout Lorem Ipsum Weend Going to Lotte Mrart Going to Zebra Wihtout Lorem Ipsum Weend Going to Lotte Mrart Going to Zebra Wihtout Lorem Ipsum Weend Going to Lotte Mrart Going to Zebra Wihtout Lorem Ipsum Weend Going to Lotte Mrart Going to Zebra Wihtout Lorem Ipsum Weend Going to Lotte Mrart Going to Zebra WihtoutLorem Ipsum Weend Going to Lotte Mrart Going to Zebra WihtoutLorem IpsumLorem Ipsum Weend Going to Lotte Mrart Going to Zebra WihtoutLorem Ipsum Weend Going to Lotte Mrart Going to Zebra WihtoutLorem Ipsum Weend Going to Lotte Mrart Going to Zebra Wihtout Weend Going to Lotte Mrart Going to Zebra Wihtout End ',
-            newsTitle: 'JUDUL BERITANYA',
-        },
-        {
-            id: 2,
-            date: '2023, 10 Januari',
-            newsType: 'NETRAL',
-            newsContentPlain:
-                'Lorem Ipsum Weend Going to Lotte Mrart Going to Zebra Wihtout Lorem Ipsum Weend Going to Lotte Mrart Going to Zebra Wihtout Lorem Ipsum Weend Going to Lotte Mrart Going to Zebra Wihtout Lorem Ipsum Weend Going to Lotte Mrart Going to Zebra Wihtout Lorem Ipsum Weend Going to Lotte Mrart Going to Zebra Wihtout Lorem Ipsum Weend Going to Lotte Mrart Going to Zebra Wihtout v',
-            newsTitle: 'JUDUL BERITANYA TEST',
-        },
-    ];
-
     const getNews = useCallback(
         async (halaman) => {
             let requestBody = {
@@ -60,7 +41,7 @@ const News = (props) => {
                 sortField: 'title',
                 sortOrder: 'asc',
                 page: halaman,
-                size: 2,
+                size: 4,
             };
             let response = await axiosInstance().post('/api/v1/trc_news/byparams', requestBody);
 
@@ -140,20 +121,20 @@ const News = (props) => {
     if (items != null) {
         divElements = items.map((item, index) => {
             return (
-                <Col lg='5' md='5'>
-                    <div key={item.id} class='text-left d-flex flex-row bg-lighter mt-5 '>
+                <Col lg='8' md='5'>
+                    <div key={item.id}>
                         <Card class='shadow border'>
-                            <Link to='#' onClick={(e) => handleNewsDetail(e, item)}>
+                            <Link to='#' onClick={(e) => handleNewsDetail(e, item)} className='text-left d-flex flex-row mt-5'>
                                 {console.log('cek123')}
-                                <img class='w-30' src={news_img} alt='' />
+                                <img src={news_img} width='500' height='300' />
                                 <div className='ms-5 d-block w-100 si' style={{ textAlign: 'left' }}>
-                                    <h5>{item.title}</h5>
-                                    <h4>
-                                        <span text-left>[BUSINESS]</span>
+                                    <h5>15 Oktober 2023</h5>
+                                    <h3 className='text-danger'>[BUSINESS] - {item.title}</h3>
+                                    <p className='text-base'>
                                         &nbsp;
-                                        <span>{item.content}</span>
-                                    </h4>
-                                    {/* <p>{item.newsContentPlain.substring(0, 500) + '...'}</p> */}
+                                        {item.content.substring(0, 500) + '...'}
+                                    </p>
+                                    {/* <p>{item.content.substring(0, 500) + '...'}</p> */}
                                 </div>
                             </Link>
                         </Card>
@@ -194,7 +175,7 @@ const News = (props) => {
             <HeaderContent className='py-6 is-black mt-lg-n1 mt-n3'>
                 <Container>
                     <Row className='row justify-content-center g-gs'>
-                        <Col lg='12' md='1'>
+                        <Col lg='12' md='5'>
                             <HeaderCaption>
                                 <HeaderTitle className='mt-4 center'>NEWS</HeaderTitle>
                                 <div>

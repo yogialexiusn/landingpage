@@ -213,41 +213,37 @@ export default function Career(props) {
                                 </div>
                             </HeaderCaption>
 
-                            <div class='d-flex justify-content-around card shadow border mt-5 center bg-primary'>
+                            <div class='d-flex justify-content-around card  mt-5 center '>
                                 {items.map((item, index) => {
                                     return (
-                                        <Col lg='5' md='5'>
-                                            <div class='card shadow border mt-5 center bg-primary'>
-                                                {' '}
-                                                <div class='card-header bg-primary'>
-                                                    <h4> {item.title}</h4>
-                                                </div>{' '}
-                                                <ul class='list-group list-group-flush '>
-                                                    {' '}
-                                                    <li class='list-group-item center'>
-                                                        <p>
-                                                            {item.department} - {item.team}
-                                                        </p>
-                                                    </li>{' '}
-                                                    <li class='list-group-item center'>
-                                                        <p>
-                                                            {item.location} - {item.country}
-                                                        </p>
-                                                    </li>{' '}
-                                                    <li class='list-group-item center'>{item.descriptionPlain}</li>{' '}
-                                                    <li class='list-group-item center'>
-                                                        <Button
-                                                            color='primary'
-                                                            onClick={() => {
-                                                                toggleForm();
-                                                                selectCareer(item);
-                                                            }}>
-                                                            Apply
-                                                        </Button>
-                                                    </li>{' '}
-                                                </ul>
+                                        <Col lg='12' md='5'>
+                                            <div class='card card-bordered mt-5'>
+                                                <div class='card-header border-bottom'>
+                                                    <h3 className='center'>{item.name}</h3>
+                                                </div>
+                                                <div class='card-body'>
+                                                    <h5 class='card-title center'>
+                                                        {item.workPlaceType}, {item.location} - {item.location}{' '}
+                                                    </h5>
+                                                    <p class='card-text'>
+                                                        {item.description} With supporting text below as a natural lead-in to additional content. With
+                                                        supporting text below as a natural lead-in to additional content. With supporting text below
+                                                        as a natural lead-in to additional content. With supporting text below as a natural lead-in to
+                                                        additional content. With supporting text below as a natural lead-in to additional content .
+                                                        With supporting text below as a natural lead-in to additional content
+                                                    </p>
+                                                </div>
+                                                <Button
+                                                    className='center'
+                                                    // color='primary'
+                                                    onClick={() => {
+                                                        toggleForm();
+                                                        selectCareer(item);
+                                                    }}>
+                                                    Apply
+                                                </Button>
+                                                <div class='card-footer border text-muted reverse d-flex flex-row-reverse'>2 days ago</div>
                                             </div>
-                                            {/* </div> */}
                                         </Col>
                                     );
                                 })}
@@ -262,7 +258,7 @@ export default function Career(props) {
                                                 <NioIcon name='cross' />
                                             </button>
                                         }>
-                                        <h4>Biodata {selectedCareer.department}</h4>
+                                        <h4>Applicant for {selectedCareer.name}</h4>
                                     </ModalHeader>
                                     <ModalBody>
                                         <form>

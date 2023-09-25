@@ -508,8 +508,16 @@ const BannerSixData = [
 ];
 const BannerFourAdd = [
     {
-        text: 'Back',
+        text: 'Home',
         to: '',
+    },
+    {
+        text: 'News',
+        to: '/news',
+    },
+    {
+        text: 'Career',
+        to: '/career',
     },
 ];
 
