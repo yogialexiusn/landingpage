@@ -12,12 +12,14 @@ import { Link } from '../../components/button/Button';
 import { HeaderCaption, HeaderText, HeaderTitle } from '../../components/headerCaption/HeaderCaption';
 import { HeaderImage } from '../../components/images/Images';
 import { BannerOneData } from '../../../src/section/banner/BannerData';
+import { useNavigate } from 'react-router-dom';
 import UserAvatar from '../../components/user/UserAvatar';
 
 const Business = (props) => {
     const [toggle, setToggle] = useState(false);
     const [offset, setOffset] = useState(0);
     const [mobileView, setMobileView] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         window.onscroll = () => {
@@ -30,6 +32,11 @@ const Business = (props) => {
             window.removeEventListener('resize', viewChange);
         };
     }, []);
+
+    const routeChange = () =>{ 
+        let path = '/landing/pages/auths/auth-login'; 
+        navigate(path);
+    }
 
     // function to change the design view under 1200 px
     const viewChange = () => {
@@ -58,11 +65,7 @@ const Business = (props) => {
                             {!mobileView ? <Menu className='ms-lg-auto' data={BannerOneData} /> : <MobileMenu data={BannerOneData} />}
                             <ul className='menu-btns'>
                                 <li>
-                                    <Button
-                                        to='https://1.envato.market/reactdashlite'
-                                        target='_blank'
-                                        rel='noreferrer'
-                                        className='btn-primary btn-lg'>
+                                    <Button className='btn-primary btn-lg' onClick={routeChange}>
                                         Login
                                     </Button>
                                 </li>

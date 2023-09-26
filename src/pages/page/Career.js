@@ -13,6 +13,7 @@ import { Link } from '../../components/button/Button';
 import { HeaderCaption, HeaderTitle } from '../../components/headerCaption/HeaderCaption';
 import { BannerFourAdd } from '../../section/banner/BannerData';
 import career from '../../images/career.jpg';
+import { useNavigate } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { axiosInstance } from '../../config/AxiosInstance';
@@ -39,6 +40,7 @@ export default function Career(props) {
     const [linkedInUrl, setLinkedinUrl] = useState('');
     const [gitHubUrl, setGithubUrl] = useState('');
     const [curriculumVitae, setCuriculumVitae] = useState('');
+    const navigate = useNavigate();
 
     const handleFileChange = (e) => {
         console.log('cek = ', e.target.files[0]);
@@ -70,6 +72,11 @@ export default function Career(props) {
         },
         [items],
     );
+
+    const routeChange = () =>{ 
+        let path = '/landing/pages/auths/auth-login'; 
+        navigate(path);
+    }
 
     const toggleForm = () => setModalForm(!modalForm);
 
@@ -185,7 +192,7 @@ export default function Career(props) {
                             {!mobileView ? <Menu className='ms-lg-auto' data={BannerFourAdd} /> : <MobileMenu data={BannerFourAdd} />}
                             <ul className='menu-btns'>
                                 <li>
-                                    <Button to='/landing/pages/auths/auth-login' target='_blank' rel='noreferrer' className='btn-primary btn-lg'>
+                                    <Button className='btn-primary btn-lg' onClick={routeChange}>
                                         Login
                                     </Button>
                                 </li>

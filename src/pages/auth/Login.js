@@ -61,7 +61,7 @@ const Login = () => {
                                 <div className='nk-block-content'>
                                     <h5 className='nk-block-title page'>Sign-In</h5>
                                     <div className='nk-block-des'>
-                                        <p>Access Dashlite using your email and passcode.</p>
+                                        <p>Access Admin Website Lotte Data Communication Indonesia using your username / email or password.</p>
                                     </div>
                                 </div>
                             </div>
@@ -69,7 +69,7 @@ const Login = () => {
                                 <div className='mb-3'>
                                     <Alert color='danger' className='alert-icon'>
                                         {' '}
-                                        <NioIcon icon='alert-circle' /> Unable to login with credentials{' '}
+                                        <NioIcon icon='alert-circle' /> Unable to login because your email / username or password is wrong!{' '}
                                     </Alert>
                                 </div>
                             )}
@@ -87,7 +87,7 @@ const Login = () => {
                                             {...register('name', {
                                                 required: 'This field is required',
                                             })}
-                                            defaultValue='info@softnio.com'
+                                            
                                             placeholder='Enter your email address or username'
                                             className='form-control-lg form-control'
                                         />
@@ -100,7 +100,7 @@ const Login = () => {
                                             Passcode
                                         </label>
                                         <Link className='link link-primary link-sm' to={`${process.env.PUBLIC_URL}/pages/auths/auth-reset`}>
-                                            Forgot Code?
+                                            Forgot Password?
                                         </Link>
                                     </div>
                                     <div className='form-control-wrap'>
@@ -134,37 +134,9 @@ const Login = () => {
                                     </Button>
                                 </div>
                             </Form>
-                            <div className='form-note-s2 text-center pt-4'>
-                                {' '}
-                                New on our platform? <Link to={`${process.env.PUBLIC_URL}/pages/auths/auth-register`}>Create an account</Link>
-                            </div>
-                            <div className='text-center pt-4 pb-3'>
-                                <h6 className='overline-title overline-title-sap'>
-                                    <span>OR</span>
-                                </h6>
-                            </div>
-                            <ul className='nav justify-center gx-4'>
-                                <li className='nav-item'>
-                                    <a
-                                        className='nav-link'
-                                        href='#socials'
-                                        onClick={(ev) => {
-                                            ev.preventDefault();
-                                        }}>
-                                        Facebook
-                                    </a>
-                                </li>
-                                <li className='nav-item'>
-                                    <a
-                                        className='nav-link'
-                                        href='#socials'
-                                        onClick={(ev) => {
-                                            ev.preventDefault();
-                                        }}>
-                                        Google
-                                    </a>
-                                </li>
-                            </ul>
+                            
+                            <br></br>
+                            
                         </div>
                     </div>
                 </div>

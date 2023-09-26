@@ -70,6 +70,9 @@ function App() {
                         <Route path='platform' element={<Platform />}></Route>
                         <Route path='data-center' element={<DataCenter />}></Route>
                     </Route>
+                    <Route path={`${process.env.PUBLIC_URL}/admin`}>
+                        <Route path='' element={<ItService />}></Route>
+                    </Route>
                     <Route path='*' element={<Error404Modern />}></Route>
                 </Routes>
             </div>

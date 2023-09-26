@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { axiosInstance } from '../../../config/AxiosInstance';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { Header, HeaderContent, HeaderMain, HeaderWrap } from '../../../layout/header/Header';
 import LogoDrak2x from '../../../images/logo-dark2x.png';
 import LogoLight2x from '../../../images/logo2x.png';
@@ -8,7 +8,6 @@ import Menu from '../../../layout/menu/Menu';
 import MobileMenu from '../../../layout/menu/MobileMenu';
 import { Logo } from '../../../components/logo/Logo';
 import { Card, Col, Container, Row } from 'reactstrap';
-import { Link, useNavigate } from 'react-router-dom';
 import { HeaderCaption, HeaderTitle } from '../../../components/headerCaption/HeaderCaption';
 import { BannerFourAdd } from '../../../section/banner/BannerData';
 import news_img from '../../../images/ldci_news.png';
@@ -56,6 +55,11 @@ const NewsDetail = (props) => {
         [newsDetail],
     );
 
+    const routeChange = () =>{ 
+        let path = '/landing/pages/auths/auth-login'; 
+        navigate(path);
+    }
+
     return (
         <Header className={props.className && props.className} id={props.id && props.id}>
             <HeaderMain className={`header-main header-main-s1 y on-dark is-transparent ${offset > 0 ? 'has-fixed' : ''}`}>
@@ -74,7 +78,7 @@ const NewsDetail = (props) => {
                             {!mobileView ? <Menu className='ms-lg-auto' data={BannerFourAdd} /> : <MobileMenu data={BannerFourAdd} />}
                             <ul className='menu-btns'>
                                 <li>
-                                    <Button to='/landing/pages/auths/auth-login' target='_blank' rel='noreferrer' className='btn-primary btn-lg'>
+                                    <Button className='btn-primary btn-lg' onClick={routeChange}>
                                         Login
                                     </Button>
                                 </li>

@@ -89,6 +89,11 @@ const News = (props) => {
         setParams(params);
     };
 
+    const routeChange = () =>{ 
+        let path = '/landing/pages/auths/auth-login'; 
+        navigate(path);
+    }
+
     const handlePageClick = async (data) => {
         // console.log('page click12', data.selected);
         setPage(data.selected);
@@ -161,7 +166,7 @@ const News = (props) => {
                             {!mobileView ? <Menu className='ms-lg-auto' data={BannerFourAdd} /> : <MobileMenu data={BannerFourAdd} />}
                             <ul className='menu-btns'>
                                 <li>
-                                    <Button to='/landing/pages/auths/auth-login' target='_blank' rel='noreferrer' className='btn-primary btn-lg'>
+                                    <Button className='btn-primary btn-lg' onClick={routeChange}>
                                         Login
                                     </Button>
                                 </li>
