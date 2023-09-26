@@ -21,10 +21,9 @@ import ItService from './section/it-service/it-service';
 import OrganizationChard from './section/organization-chard/OrganizationChard';
 import History from './section/history/History';
 import AboutCompany from './section/about-company/about-company';
-import Career from './pages/page/Career';
-import NewsDetail from './pages/page/NewsDetail';
 import IndexNews from './pages/IndexNews';
 import IndexCareer from './pages/IndexCareer';
+import IndexNewsDetail from './pages/IndexNewsDetail';
 
 function App() {
     useEffect(() => {
@@ -42,7 +41,7 @@ function App() {
                         <Route path={`indexfive`} element={<IndexFive />} />
                         <Route path={`indexsix`} element={<IndexSix />} />
                         <Route index element={<IndexFour />} />
-                        <Route path='/landing/news/detail/:id' element={<NewsDetail />} />
+                        <Route path='/landing/news/detail/:id' element={<IndexNewsDetail />} />
                         <Route path='news' element={<IndexNews />}></Route>
                         <Route path='career' element={<IndexCareer />}></Route>
                     </Route>

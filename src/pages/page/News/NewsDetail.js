@@ -1,17 +1,17 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { axiosInstance } from '../../config/AxiosInstance';
+import { axiosInstance } from '../../../config/AxiosInstance';
 import { useParams } from 'react-router-dom';
-import { Header, HeaderContent, HeaderMain, HeaderWrap } from '../../layout/header/Header';
-import LogoDrak2x from '../../images/logo-dark2x.png';
-import LogoLight2x from '../../images/logo2x.png';
-import Menu from '../../layout/menu/Menu';
-import MobileMenu from '../../layout/menu/MobileMenu';
-import { Logo } from '../../components/logo/Logo';
+import { Header, HeaderContent, HeaderMain, HeaderWrap } from '../../../layout/header/Header';
+import LogoDrak2x from '../../../images/logo-dark2x.png';
+import LogoLight2x from '../../../images/logo2x.png';
+import Menu from '../../../layout/menu/Menu';
+import MobileMenu from '../../../layout/menu/MobileMenu';
+import { Logo } from '../../../components/logo/Logo';
 import { Card, Col, Container, Row } from 'reactstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import { HeaderCaption, HeaderTitle } from '../../components/headerCaption/HeaderCaption';
-import { BannerFourAdd } from '../../section/banner/BannerData';
-import news_img from '../../images/ldci_news.png';
+import { HeaderCaption, HeaderTitle } from '../../../components/headerCaption/HeaderCaption';
+import { BannerFourAdd } from '../../../section/banner/BannerData';
+import news_img from '../../../images/ldci_news.png';
 import ReactPaginate from 'react-paginate';
 import { Button } from 'reactstrap';
 
@@ -58,7 +58,7 @@ const NewsDetail = (props) => {
 
     return (
         <Header className={props.className && props.className} id={props.id && props.id}>
-            <HeaderMain className={` ${offset > 0 ? 'has-fixed' : ''}`}>
+            <HeaderMain className={`header-main header-main-s1 y on-dark is-transparent ${offset > 0 ? 'has-fixed' : ''}`}>
                 <Container className='header-container'>
                     <HeaderWrap>
                         <div className='header-logo'>
@@ -74,9 +74,9 @@ const NewsDetail = (props) => {
                             {!mobileView ? <Menu className='ms-lg-auto' data={BannerFourAdd} /> : <MobileMenu data={BannerFourAdd} />}
                             <ul className='menu-btns'>
                                 <li>
-                                    <Link to='/landing/pages/auths/auth-login' target='_blank' rel='noreferrer' className='btn-primary btn-lg'>
+                                    <Button to='/landing/pages/auths/auth-login' target='_blank' rel='noreferrer' className='btn-primary btn-lg'>
                                         Login
-                                    </Link>
+                                    </Button>
                                 </li>
                             </ul>
                         </nav>

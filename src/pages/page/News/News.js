@@ -1,19 +1,19 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import LogoDrak2x from '../../images/logo-dark2x.png';
+import LogoDrak2x from '../../../images/logo-dark2x.png';
 // import LogoLight2x from '../../images/logo2x.png';
-import LogoLight2x from '../../images/logo-putih2x.png';
-import Menu from '../../layout/menu/Menu';
-import MobileMenu from '../../layout/menu/MobileMenu';
-import { Logo } from '../../components/logo/Logo';
+import LogoLight2x from '../../../images/logo-putih2x.png';
+import Menu from '../../../layout/menu/Menu';
+import MobileMenu from '../../../layout/menu/MobileMenu';
+import { Logo } from '../../../components/logo/Logo';
 import { Card, Col, Container, Row } from 'reactstrap';
-import { Header, HeaderContent, HeaderMain, HeaderWrap } from '../../layout/header/Header';
+import { Header, HeaderContent, HeaderMain, HeaderWrap } from '../../../layout/header/Header';
 import { Link, useNavigate } from 'react-router-dom';
-import { HeaderCaption, HeaderTitle } from '../../components/headerCaption/HeaderCaption';
-import { BannerFourAdd } from '../../section/banner/BannerData';
-import news_img from '../../images/ldci_news.png';
+import { HeaderCaption, HeaderTitle } from '../../../components/headerCaption/HeaderCaption';
+import { BannerFourAdd } from '../../../section/banner/BannerData';
+import news_img from '../../../images/ldci_news.png';
 import ReactPaginate from 'react-paginate';
 import { Button } from 'reactstrap';
-import { axiosInstance } from '../../config/AxiosInstance';
+import { axiosInstance } from '../../../config/AxiosInstance';
 
 const News = (props) => {
     const [toggle, setToggle] = useState(false);
