@@ -25,10 +25,10 @@ const FooterThree = (props) => {
                 <Row className='g-3 align-items-center pt-3'>
                     <Col md='8'>
                         <div className='text-base'>
-                            &copy; 2022 Dashlite. Template Made by
+                            &copy; 2023. Created by
                             <a className='text-base fw-bold' href='https://themeforest.net/user/softnio/portfolio' target='_blank' rel='noreferrer'>
                                 {' '}
-                                Softnio{' '}
+                                Developer Lotte Data Communication Indonesia{' '}
                             </a>
                         </div>
                     </Col>
