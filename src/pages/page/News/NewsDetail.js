@@ -78,9 +78,7 @@ const NewsDetail = (props) => {
                             {!mobileView ? <Menu className='ms-lg-auto' data={BannerFourAdd} /> : <MobileMenu data={BannerFourAdd} />}
                             <ul className='menu-btns'>
                                 <li>
-                                    <Button className='btn-primary btn-lg' onClick={routeChange}>
-                                        Login
-                                    </Button>
+                                <a href="http://localhost:3001/demo2/auth-login" class="btn btn-primary">Login</a>
                                 </li>
                             </ul>
                         </nav>
