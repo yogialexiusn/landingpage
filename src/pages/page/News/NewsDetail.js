@@ -55,10 +55,10 @@ const NewsDetail = (props) => {
         [newsDetail],
     );
 
-    const routeChange = () =>{ 
-        let path = '/landing/pages/auths/auth-login'; 
+    const routeChange = () => {
+        let path = '/landing/pages/auths/auth-login';
         navigate(path);
-    }
+    };
 
     return (
         <Header className={props.className && props.className} id={props.id && props.id}>
@@ -78,7 +78,9 @@ const NewsDetail = (props) => {
                             {!mobileView ? <Menu className='ms-lg-auto' data={BannerFourAdd} /> : <MobileMenu data={BannerFourAdd} />}
                             <ul className='menu-btns'>
                                 <li>
-                                <a href="http://localhost:3001/demo2/auth-login" class="btn btn-primary">Login</a>
+                                    <a href='http://localhost:3001/demo2/auth-login' class='btn btn-primary'>
+                                        Login
+                                    </a>
                                 </li>
                             </ul>
                         </nav>

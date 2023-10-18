@@ -89,10 +89,10 @@ const News = (props) => {
         setParams(params);
     };
 
-    const routeChange = () =>{ 
-        let path = '/landing/pages/auths/auth-login'; 
+    const routeChange = () => {
+        let path = '/landing/pages/auths/auth-login';
         navigate(path);
-    }
+    };
 
     const handlePageClick = async (data) => {
         // console.log('page click12', data.selected);
@@ -166,7 +166,9 @@ const News = (props) => {
                             {!mobileView ? <Menu className='ms-lg-auto' data={BannerFourAdd} /> : <MobileMenu data={BannerFourAdd} />}
                             <ul className='menu-btns'>
                                 <li>
-                                <a href="http://localhost:3001/demo2/auth-login" class="btn btn-primary">Login</a>
+                                    <a href='http://localhost:3001/demo2/auth-login' class='btn btn-primary'>
+                                        Login
+                                    </a>
                                 </li>
                             </ul>
                         </nav>

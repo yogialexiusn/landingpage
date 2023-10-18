@@ -33,10 +33,10 @@ const Business = (props) => {
         };
     }, []);
 
-    const routeChange = () =>{ 
-        let path = 'www.google.com'; 
+    const routeChange = () => {
+        let path = 'www.google.com';
         navigate(path);
-    }
+    };
 
     // function to change the design view under 1200 px
     const viewChange = () => {
@@ -65,7 +65,9 @@ const Business = (props) => {
                             {!mobileView ? <Menu className='ms-lg-auto' data={BannerOneData} /> : <MobileMenu data={BannerOneData} />}
                             <ul className='menu-btns'>
                                 <li>
-                                    <a href="http://localhost:3001/demo2/auth-login" class="btn btn-primary">Login</a>
+                                    <a href='http://localhost:3001/demo2/auth-login' class='btn btn-primary'>
+                                        Login
+                                    </a>
                                 </li>
                             </ul>
                         </nav>

@@ -87,7 +87,6 @@ const Login = () => {
                                             {...register('name', {
                                                 required: 'This field is required',
                                             })}
-                                            
                                             placeholder='Enter your email address or username'
                                             className='form-control-lg form-control'
                                         />
@@ -134,9 +133,8 @@ const Login = () => {
                                     </Button>
                                 </div>
                             </Form>
-                            
+
                             <br></br>
-                            
                         </div>
                     </div>
                 </div>
