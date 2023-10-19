@@ -1,11 +1,45 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card, Col, Container, Row } from 'reactstrap';
 import { Section, SectionContant, SectionHead } from '../../layout/section/Section';
 import { ServiceText } from '../../components/service/Service';
 import { StyledIcon } from '../../components/icon/Icon';
 import { Levels, CodeDisplay, Shield, Play, Headphone, Dashboard, Cloud } from '../../components/svg/Icon';
+import { motion } from 'framer-motion';
 
 const Solution = (props) => {
+    const [isVisible, setIsVisible] = useState(false);
+    const containerVariants = {
+        hidden: {
+            opacity: 0,
+            x: '100vw',
+        },
+        visible: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                type: 'spring',
+                delay: 0.5,
+            },
+        },
+    };
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const yOffset = window.scrollY;
+            console.log(yOffset);
+            // Adjust this value based on when you want the animation to trigger
+            const triggerOffset = 5700;
+            setIsVisible(yOffset > triggerOffset);
+        };
+
+        // Attach the scroll event listener
+        window.addEventListener('scroll', handleScroll);
+
+        // Clean up the listener when the component unmounts
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [isVisible]);
     return (
         <Section className={props.className && props.className} id={props.id && props.id}>
             <Container className='card-shadow round-xl bg-dark is-dark pb-4 pb-md-10'>
@@ -13,10 +47,19 @@ const Solution = (props) => {
                 <Row className='justify-content-center text-center'>
                     <Col lg='8' md='10'>
                         <SectionHead>
-                            <h2 className='title fw-medium'>Distribution and Security Solution</h2>
+                            <motion.h1
+                                style={{ fontFamily: 'fantasy' }}
+                                className='base container center mb-5'
+                                variants={containerVariants}
+                                initial='hidden'
+                                // animate="visible"
+                                animate={isVisible ? 'visible' : 'hidden'}>
+                                Distribution and Security Solution
+                            </motion.h1>
+                            {/* <h2 className='title fw-medium'>Distribution and Security Solution</h2> */}
                             <p>
-                                As Integrated distribution solution tailored to each country/regionDomestic and foreign reference-based retail H/W,
-                                solution service and as a security SolutionProvides a stable business environment through optimized convergence
+                                As Integrated distribution solution tailored to each country / region domestic and foreign reference-based retail H/W,
+                                solution service and as a security solution provides a stable business environment through optimized convergence
                                 security services of information security expert in Lotte groups
                             </p>
                         </SectionHead>

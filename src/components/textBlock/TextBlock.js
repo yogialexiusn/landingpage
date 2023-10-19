@@ -4,6 +4,9 @@ const TextBlock = (props) => {
     return <div className={['text-block', props.className ? props.className : null].join(' ')}>{props.children}</div>;
 };
 
+const TitleH1 = (props) => {
+    return <h1 className={['title', props.className ? props.className : null].join(' ')}>{props.children}</h1>;
+};
 const TitleH2 = (props) => {
     return <h2 className={['title', props.className ? props.className : null].join(' ')}>{props.children}</h2>;
 };
@@ -15,4 +18,4 @@ const Paragraph = (props) => {
     return <p className={['', props.className ? props.className : null].join(' ')}>{props.children}</p>;
 };
 
-export { TextBlock, TitleH2, TitleH3, Paragraph };
+export { TextBlock, TitleH1, TitleH2, TitleH3, Paragraph };

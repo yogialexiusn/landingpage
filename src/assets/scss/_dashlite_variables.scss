@@ -43,6 +43,7 @@ $base-400: black;
 $base-500: #526484;
 
 $base-color: #364a63;
+$base-color: black;
 $base-dark: #1c2b46;
 $base-text: $base-400;
 $base-light: $base-300;
@@ -163,7 +164,8 @@ $stretch-gap-x: (4px + math.div($gutter-width, 2));
 /////////    TYPTOGRAPHY    //////////
 //////////////////////////////////////
 
-$base-font-family: Roboto, sans-serif;
+$base-font-family: 'Tahoma', sans-serif;
+// $base-font-family: Roboto, sans-serif;
 $base-line-height: 1.65;
 $alt-font-family: Nunito, sans-serif;
 

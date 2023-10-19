@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { Card, Col, Container, Row } from 'reactstrap';
 import { Portrait } from '../../components/images/Images';
 import { Review, ReviewPortrait } from '../../components/review/Review';
@@ -50,14 +51,56 @@ import A44 from '../../images/partner/44.jpg';
 import Marquee from 'react-fast-marquee';
 
 const Partner = (props) => {
+    const [isVisible, setIsVisible] = useState(false);
+    const containerVariants = {
+        hidden: {
+            opacity: 0,
+            x: '100vw',
+        },
+        visible: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                type: 'spring',
+                delay: 0.5,
+            },
+        },
+    };
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const yOffset = window.scrollY;
+            console.log(yOffset);
+            // Adjust this value based on when you want the animation to trigger
+            const triggerOffset = 8900;
+            setIsVisible(yOffset > triggerOffset);
+        };
+
+        // Attach the scroll event listener
+        window.addEventListener('scroll', handleScroll);
+
+        // Clean up the listener when the component unmounts
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [isVisible]);
+
     return (
         <Section className={props.className && props.className} id={props.id && props.id}>
             <Container>
                 <Row className='justify-content-center text-center'>
-                    <Col xl='7' md='8' xs='10'>
+                    <Col xl='12' md='8' xs='10'>
                         <SectionHead>
-                            <h2 className='title'>Partner </h2>
-                            <p>We provide the best service through collaboration with various partners.</p>
+                            <motion.h1
+                                style={{ fontFamily: 'fantasy' }}
+                                className='base container center mb-5'
+                                variants={containerVariants}
+                                initial='hidden'
+                                // animate="visible"
+                                animate={isVisible ? 'visible' : 'hidden'}>
+                                Partner
+                            </motion.h1>
+                            <h3 className='mb-5'>We provide the best service through collaboration with various partners.</h3>
                         </SectionHead>
                     </Col>
                 </Row>

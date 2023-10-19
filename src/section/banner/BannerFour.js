@@ -39,23 +39,25 @@ const BannerFour = (props) => {
     };
 
     return (
-        <Header className={props.className && props.className} id={props.id && props.id}>
-            <HeaderContent className='py-6 is-dark mt-lg-n1 mt-n3'>
-                <Container>
-                    <Row className='row justify-content-center text-center g-gs'>
-                        <Col lg='10' md='7'>
-                            <HeaderCaption>
-                                <HeaderTitle>Digital Platform Leader for Intelligent Enterprise</HeaderTitle>
-                                <p>We build greater futures through innovation and collective knowledge.</p>
-                                <PreviewCard>
-                                    <CaptionsCarousel />
-                                </PreviewCard>
-                            </HeaderCaption>
-                        </Col>
-                    </Row>
-                </Container>
-            </HeaderContent>
-        </Header>
+        <CaptionsCarousel>
+            <Header className={props.className && props.className} id={props.id && props.id}>
+                <HeaderContent className='py-6 is-dark mt-lg-n1 mt-n3'>
+                    <Container>
+                        <Row className='row justify-content-center text-center g-gs'>
+                            <Col lg='10' md='7'>
+                                <HeaderCaption>
+                                    <HeaderTitle>Digital Platform Leader for Intelligent Enterprise</HeaderTitle>
+                                    <p>We build greater futures through innovation and collective knowledge.</p>
+                                    <PreviewCard>
+                                        <CaptionsCarousel />
+                                    </PreviewCard>
+                                </HeaderCaption>
+                            </Col>
+                        </Row>
+                    </Container>
+                </HeaderContent>
+            </Header>
+        </CaptionsCarousel>
     );
 };
 

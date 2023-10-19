@@ -13,13 +13,47 @@ import { HeaderCaption, HeaderText, HeaderTitle } from '../../components/headerC
 import { HeaderImage } from '../../components/images/Images';
 import { BannerOneData } from '../../../src/section/banner/BannerData';
 import { useNavigate } from 'react-router-dom';
-import UserAvatar from '../../components/user/UserAvatar';
+import { motion } from 'framer-motion';
 
 const Business = (props) => {
     const [toggle, setToggle] = useState(false);
     const [offset, setOffset] = useState(0);
     const [mobileView, setMobileView] = useState(false);
     const navigate = useNavigate();
+
+    const [isVisible, setIsVisible] = useState(false);
+    const containerVariants = {
+        hidden: {
+            opacity: 0,
+            x: '100vw',
+        },
+        visible: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                type: 'spring',
+                delay: 0.5,
+            },
+        },
+    };
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const yOffset = window.scrollY;
+            console.log(yOffset);
+            // Adjust this value based on when you want the animation to trigger
+            const triggerOffset = 7900;
+            setIsVisible(yOffset > triggerOffset);
+        };
+
+        // Attach the scroll event listener
+        window.addEventListener('scroll', handleScroll);
+
+        // Clean up the listener when the component unmounts
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [isVisible]);
 
     useEffect(() => {
         window.onscroll = () => {
@@ -78,11 +112,21 @@ const Business = (props) => {
             <HeaderContent className='py-6 is-dark mt-lg-n1 mt-n3'>
                 <div className='container'>
                     <Row className='row justify-content-center text-center'>
-                        <Col lg='7' md='1'>
+                        <Col lg='10' md='1'>
                             <HeaderCaption>
-                                <HeaderTitle>Business</HeaderTitle>
+                                <motion.h1
+                                    style={{ fontFamily: 'fantasy' }}
+                                    className='base container center mb-5'
+                                    variants={containerVariants}
+                                    initial='hidden'
+                                    // animate="visible"
+                                    animate={isVisible ? 'visible' : 'hidden'}>
+                                    Business
+                                </motion.h1>
                                 <HeaderText>
-                                    <p>New Business Promotion Item : Retail & Service, Smart Building, Smart Office and Mobility</p>
+                                    <h3 className='mb-5'>
+                                        New Business Promotion Item : Retail & Service, Smart Building, Smart Office and Mobility
+                                    </h3>
                                     <br></br>
                                 </HeaderText>
                             </HeaderCaption>
@@ -94,11 +138,7 @@ const Business = (props) => {
                     <Container>
                         <Row className='justify-content-center'>
                             <Col xl='30'>
-                                <a
-                                    href='https://react.dashlite.net/demo6/'
-                                    target='_blank'
-                                    rel='noreferrer'
-                                    className='card card-shadow product product-s2'>
+                                <a href='/landing' target='_blank' rel='noreferrer' className='card card-shadow product product-s2'>
                                     <div className='card-inner product-img bg-black'>
                                         <img src={HeaderImg} alt='' />
                                     </div>

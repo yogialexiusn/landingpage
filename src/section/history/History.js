@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card, Col, Container, Row } from 'reactstrap';
 import { Link } from '../../components/button/Button';
 import { TextBlock, TitleH3 } from '../../components/textBlock/TextBlock';
@@ -10,6 +10,7 @@ import { PreviewCard } from '../../components/preview/Preview';
 import Rating from '../../components/rating/Rating';
 import { ReviewTwoIcon } from '../../section/review/ReviewData';
 import AuthorImg2 from '../../images/client/sq-c.jpg';
+import { BgImage } from '../../layout/ovm/Ovm';
 import Slider from 'react-slick';
 import B1 from '../../images/history-slide/B1.jpg';
 import B2 from '../../images/history-slide/B2.jpg';
@@ -24,7 +25,7 @@ import B10 from '../../images/history-slide/B10.jpg';
 import B11 from '../../images/history-slide/B11.jpg';
 import B12 from '../../images/history-slide/B12.jpg';
 import B13 from '../../images/history-slide/B13.jpg';
-
+import { motion } from 'framer-motion';
 const propTypes = {};
 
 const defaultProps = {};
@@ -35,7 +36,7 @@ const settings = {
     centerMode: false,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 3000,
     infinite: true,
     responsive: [
         { breakpoint: 1539, settings: { slidesToShow: 3 } },
@@ -43,7 +44,7 @@ const settings = {
         { breakpoint: 768, settings: { slidesToShow: 1 } },
     ],
     arrows: true,
-    dots: true,
+    // dots: true,
     slide: 'li',
     prevArrow: <SlickArrowLeft />,
     nextArrow: <SlickArrowRight />,
@@ -142,15 +143,57 @@ const moments = [
 ];
 
 const History = (props) => {
+    const [isVisible, setIsVisible] = useState(false);
+    const containerVariants = {
+        hidden: {
+            opacity: 0,
+            y: -50,
+        },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                type: 'spring',
+                delay: 0.5,
+            },
+        },
+    };
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const yOffset = window.scrollY;
+            console.log(yOffset);
+            // Adjust this value based on when you want the animation to trigger
+            const triggerOffset = 3000;
+            setIsVisible(yOffset > triggerOffset);
+        };
+
+        // Attach the scroll event listener
+        window.addEventListener('scroll', handleScroll);
+
+        // Clean up the listener when the component unmounts
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [isVisible]);
+
     return (
         <Section className={props.className && props.className} id={props.id && props.id}>
             <Container className='justify-content-center text-center'>
                 <SectionHead>
-                    <h2 className='title'>HISTORY</h2>
-                    <p>
+                    <motion.h1
+                        style={{ fontFamily: 'fantasy', color: 'white' }}
+                        className='base container center mb-5'
+                        variants={containerVariants}
+                        initial='hidden'
+                        // animate="visible"
+                        animate={isVisible ? 'visible' : 'hidden'}>
+                        HISTORY
+                    </motion.h1>
+                    <h3 className='bg-black' style={{ fontFamily: 'tahoma', color: 'white' }}>
                         Lotte Data Communication Indonesia's story is a captivating journey through time, filled with milestones, challenges, and
                         remarkable achievements.
-                    </p>
+                    </h3>
                 </SectionHead>
                 <Block>
                     <PreviewCard bodyClass='card-inner-x2'>
@@ -174,6 +217,7 @@ const History = (props) => {
                     </PreviewCard>
                 </Block>
             </Container>
+            {/* <BgImage className='bg-image bg-overlay after-bg-dark after-opacity-90 overlay-fall bg-image-loaded bg-image-cta-a' /> */}
         </Section>
     );
 };

@@ -20,12 +20,12 @@ const IndexFour = (props) => {
         <div className='nk-main'>
             <BannerFour className='header-32 has-header-main-s1 bg-dark' id='#BannerFour' />
             <FeatureOne className='section-feature pb-0' id='#feature' />
-            <FeatureOneAlt className='section-service pb-0' />
+            <FeatureOneAlt className='section-service pb-5' />
             {/* <AboutCompany className="section-service pb-0" id="#about-company" /> */}
 
             {/* <HistoryTitle className='section-facts pb-0 bg-dark has-bg-image' id='#facts' /> */}
-            <History className='section-service pb-0' id='#history' />
-            <OrganizationChard className='section-cta is-dark has-bg-image mt-6' id='#organization-chard' />
+            <History className='section-feature pb-0 bg-dark' id='#history' />
+            {/* <OrganizationChard className='section-cta is-dark has-bg-image mt-6' id='#organization-chard' /> */}
             {/* <CtaFive className='section-cta is-dark has-bg-image' id='#cta' /> */}
             <ItService className='section-service pb-0' id='#it-service' />
             <Solution className='section-service pb-0' id='#solution' />

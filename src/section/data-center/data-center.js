@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import { Section, SectionHead } from '../../layout/section/Section';
 import demo1 from '../../images/product/front-rack.jpg';
@@ -7,18 +7,60 @@ import demo3 from '../../images/product/ups.jpg';
 import demo4 from '../../images/product/fire.jpg';
 import demo5 from '../../images/product/fms.jpg';
 import demo6 from '../../images/product/cctv.jpg';
+import { motion } from 'framer-motion';
 
 const DataCenter = (props) => {
+    const [isVisible, setIsVisible] = useState(false);
+    const containerVariants = {
+        hidden: {
+            opacity: 0,
+            x: '100vw',
+        },
+        visible: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                type: 'spring',
+                delay: 0.5,
+            },
+        },
+    };
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const yOffset = window.scrollY;
+            console.log(yOffset);
+            // Adjust this value based on when you want the animation to trigger
+            const triggerOffset = 6500;
+            setIsVisible(yOffset > triggerOffset);
+        };
+
+        // Attach the scroll event listener
+        window.addEventListener('scroll', handleScroll);
+
+        // Clean up the listener when the component unmounts
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [isVisible]);
     return (
         <Section className={props.className && props.className} id={props.id && props.id}>
             <Container>
                 <Row className='justify-content-center text-center'>
                     <Col lg='12' md='232'>
                         <SectionHead>
-                            <h2 className='title fw-medium justify'>Data Center</h2>
+                            <motion.h1
+                                style={{ fontFamily: 'fantasy' }}
+                                className='base container center mb-5'
+                                variants={containerVariants}
+                                initial='hidden'
+                                // animate="visible"
+                                animate={isVisible ? 'visible' : 'hidden'}>
+                                Data Center
+                            </motion.h1>
                             <br></br>
                             <br></br>
-                            <h4>Overview</h4>
+                            <h4 style={{ fontFamily: 'Arial Black' }}>Overview</h4>
                             <p style={{ textAlign: 'justify' }}>
                                 In June 2013, we successfully completed the establishment of a 229.4㎡ facility, which can accommodate up to 24 racks
                                 and is divided into various areas, including a 62.6㎡ Server Room, 49.6㎡ UPS Room, 99.5㎡ Office, and 17.5㎡
@@ -29,7 +71,7 @@ const DataCenter = (props) => {
                                 staff members.
                             </p>
                             <br></br>
-                            <h4>Key Features</h4>
+                            <h4 style={{ fontFamily: 'Arial Black' }}>Key Features</h4>
                             <p style={{ textAlign: 'justify' }}>
                                 We prioritize stable facility management and efficient operation through continuous monitoring, regular inspections,
                                 and swift response, ensuring perfect recovery in case of failure. Our system boasts a redundant configuration,
@@ -45,7 +87,7 @@ const DataCenter = (props) => {
                 </Row>
                 <Row className='text-center g-gs justify-center'>
                     <Col lg='4' sm='6' xs='9'>
-                        <a href='https://react.dashlite.net/demo1/' target='_blank' rel='noreferrer' className='card card-shadow product product-s2'>
+                        <a href='/landing' target='_blank' rel='noreferrer' className='card card-shadow product product-s2'>
                             <div className='card-inner product-img bg-gray'>
                                 <img src={demo1} alt='' />
                             </div>
@@ -55,7 +97,7 @@ const DataCenter = (props) => {
                         </a>
                     </Col>
                     <Col lg='4' sm='6' xs='9'>
-                        <a href='https://react.dashlite.net/demo2/' target='_blank' rel='noreferrer' className='card card-shadow product product-s2'>
+                        <a href='/landing' target='_blank' rel='noreferrer' className='card card-shadow product product-s2'>
                             <div className='card-inner product-img bg-gray'>
                                 <img src={demo2} alt='' />
                             </div>
@@ -65,7 +107,7 @@ const DataCenter = (props) => {
                         </a>
                     </Col>
                     <Col lg='4' sm='6' xs='9'>
-                        <a href='https://react.dashlite.net/demo3/' target='_blank' rel='noreferrer' className='card card-shadow product product-s2'>
+                        <a href='/landing' target='_blank' rel='noreferrer' className='card card-shadow product product-s2'>
                             <div className='card-inner product-img bg-gray'>
                                 <img src={demo3} alt='' />
                             </div>
@@ -75,7 +117,7 @@ const DataCenter = (props) => {
                         </a>
                     </Col>
                     <Col lg='4' sm='6' xs='9'>
-                        <a href='https://react.dashlite.net/demo4/' target='_blank' rel='noreferrer' className='card card-shadow product product-s2'>
+                        <a href='/landing' target='_blank' rel='noreferrer' className='card card-shadow product product-s2'>
                             <div className='card-inner product-img bg-gray'>
                                 <img src={demo4} alt='' />
                             </div>
@@ -85,7 +127,7 @@ const DataCenter = (props) => {
                         </a>
                     </Col>
                     <Col lg='4' sm='6' xs='9'>
-                        <a href='https://react.dashlite.net/demo5/' target='_blank' rel='noreferrer' className='card card-shadow product product-s2'>
+                        <a href='/landing' target='_blank' rel='noreferrer' className='card card-shadow product product-s2'>
                             <div className='card-inner product-img bg-gray'>
                                 <img src={demo5} alt='' />
                             </div>
@@ -95,7 +137,7 @@ const DataCenter = (props) => {
                         </a>
                     </Col>
                     <Col lg='4' sm='6' xs='9'>
-                        <a href='https://react.dashlite.net/demo6/' target='_blank' rel='noreferrer' className='card card-shadow product product-s2'>
+                        <a href='/landing' target='_blank' rel='noreferrer' className='card card-shadow product product-s2'>
                             <div className='card-inner product-img bg-gray'>
                                 <img src={demo6} alt='' />
                             </div>

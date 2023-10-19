@@ -9,19 +9,21 @@ const items = [
     {
         src: SlideA,
         altText: 'Slide 1',
-        captionHead: '',
+        captionHead: 'Digital Platform Leader for Intelligent Enterprise, build greater futures through innovation and collective knowledge.',
         captionText: '',
     },
     {
         src: SlideB,
         altText: 'Slide 2',
-        captionHead: '',
+        captionHead:
+            'With the extensive experience and expertise we’ve accumulated in numerous IT sectors, we remain one step ahead of the competition as we create values for the future.',
         captionText: '',
     },
     {
         src: SlideC,
         altText: 'Slide 3',
-        captionHead: '',
+        captionHead:
+            'Our cutting-edge IT competencies allow us to drive digital transformation in all industrial sectors, such as manufacturing, logistics, distribution, infrastructure, and more.',
         captionText: '',
     },
 ];
