@@ -26,7 +26,7 @@ const Solution = (props) => {
     useEffect(() => {
         const handleScroll = () => {
             const yOffset = window.scrollY;
-            console.log(yOffset);
+           
             // Adjust this value based on when you want the animation to trigger
             const triggerOffset = 5700;
             setIsVisible(yOffset > triggerOffset);

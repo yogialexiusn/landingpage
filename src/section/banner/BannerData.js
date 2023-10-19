@@ -11,10 +11,10 @@ const BannerOneData = [
                 text: 'History',
                 to: '#history',
             },
-            {
-                text: 'Organization Chard',
-                to: '#organization-chard',
-            },
+            // {
+            //     text: 'Organization Chard',
+            //     to: '#organization-chard',
+            // },
         ],
     },
     {

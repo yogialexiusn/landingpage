@@ -29,12 +29,14 @@ const News = (props) => {
     const navigate = useNavigate();
     const [sortField, setSortField] = useState('insert_date');
     const [sortOrder, setSortOrder] = useState('desc');
+    const [dataNotFound, setDataNotFound] = useState(false);
 
     useEffect(() => {
         handleSearchNews();
     }, []);
 
     const getNews = useCallback(
+        
         async (halaman) => {
             let requestBody = {
                 param: params,
@@ -44,7 +46,10 @@ const News = (props) => {
                 page: halaman,
                 size: 4,
             };
+            
+            console.log("kesini")
             let response = await axiosInstance().post('/api/v1/trc_news/byparams', requestBody);
+            try {
 
             if (response.data.status === 200) {
                 // setTotalData(response.data.totalData);
@@ -52,10 +57,23 @@ const News = (props) => {
                 const total = JSON.stringify(response.data.totalPages);
                 setpageCount(total);
                 setItems(response.data.data);
-            } else {
-                // setRequestChanges([]);
-                // setMessage(response.data.message);
+                setDataNotFound(false);
+                console.log("kesini 1")
+            } 
+            if (response.data.status === 404) {
+                console.log("kesini 11")
             }
+        } catch (err){
+            setDataNotFound(true);
+            console.log("kesini 3")
+            if (err.response) {
+                if (err.response.status === 401) {
+                } else {
+                }
+              } else {
+              }
+        }
+            
             // setShouldFetchData(false);
         },
         [items, params],
@@ -127,7 +145,12 @@ const News = (props) => {
     if (items != null) {
         divElements = items.map((item, index) => {
             return (
-                <Col lg='8' md='5'>
+                <div>
+                    {dataNotFound ? (
+                    <div className="p-2 center shadow border">There are no records found</div>
+                ) : (
+                    <div>
+                        <Col lg='8' md='5'>
                     <div key={item.id}>
                         <Card class='shadow border'>
                             <Link to='#' onClick={(e) => handleNewsDetail(e, item)} className='text-left d-flex flex-row mt-5'>
@@ -144,6 +167,13 @@ const News = (props) => {
                         </Card>
                     </div>
                 </Col>
+                    </div>
+                )
+            }
+
+                </div>
+                
+                
             );
         });
     }
@@ -199,7 +229,7 @@ const News = (props) => {
                                                     handleSearchNews();
                                                 }}>
                                                 <em class='icon ni ni-search'></em>
-                                                <span>Search Career</span>
+                                                <span>Search News</span>
                                                 {''}
                                             </Button>
                                         </div>

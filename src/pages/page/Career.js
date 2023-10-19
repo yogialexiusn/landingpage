@@ -23,7 +23,7 @@ export default function Career(props) {
     const [toggle, setToggle] = useState(false);
     const [offset, setOffset] = useState(0);
     const [mobileView, setMobileView] = useState(false);
-    const [pageCount, setpageCount] = useState(0);
+    const [totalPages, setTotalPages] = useState(0);
     const [modalForm, setModalForm] = useState(false);
     const [apply, setApply] = useState([]);
 
@@ -67,16 +67,16 @@ export default function Career(props) {
             const res = await fetch('http://localhost:8080/api/v1/jobs?page=' + page + '&size=' + size);
             const data = await res.json();
             const total = JSON.stringify(data.data.totalPages);
-            setpageCount(total);
+            setTotalPages(total);
             setItems(data.data.content);
         },
         [items],
     );
 
-    const routeChange = () => {
-        let path = '/landing/pages/auths/auth-login';
+    const routeChange = () =>{ 
+        let path = '/landing/pages/auths/auth-login'; 
         navigate(path);
-    };
+    }
 
     const toggleForm = () => setModalForm(!modalForm);
 
@@ -127,7 +127,7 @@ export default function Career(props) {
                 // setTotalData(response.data.totalData);
                 // setTotalPages(response.data.totalPages);
                 const total = JSON.stringify(response.data.totalPages);
-                setpageCount(total);
+                setTotalPages(total);
                 setApply(response.data.data);
             } else {
                 // setRequestChanges([]);
@@ -192,9 +192,7 @@ export default function Career(props) {
                             {!mobileView ? <Menu className='ms-lg-auto' data={BannerFourAdd} /> : <MobileMenu data={BannerFourAdd} />}
                             <ul className='menu-btns'>
                                 <li>
-                                    <a href='http://localhost:3001/demo2/auth-login' class='btn btn-primary'>
-                                        Login
-                                    </a>
+                                <a href="http://localhost:3001/demo2/auth-login" class="btn btn-primary">Login</a>
                                 </li>
                             </ul>
                         </nav>
@@ -392,7 +390,7 @@ export default function Career(props) {
                                     previousLabel={'<<'}
                                     nextLabel={'>>'}
                                     breakLabel={'...'}
-                                    pageCount={pageCount}
+                                    pageCount={totalPages}
                                     marginPagesDisplayed={2}
                                     pageRangeDisplayed={2}
                                     onPageChange={handlePageClick}

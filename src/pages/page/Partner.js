@@ -70,7 +70,7 @@ const Partner = (props) => {
     useEffect(() => {
         const handleScroll = () => {
             const yOffset = window.scrollY;
-            console.log(yOffset);
+            
             // Adjust this value based on when you want the animation to trigger
             const triggerOffset = 8900;
             setIsVisible(yOffset > triggerOffset);

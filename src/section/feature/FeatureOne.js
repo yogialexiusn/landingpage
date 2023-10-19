@@ -43,7 +43,6 @@ const FeatureOne = (props) => {
     useEffect(() => {
         const handleScroll = () => {
             const yOffset = window.scrollY;
-            console.log(yOffset);
             // Adjust this value based on when you want the animation to trigger
             const triggerOffset = 400;
             setIsVisible(yOffset > triggerOffset);
@@ -149,8 +148,10 @@ const FeatureOneAlt = (props) => {
             opacity: 1,
             x: 0,
             transition: {
-                type: 'spring',
-                delay: 0.5,
+                type: 'spring', // Use spring animation
+                stiffness: 150, // Set the stiffness of the spring
+                damping: 15, // Set the damping of the spring
+                delay: 0.5, // Delay the animation by 0.5 seconds
             },
         },
     };
@@ -158,7 +159,7 @@ const FeatureOneAlt = (props) => {
     useEffect(() => {
         const handleScroll = () => {
             const yOffset = window.scrollY;
-            console.log(yOffset);
+           
             // Adjust this value based on when you want the animation to trigger
             const triggerOffset = 1500;
             setIsVisible(yOffset > triggerOffset);
