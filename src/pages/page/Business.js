@@ -40,7 +40,7 @@ const Business = (props) => {
     useEffect(() => {
         const handleScroll = () => {
             const yOffset = window.scrollY;
-            
+
             // Adjust this value based on when you want the animation to trigger
             const triggerOffset = 7900;
             setIsVisible(yOffset > triggerOffset);
@@ -99,7 +99,7 @@ const Business = (props) => {
                             {!mobileView ? <Menu className='ms-lg-auto' data={BannerOneData} /> : <MobileMenu data={BannerOneData} />}
                             <ul className='menu-btns'>
                                 <li>
-                                    <a href='http://localhost:3001/demo2/auth-login' class='btn btn-primary'>
+                                    <a href='http://localhost:3001/admin/auth-login' class='btn btn-primary'>
                                         Login
                                     </a>
                                 </li>

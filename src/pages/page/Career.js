@@ -17,10 +17,13 @@ import { useNavigate } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { axiosInstance } from '../../config/AxiosInstance';
+import { CAREER_TRCCAREERHEADER_LIST, NEWS_BYPARAMS } from '../../config/Constants';
+
 // import { axiosInstanceApply } from '../../config/AxiosInstance';
 
 export default function Career(props) {
     const [toggle, setToggle] = useState(false);
+    const [dataNotFound, setDataNotFound] = useState(false);
     const [offset, setOffset] = useState(0);
     const [mobileView, setMobileView] = useState(false);
     const [totalPages, setTotalPages] = useState(0);
@@ -29,9 +32,14 @@ export default function Career(props) {
 
     const [items, setItems] = useState([]);
     const [selectedCareer, setSelectedCareer] = useState([]);
-    const [page, setPage] = useState(0);
-    const [size, setSize] = useState('5');
     const [filter, setFilter] = useState('');
+
+    const [params, setParams] = useState('');
+    const [size, setSize] = useState('10');
+    const [statusCode, setStatusCode] = useState([1]);
+    const [page, setPage] = useState(0);
+    const [sortField, setSortField] = useState('update_date');
+    const [sortOrder, setSortOrder] = useState('asc');
 
     const [fullName, setFullName] = useState('');
     const [email, setEmail] = useState('');
@@ -40,6 +48,13 @@ export default function Career(props) {
     const [linkedInUrl, setLinkedinUrl] = useState('');
     const [gitHubUrl, setGithubUrl] = useState('');
     const [curriculumVitae, setCuriculumVitae] = useState('');
+
+    const [responseData, setResponseData] = useState([]);
+    const [totalData, setTotalData] = useState(0);
+    const [editedInput, setEditedInput] = useState([]);
+
+    const toggleForm = () => setModalForm(!modalForm);
+
     const navigate = useNavigate();
 
     const handleFileChange = (e) => {
@@ -47,7 +62,13 @@ export default function Career(props) {
         setCuriculumVitae(e.target.files[0]);
     };
 
-    // const [input, setInput] = useState({
+    const handlePageClick = async (data) => {
+        setPage(data.selected, () => {
+            handleFilterButton();
+        });
+    };
+
+    //Zz const [input, setInput] = useState({
     //     fullName: '',
     //     email: '',
     //     phone: '',
@@ -58,32 +79,12 @@ export default function Career(props) {
     // });
 
     useEffect(() => {
-        getJob(page);
+        handleFilterButton();
     }, []);
 
-    const getJob = useCallback(
-        async (page) => {
-            console.log('click page ', page);
-            const res = await fetch('http://localhost:8080/api/v1/jobs?page=' + page + '&size=' + size);
-            const data = await res.json();
-            const total = JSON.stringify(data.data.totalPages);
-            setTotalPages(total);
-            setItems(data.data.content);
-        },
-        [items],
-    );
-
-    const routeChange = () =>{ 
-        let path = '/landing/pages/auths/auth-login'; 
+    const routeChange = () => {
+        let path = '/landing/pages/auths/auth-login';
         navigate(path);
-    }
-
-    const toggleForm = () => setModalForm(!modalForm);
-
-    const handlePageClick = async (data) => {
-        // setPage(data.selected);
-        // console.log('page click12', data.selected);
-        getJob(data.selected);
     };
 
     const handleFilter = async (param) => {
@@ -91,9 +92,38 @@ export default function Career(props) {
         setFilter(param);
     };
 
-    const handleSearchCareer = async () => {
-        getJob(page);
-    };
+    const handleFilterButton = useCallback(async () => {
+        let requestBody = {
+            params: params,
+            size: size,
+            statusCodes: statusCode,
+            page: page,
+            sortField: sortField,
+            sortOrder: sortOrder,
+        };
+
+        try {
+            let response = await axiosInstance().post(CAREER_TRCCAREERHEADER_LIST, requestBody);
+            if (response.status === 200) {
+                const totalPages = response.data.totalPages;
+                setTotalPages(totalPages);
+                setTotalData(response.data.totalData);
+                setResponseData(response.data.data);
+                setEditedInput(response.data.data);
+                setDataNotFound(false);
+                setItems(response.data.data)
+            }
+        } catch (err) {
+            setDataNotFound(true);
+            setTotalData(0);
+            if (err.response) {
+                if (err.response.status === 401) {
+                } else {
+                }
+            } else {
+            }
+        }
+    }, [responseData, params, size, statusCode, page, sortField, sortOrder]);
 
     const { acceptedFiles, fileRejections, getRootProps, getInputProps } = useDropzone({
         accept: {
@@ -129,11 +159,10 @@ export default function Career(props) {
                 const total = JSON.stringify(response.data.totalPages);
                 setTotalPages(total);
                 setApply(response.data.data);
+                setDataNotFound(false);
             } else {
-                // setRequestChanges([]);
-                // setMessage(response.data.message);
+                setDataNotFound(true);
             }
-            // setShouldFetchData(false);
         },
         [apply, fullName, email, phone, currentCompany, linkedInUrl, gitHubUrl, curriculumVitae],
     );
@@ -192,7 +221,9 @@ export default function Career(props) {
                             {!mobileView ? <Menu className='ms-lg-auto' data={BannerFourAdd} /> : <MobileMenu data={BannerFourAdd} />}
                             <ul className='menu-btns'>
                                 <li>
-                                <a href="http://localhost:3001/demo2/auth-login" class="btn btn-primary">Login</a>
+                                    <a href='http://localhost:3001/admin/auth-login' class='btn btn-primary'>
+                                        Login
+                                    </a>
                                 </li>
                             </ul>
                         </nav>
@@ -219,7 +250,7 @@ export default function Career(props) {
                                             <Button
                                                 color='btn ms-3 btn-round btn-primary'
                                                 onClick={() => {
-                                                    handleSearchCareer();
+                                                    handleFilterButton();
                                                 }}>
                                                 <em class='icon ni ni-search'></em>
                                                 <span>Search Career</span>
@@ -230,41 +261,58 @@ export default function Career(props) {
                                 </div>
                             </HeaderCaption>
 
-                            <div class='d-flex justify-content-around card  mt-5 center '>
-                                {items.map((item, index) => {
-                                    return (
-                                        <Col lg='12' md='5'>
-                                            <div class='card card-bordered mt-5'>
-                                                <div class='card-header border-bottom'>
-                                                    <h3 className='center'>{item.name}</h3>
+                            {dataNotFound ? (
+                                <div className='p-2 center shadow border my-5'>There are no records found</div>
+                            ) : (
+                                <div class='d-flex justify-content-around card  mt-5 center '>
+                                    {items.map((item, index) => {
+                                        return (
+                                            <Col lg='12' md='5'>
+                                                <div class='card card-bordered mt-5'>
+                                                    <div class='card-header border-bottom'>
+                                                        <h3 className='center'>{item.specializations}</h3>
+                                                    </div>
+                                                    <div class='card-body'>
+                                                        <h5 class='card-title center'>
+                                                            {item.workPlace}, {item.district} - {item.region}{' '}
+                                                        </h5>
+                                                        <p class='card-text'>
+                                                            {item.jobDescription} With supporting text below as a natural lead-in to additional content.
+                                                            With supporting text below as a natural lead-in to additional content. With supporting
+                                                            text below as a natural lead-in to additional content. With supporting text below as a
+                                                            natural lead-in to additional content. With supporting text below as a natural lead-in to
+                                                            additional content . With supporting text below as a natural lead-in to additional content
+                                                        </p>
+                                                    </div>
+                                                    <Button
+                                                        className='center'
+                                                        // color='primary'
+                                                        onClick={() => {
+                                                            toggleForm();
+                                                            selectCareer(item);
+                                                        }}>
+                                                        Apply
+                                                    </Button>
+                                                    <div class='card-footer border text-muted reverse d-flex flex-row-reverse'>
+                                                        <p style={{ color: 'black', fontFamily: 'Arial' }} className='text-left'>
+                                                            <b>
+                                                                {new Date(item.insertDate).toLocaleDateString('en-US', {
+                                                                    year: 'numeric',
+                                                                    month: 'long',
+                                                                    day: 'numeric',
+                                                                    hour: 'numeric',
+                                                                    minute: 'numeric',
+                                                                    second: 'numeric',
+                                                                })}
+                                                            </b>
+                                                        </p>
+                                                    </div>
                                                 </div>
-                                                <div class='card-body'>
-                                                    <h5 class='card-title center'>
-                                                        {item.workPlaceType}, {item.location} - {item.country}{' '}
-                                                    </h5>
-                                                    <p class='card-text'>
-                                                        {item.description} With supporting text below as a natural lead-in to additional content. With
-                                                        supporting text below as a natural lead-in to additional content. With supporting text below
-                                                        as a natural lead-in to additional content. With supporting text below as a natural lead-in to
-                                                        additional content. With supporting text below as a natural lead-in to additional content .
-                                                        With supporting text below as a natural lead-in to additional content
-                                                    </p>
-                                                </div>
-                                                <Button
-                                                    className='center'
-                                                    // color='primary'
-                                                    onClick={() => {
-                                                        toggleForm();
-                                                        selectCareer(item);
-                                                    }}>
-                                                    Apply
-                                                </Button>
-                                                <div class='card-footer border text-muted reverse d-flex flex-row-reverse'>2 days ago</div>
-                                            </div>
-                                        </Col>
-                                    );
-                                })}
-                            </div>
+                                            </Col>
+                                        );
+                                    })}
+                                </div>
+                            )}
 
                             <div>
                                 <Modal isOpen={modalForm} toggle={toggleForm}>

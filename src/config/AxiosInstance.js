@@ -1,33 +1,17 @@
 import axios from 'axios';
-// import cookies from "js-cookies/src/cookies";
-
-function getWithExpiry(key) {
-    const itemStr = localStorage.getItem(key);
-    if (!itemStr) {
-        return null;
-    }
-    const item = JSON.parse(itemStr);
-    const now = new Date();
-
-    if (now.getTime() > item.expiry) {
-        localStorage.removeItem(key);
-        return localStorage.removeItem(key);
-    }
-    return item.value;
-}
+import Cookies from 'js-cookies/src/cookies';
 
 export const axiosInstance = (additionalConfig = {}) => {
-    // const value = cookies.getItem("token");
+    const value = Cookies.getItem('jwtCookie');
+    const value1 = localStorage.getItem('jwtCookie');
+    console.log('hasil = ' + value1);
     return axios.create({
         baseURL: 'http://localhost:8080/', //LOCAL
         // baseURL: 'http://ip_address:port/ldcidev', //DEV
         // baseURL: "https://backend-ldci.lottemart.co.id/backend/", //PRD
         headers: {
-            // authorization: value?`Bearer ${value}`:null,
-            authorization: null,
+            authorization: value1 ? `Bearer ${value1}` : null,
             'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*',
-            // 'Referrer-Policy': 'strict-origin-when-cross-origin',
         },
         ...additionalConfig,
     });

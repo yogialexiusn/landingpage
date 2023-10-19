@@ -3,7 +3,7 @@ import { axiosInstance } from '../../../config/AxiosInstance';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Header, HeaderContent, HeaderMain, HeaderWrap } from '../../../layout/header/Header';
 import LogoDrak2x from '../../../images/logo-dark2x.png';
-import LogoLight2x from '../../../images/logo2x.png';
+import LogoLight2x from '../../../images/logo-putih.png';
 import Menu from '../../../layout/menu/Menu';
 import MobileMenu from '../../../layout/menu/MobileMenu';
 import { Logo } from '../../../components/logo/Logo';
@@ -11,6 +11,8 @@ import { Card, Col, Container, Row } from 'reactstrap';
 import { HeaderCaption, HeaderTitle } from '../../../components/headerCaption/HeaderCaption';
 import { BannerFourAdd } from '../../../section/banner/BannerData';
 import news_img from '../../../images/ldci_news.png';
+import right from '../../../images/right-title.png';
+import left from '../../../images/left-title.png';
 import ReactPaginate from 'react-paginate';
 import { Button } from 'reactstrap';
 
@@ -66,7 +68,7 @@ const NewsDetail = (props) => {
                 <Container className='header-container'>
                     <HeaderWrap>
                         <div className='header-logo'>
-                            <Logo to='/IndexFour' dark={LogoDrak2x} light={LogoLight2x} />
+                            <Logo to='/landing'  light={LogoLight2x} />
                         </div>
                         <div className='header-toggle' onClick={() => setToggle(!toggle)}>
                             <button className={`menu-toggler ${toggle === true ? 'active' : ''}`}>
@@ -78,7 +80,7 @@ const NewsDetail = (props) => {
                             {!mobileView ? <Menu className='ms-lg-auto' data={BannerFourAdd} /> : <MobileMenu data={BannerFourAdd} />}
                             <ul className='menu-btns'>
                                 <li>
-                                    <a href='http://localhost:3001/demo2/auth-login' class='btn btn-primary'>
+                                    <a href='http://localhost:3001/admin/auth-login' class='btn btn-primary'>
                                         Login
                                     </a>
                                 </li>
@@ -88,16 +90,33 @@ const NewsDetail = (props) => {
                     </HeaderWrap>
                 </Container>
             </HeaderMain>
-            <HeaderContent className='py-6 is-black mt-lg-n1 mt-n3'>
+            <HeaderContent className='py-5 is-black mt-md-n1 mt-n2 border shadow bg-warning-dim'>
                 <Container>
                     <Row className='row justify-content-center g-gs'>
-                        23 Oktober 2023
-                        <img src={news_img} width='500' height='500' />
-                        <Col lg='12' md='5'>
-                            <HeaderCaption className='center'>
-                                <HeaderTitle className='text-danger'>{newsDetail.title}</HeaderTitle>
-                                <br></br>
-                            </HeaderCaption>
+                        <Col lg='12' md='8'>
+                            
+                            <div className='text-center'>
+                                <p style={{ color: 'black', fontFamily: 'Arial', fontSize: '16px', fontWeight: 'bold' }}>
+                                    {new Date(newsDetail.insertDate).toLocaleDateString('en-US', {
+                                        year: 'numeric',
+                                        month: 'long',
+                                        day: 'numeric',
+                                        hour: 'numeric',
+                                        minute: 'numeric',
+                                        second: 'numeric',
+                                    })}
+                                </p>
+                                <img src={news_img} alt='News Image' className=' rounded shadow' />
+                            </div>
+                        </Col>
+                        <Col lg='12' md='10'>
+                            <div className='text-center'>
+                                <HeaderCaption className='center'>
+                                    <HeaderTitle className='text-danger'>{newsDetail.title}</HeaderTitle>
+
+                                    <br></br>
+                                </HeaderCaption>
+                            </div>
                         </Col>
                     </Row>
                     <p>{newsDetail.content}</p>

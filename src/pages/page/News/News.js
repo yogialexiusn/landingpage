@@ -14,6 +14,7 @@ import news_img from '../../../images/ldci_news.png';
 import ReactPaginate from 'react-paginate';
 import { Button } from 'reactstrap';
 import { axiosInstance } from '../../../config/AxiosInstance';
+import { NEWS_TRCNEWS_BYPARAMS } from '../../../config/Constants';
 
 const News = (props) => {
     const [toggle, setToggle] = useState(false);
@@ -36,7 +37,6 @@ const News = (props) => {
     }, []);
 
     const getNews = useCallback(
-        
         async (halaman) => {
             let requestBody = {
                 param: params,
@@ -46,35 +46,29 @@ const News = (props) => {
                 page: halaman,
                 size: 4,
             };
-            
-            console.log("kesini")
-            let response = await axiosInstance().post('/api/v1/trc_news/byparams', requestBody);
-            try {
 
-            if (response.data.status === 200) {
-                // setTotalData(response.data.totalData);
-                // setTotalPages(response.data.totalPages);
-                const total = JSON.stringify(response.data.totalPages);
-                setpageCount(total);
-                setItems(response.data.data);
-                setDataNotFound(false);
-                console.log("kesini 1")
-            } 
-            if (response.data.status === 404) {
-                console.log("kesini 11")
-            }
-        } catch (err){
-            setDataNotFound(true);
-            console.log("kesini 3")
-            if (err.response) {
-                if (err.response.status === 401) {
+            try {
+                let response = await axiosInstance().post(NEWS_TRCNEWS_BYPARAMS, requestBody);
+                console.log('kesini' + JSON.stringify(response));
+
+                if (response.data.status === 200) {
+                    // setTotalData(response.data.totalData);
+                    // setTotalPages(response.data.totalPages);
+                    const total = JSON.stringify(response.data.totalPages);
+                    setpageCount(total);
+                    setItems(response.data.data);
+                    setDataNotFound(false);
+                }
+            } catch (err) {
+                setDataNotFound(true);
+                console.log('kesini 3');
+                if (err.response) {
+                    if (err.response.status === 401) {
+                    } else {
+                    }
                 } else {
                 }
-              } else {
-              }
-        }
-            
-            // setShouldFetchData(false);
+            }
         },
         [items, params],
     );
@@ -128,7 +122,6 @@ const News = (props) => {
     };
 
     const handleNewsDetail = async (event, item) => {
-        console.log('yogisdasds');
         event.preventDefault();
         let id = item.id;
         try {
@@ -141,39 +134,39 @@ const News = (props) => {
     };
 
     let divElements;
-    // console.log("yog232i", JSON.stringify(items))
     if (items != null) {
         divElements = items.map((item, index) => {
             return (
-                <div>
-                    {dataNotFound ? (
-                    <div className="p-2 center shadow border">There are no records found</div>
-                ) : (
-                    <div>
-                        <Col lg='8' md='5'>
-                    <div key={item.id}>
-                        <Card class='shadow border'>
-                            <Link to='#' onClick={(e) => handleNewsDetail(e, item)} className='text-left d-flex flex-row mt-5'>
-                                <div className='ms-5 d-block w-100 si' style={{ textAlign: 'left' }}>
-                                    <h5>15 Oktober 2023</h5>
-                                    <h3 className='text-danger'>[BUSINESS] - {item.title}</h3>
-                                    <p className='text-base'>
-                                        &nbsp;
-                                        {item.content.substring(0, 500) + '...'}
-                                    </p>
-                                    {/* <p>{item.content.substring(0, 500) + '...'}</p> */}
+                <Col lg='12' md='5'>
+                    <Card className='shadow border rounded my-5'>
+                        <Link to='#' onClick={(e) => handleNewsDetail(e, item)} className='text-left d-flex flex-row mt-5'>
+                            <div className='ms-5 d-block w-100' style={{ textAlign: 'left' }}>
+                                <p style={{ color: 'black', fontFamily: 'Arial' }} className='text-left'>
+                                    <b>
+                                        {new Date(item.insertDate).toLocaleDateString('en-US', {
+                                            year: 'numeric',
+                                            month: 'long',
+                                            day: 'numeric',
+                                            hour: 'numeric',
+                                            minute: 'numeric',
+                                            second: 'numeric',
+                                        })}
+                                    </b>
+                                </p>
+                                <div className='card-header bg-danger text-white rounded'>
+                                    <h3>[BUSINESS] {item.title}</h3>
                                 </div>
-                            </Link>
-                        </Card>
-                    </div>
-                </Col>
-                    </div>
-                )
-            }
+                                <div className='card-inner product-img center'>
+                                    <img src={news_img} alt='' />
+                                </div>
 
-                </div>
-                
-                
+                                <div className='card-body'>
+                                    <p className='text-base'>{item.content.substring(0, 500) + '...'}</p>
+                                </div>
+                            </div>
+                        </Link>
+                    </Card>
+                </Col>
             );
         });
     }
@@ -196,7 +189,7 @@ const News = (props) => {
                             {!mobileView ? <Menu className='ms-lg-auto' data={BannerFourAdd} /> : <MobileMenu data={BannerFourAdd} />}
                             <ul className='menu-btns'>
                                 <li>
-                                    <a href='http://localhost:3001/demo2/auth-login' class='btn btn-primary'>
+                                    <a href='http://localhost:3001/admin/auth-login' class='btn btn-primary'>
                                         Login
                                     </a>
                                 </li>
@@ -236,7 +229,8 @@ const News = (props) => {
                                     </div>
                                 </div>
                             </HeaderCaption>
-                            {divElements}
+                            {dataNotFound ? <div className='p-2 center shadow border my-5'>There are no records found</div> : <>{divElements}</>}
+
                             <div className='center mt-5'>
                                 <ReactPaginate
                                     previousLabel={'<<'}

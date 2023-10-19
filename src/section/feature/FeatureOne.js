@@ -159,7 +159,7 @@ const FeatureOneAlt = (props) => {
     useEffect(() => {
         const handleScroll = () => {
             const yOffset = window.scrollY;
-           
+
             // Adjust this value based on when you want the animation to trigger
             const triggerOffset = 1500;
             setIsVisible(yOffset > triggerOffset);
