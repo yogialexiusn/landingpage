@@ -45,7 +45,7 @@ function App() {
                         <Route path='news' element={<IndexNews />}></Route>
                         <Route path='career' element={<IndexCareer />}></Route>
                     </Route>
-                    <Route path={`${process.env.PUBLIC_URL}/pages`}>
+                    <Route path={`/pages`}>
                         <Route path='auths'>
                             <Route path='auth-success' element={<Success />}></Route>
                             <Route path='auth-reset' element={<ForgotPassword />}></Route>
@@ -59,18 +59,18 @@ function App() {
                             <Route path='504-classic' element={<Error504Classic />}></Route>
                         </Route>
                     </Route>
-                    <Route path={`${process.env.PUBLIC_URL}/about`}>
+                    <Route path={`/about`}>
                         <Route path='about-company' element={<AboutCompany />}></Route>
                         <Route path='history' element={<History />}></Route>
                         <Route path='' element={<OrganizationChard />}></Route>
                     </Route>
-                    <Route path={`${process.env.PUBLIC_URL}/service-solution`}>
+                    <Route path={`/service-solution`}>
                         <Route path='it-service' element={<ItService />}></Route>
                         <Route path='solution' element={<Solution />}></Route>
                         <Route path='platform' element={<Platform />}></Route>
                         <Route path='data-center' element={<DataCenter />}></Route>
                     </Route>
-                    <Route path={`${process.env.PUBLIC_URL}/admin`}>
+                    <Route path={`/admin`}>
                         <Route path='' element={<ItService />}></Route>
                     </Route>
                     <Route path='*' element={<Error404Modern />}></Route>
