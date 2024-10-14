@@ -8,7 +8,7 @@ export const axiosInstance = (additionalConfig = {}) => {
     return axios.create({
         // baseURL: 'http://localhost:8080/', //LOCAL
         // baseURL: 'http://ip_address:port/ldcidev', //DEV
-        baseURL: "landingpage-ebaz.vercel.app", //PRD
+        baseURL: "https://landingpage-ebaz-yogialexius-projects.vercel.app", //PRD
         headers: {
             authorization: value1 ? `Bearer ${value1}` : null,
             'Content-Type': 'application/json',
@@ -21,7 +21,7 @@ export const axiosInstanceApply = (additionalConfig = {}) => {
     return axios.create({
         // baseURL: 'http://localhost:8080/', //LOCAL
         // baseURL: 'http://ip_address:port/ldcidev', //DEV
-        baseURL: "landingpage-ebaz.vercel.app", //PRD
+        baseURL: "https://landingpage-ebaz-yogialexius-projects.vercel.app", //PRD
         headers: {
             // authorization: value?`Bearer ${value}`:null,
             authorization: null,
