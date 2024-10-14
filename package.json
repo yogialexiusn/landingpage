@@ -1,6 +1,6 @@
 {
     "name": "DashliteReact-Landing",
-    "homepage": "https://landingpage-ebaz-yogialexius-projects.vercel.app/",
+    "homepage": ".",
     "version": "1.6.2",
     "private": true,
     "dependencies": {
