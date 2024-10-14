@@ -6,9 +6,9 @@ export const axiosInstance = (additionalConfig = {}) => {
     const value1 = localStorage.getItem('jwtCookie');
     console.log('hasil = ' + value1);
     return axios.create({
-        baseURL: 'http://localhost:8080/', //LOCAL
+        // baseURL: 'http://localhost:8080/', //LOCAL
         // baseURL: 'http://ip_address:port/ldcidev', //DEV
-        // baseURL: "https://backend-ldci.lottemart.co.id/backend/", //PRD
+        baseURL: "landingpage-ebaz.vercel.app", //PRD
         headers: {
             authorization: value1 ? `Bearer ${value1}` : null,
             'Content-Type': 'application/json',
@@ -19,9 +19,9 @@ export const axiosInstance = (additionalConfig = {}) => {
 export const axiosInstanceApply = (additionalConfig = {}) => {
     // const value = cookies.getItem("token");
     return axios.create({
-        baseURL: 'http://localhost:8080/', //LOCAL
+        // baseURL: 'http://localhost:8080/', //LOCAL
         // baseURL: 'http://ip_address:port/ldcidev', //DEV
-        // baseURL: "https://backend-ldci.lottemart.co.id/backend/", //PRD
+        baseURL: "landingpage-ebaz.vercel.app", //PRD
         headers: {
             // authorization: value?`Bearer ${value}`:null,
             authorization: null,
