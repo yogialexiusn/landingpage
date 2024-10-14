@@ -41,7 +41,7 @@ function App() {
                         <Route path={`indexfive`} element={<IndexFive />} />
                         <Route path={`indexsix`} element={<IndexSix />} />
                         <Route index element={<IndexFour />} />
-                        <Route path='/landing/news/detail/:id' element={<IndexNewsDetail />} />
+                        {/* <Route path='/landing/news/detail/:id' element={<IndexNewsDetail />} /> */}
                         <Route path='news' element={<IndexNews />}></Route>
                         <Route path='career' element={<IndexCareer />}></Route>
                     </Route>
