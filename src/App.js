@@ -34,14 +34,14 @@ function App() {
         <Suspense fallback={<div />}>
             <div className='nk-app-root'>
                 <Routes>
-                    <Route path={`${process.env.PUBLIC_URL}`}>
+                    <Route path={'/'}>
                         <Route path={`indextwo`} element={<IndexTwo />} />
                         <Route path={`indexthree`} element={<IndexThree />} />
                         <Route path={`indexfour`} element={<IndexFour />} />
                         <Route path={`indexfive`} element={<IndexFive />} />
                         <Route path={`indexsix`} element={<IndexSix />} />
                         <Route index element={<IndexFour />} />
-                        <Route path='/landing/news/detail/:id' element={<IndexNewsDetail />} />
+                        <Route path='landing/news/detail/:id' element={<IndexNewsDetail />} />
                         <Route path='news' element={<IndexNews />}></Route>
                         <Route path='career' element={<IndexCareer />}></Route>
                     </Route>
