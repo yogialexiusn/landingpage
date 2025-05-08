@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 import { HeaderCaption } from '../../../components/headerCaption/HeaderCaption';
 import { BannerFourAdd } from '../../../section/banner/BannerData';
 import { axiosInstance } from '../../../config/AxiosInstance';
-import { H2H, LAST_MATCH, STATISTIK_COUNT } from '../../../config/Constants';
+import { H2H, LAST_MATCH, STATISTIK_COUNT,RERATA } from '../../../config/Constants';
 
 const News = (props) => {
     const [toggle, setToggle] = useState(false);
@@ -18,9 +18,13 @@ const News = (props) => {
     const [mobileView, setMobileView] = useState(false);
     const [data, setData] = useState(null);
     const [h2h, setH2h] = useState(null);
+    const [dataCetakBobol, setDataCetakBobol] = useState(null);
+    const [dataMenangKalah, setDataMenangKalah] = useState(null);
     const [lastMatch, setLastMatch] = useState(null);
     const [nameTeam1, setNameTeam1] = useState(null);
     const [nameTeam2, setNameTeam2] = useState(null);
+    const [rerata, setRerata] = useState(null);
+
 
 
     const [countStatisticString, setCountStatisticString] = useState('');
@@ -38,6 +42,8 @@ const News = (props) => {
 
             if (response.data) {
                 setData(response.data);
+                setDataCetakBobol(response.data.probability.statistikCetakBobol);
+                setDataMenangKalah(response.data.probability.statistikWinDrawLose);
             } else {
                 setData(null);
             }
@@ -56,7 +62,7 @@ const News = (props) => {
         try {
             const response = await axiosInstance().post(H2H, requestBody);
             if (response.data) {
-                setH2h(response.data);
+                setH2h(response.data.probability.h2h);
             } else {
                 setH2h(null);
             }
@@ -75,7 +81,7 @@ const News = (props) => {
         try {
             const response = await axiosInstance().post(LAST_MATCH, requestBody);
             if (response.data) {
-                setLastMatch(response.data);
+                setLastMatch(response.data.probability.beberapaMatchTerakhir);
             } else {
                 setLastMatch(null);
             }
@@ -84,6 +90,28 @@ const News = (props) => {
             setLastMatch(null);
         }
     }, [countLastMatchString]);
+
+    const getRerata = useCallback(async () => {
+        const requestBody = {
+            statistikWinDrawLose: dataMenangKalah,
+            statistikCetakBobol: dataCetakBobol,
+            lastMatchRequest: lastMatch,
+            h2hRequest: h2h,
+            nameTeam1: nameTeam1,
+            nameTeam2: nameTeam2
+        };
+        try {
+            const response = await axiosInstance().post(RERATA, requestBody);
+            if (response.data) {
+                setRerata(response.data);
+            } else {
+                setRerata(null);
+            }
+        } catch (err) {
+            console.error('Failed to fetch news data:', err);
+            setLastMatch(null);
+        }
+    }, [data, h2h, lastMatch]);
 
     useEffect(() => {
         window.onscroll = () => setOffset(window.pageYOffset);
@@ -103,10 +131,11 @@ const News = (props) => {
     const handleH2HChange = (e) => setCountH2HString(e.target.value);
     const handleLastMatchChange = (e) => setCountLastMatchString(e.target.value);
 
+
     const handleSearchNews = () => getNews();
     const handleH2H = () => getH2H();
     const handleLastMatch = () => getLastMatch();
-
+    const handleRerata = () => getRerata();
 
     const renderStats = (title, stats) => (
         <Card className='shadow border rounded my-4 p-4'>
@@ -237,7 +266,7 @@ const News = (props) => {
                         <>
                             {/* {renderStats('Statistic Team 1', h2h.statisticTeam1)}
                             {renderStats('Statistic Team 2', h2h.statisticTeam2)} */}
-                            {renderStats('Probability', h2h.probability)}
+                            {renderStats('Probability', h2h)}
                         </>
                     ) : (
                         <Card className='shadow border rounded my-4 p-4'>
@@ -286,7 +315,7 @@ const News = (props) => {
                         <>
                             {/* {renderStats('Statistic Team 1', lastMatch.statisticTeam1)}
                             {renderStats('Statistic Team 2', lastMatch.statisticTeam2)} */}
-                            {renderStats('Probability', lastMatch.probability)}
+                            {renderStats('Probability', lastMatch)}
                         </>
                     ) : (
                         <Card className='shadow border rounded my-4 p-4'>
@@ -299,7 +328,48 @@ const News = (props) => {
                 </div>
             </div>
 
-            
+            <HeaderContent className='py-6 is-black mt-lg-n1 mt-n3'>
+                <Container>
+                    <Row className='row justify-content-center g-gs'>
+                        <Col lg='12' md='5'>
+                            <HeaderCaption>
+                                <div>
+                                    <div className="input-group-prepend">
+                                        <span className="input-group-text">With Rerata Match</span>
+                                    </div>
+                                    <Button
+                                        color='btn ms-3 btn-round btn-primary'
+                                        onClick={handleRerata}
+                                    >
+                                        <em className='icon ni ni-search'></em>
+                                        <span>Search Rerata</span>
+                                    </Button>
+                                </div>
+                            </HeaderCaption>
+                        </Col>
+                    </Row>
+                </Container>
+            </HeaderContent>
+
+            <div class="card card-bordered">    
+                <div class="card-header border-bottom">Rerata Compare</div>    
+                <Container className='my-5'>
+                    {rerata ? (
+                        <>
+                            {/* {renderStats('Statistic Team 1', lastMatch.statisticTeam1)}
+                            {renderStats('Statistic Team 2', lastMatch.statisticTeam2)} */}
+                            {renderStats('Probability', rerata.probability)}
+                        </>
+                    ) : (
+                        <Card className='shadow border rounded my-4 p-4'>
+                            <p>No Rerata Match found. Please try searching with different parameters.</p>
+                        </Card>
+                    )}
+                </Container>
+                <div class="card-footer border-top text-muted">
+                    4 days ago
+                </div>
+            </div>
         </Header>
     );
 };
